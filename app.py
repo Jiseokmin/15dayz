@@ -8,10 +8,9 @@ db = client.date_service
 
 
 # 샘플데이터 추가
-
-# doc = {'course_name': '샘플코스', 'thema': '추적추적 비내리는 날', 'hashtag': '강남, 서울역',
-#      'start_spot': '신논현역', 'via_spot': '스타벅스', 'end_spot': '신논혁역', 'contents': '애인에게 칭찬받는 데이트 코스', 'like': 0}
-# db.reviews.insert_one(doc)
+#doc = {'course_name': '샘플코스22', 'thema': '따듯한 날', 'hashtag': '강서, 등촌역',
+#      'start_spot': '우장산역', 'via_spot': '스타벅스', 'end_spot': '우장역', 'contents': '재미있는 코스', 'like': 1}
+#db.reviews.insert_one(doc)
 
 @app.route('/')
 def home():
