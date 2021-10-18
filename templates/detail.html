@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상세 페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body >
+<!-- https://alpinejs.dev/directives/data -->
+    <div class="flex h-screen w-full bg-gray-800 " x-data="{openMenu:1}">
+        <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->
+        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-yellow-600 sm:block">
+            <div class="mb-6">
+                <!--Start logo 사이드바 안에 있는 컨텐츠들입니다 -->
+                <div class="flex justify-center">
+                
+                  <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
+                    <!-- 유저프로필 -->
+                    <img 
+                      src="https://stickershop.line-scdn.net/stickershop/v1/product/8543/LINEStorePC/main.png;compress=true" 
+                     class="rounded-full w-auto"
+                    />
+                  </div>
+                </div>
+                <!-- 로고 밑에 아이콘들 -->
+                <div>
+                  <ul class="mt-6 leading-10 px-4">
+                  <!-- mb : 마진 bottom 줄임말 테일윈드 페이지상단에 약어를 검색하면 나와여 -->
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-purple-400 cursor-pointer"
+                        @click="openMenu !== 1 ? openMenu = 1 : openMenu = null"
+                      >
+                      <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
+                      <i class="fas fa-map-marker fa-sm text-white"></i>
+                    </li>
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer">
+                      <i class="fas fa fa-window-close fa-sm text-white"></i>
+                    </li>
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-400 cursor-pointer">
+                      <i class="fas fa fa-calculator fa-sm text-white"></i>
+                    </li>
+
+                    <!-- 로그인기능창으로 쓰면될거같음 -->
+                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
+                      <i class="fas fa-power-off fa-sm text-indigo-600"></i>
+                    </li>
+                  </ul>
+                </div>
+                <!--여기까지 네비게이션 -->
+            </div>
+        </aside>
+        <!-- 보라색 누르면 나오는 메뉴 -->
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block " 
+               x-show="openMenu ==  1" 
+               @click.away="openMenu = null" 
+               style="display: none;">
+            <div class="mb-6">
+              <!--오픈메뉴 함수로 열리는 메뉴들 -->
+              <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
+                <!-- 아이콘은 같은회사꺼 씁니다 -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                    <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                    <i class="fas fa-calculator fa-sm text-indigo-600"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">오늘의핫플</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                    <i class="fas fa-wallet fa-sm text-indigo-600"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">예산별추천</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                    <i class="fas fa-archive fa-sm text-indigo-600"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">지역별추천</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                    <i class="fas fa-money-bill-wave-alt fa-sm text-indigo-600"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">클릭@!</p>
+                </div>
+                <!-- End Navitem -->
+                 <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                    <i class="fas fa-shopping-basket fa-sm text-indigo-600"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">내리뷰</p>
+                </div>
+                <!-- 아이콘 적고 크기 맞추고 글씨적는 식으로 변경가능-->
+              </div>
+              <!-- 여기까지가 사이드 바 -->
+            </div>
+        </aside>
+        <!-- End Open Menu -->
+        
+        <!-- End Sidebar -->
+
+        <div class="flex flex-col flex-1 w-full overflow-y-auto">
+            <!-- 상단바입니다 -->
+            <!--End Topbar -->
+          <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
+              <div class="grid pb-10  mt-4 ">
+                  <!-- Start Content-->
+                    <div class="mb-2">
+                      <p class="text-lg font-semibold text-gray-400">여기에 날씨나 날짜기능 있으면 좋겠죠?</p>
+                    </div>
+                    <div class="grid grid-cols-12 gap-6 border-b-2 pb-5">
+                      <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
+                        <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 mt-3">
+                           <div class="p-4">
+                              <p class="text-xl font-bold">코스 이름</p>
+                              <p class="text-xs font-semibold text-gray-400">작성자</p>
+                           </div>
+                           <div class="p-4">
+                              <p class="text-xl font-bold">테마</p>
+                              <p class="text-xs font-semibold text-gray-400">#해시태그 같은거</p>
+                           </div>
+                           <div class="p-4 col-span-2">
+                              <p class="text-xl font-bold">이런 사람에게 추천해요</p>
+                              <p class="text-xs font-semibold text-gray-400">#해시태그 같은거</p>
+                           </div>
+                        
+                        </div>
+                      </div>
+                      <div class="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4 xxl:col-span-4">
+                          <div class="p-4">
+                          <!-- 프로그래스 바 기능 있으면 좋겠죠? -->
+                              <p class="text-sm text-gray-400">리뷰온도</p>
+                              <div class="shadow w-full bg-gray-100 mt-2">
+                                  <div class="bg-indigo-600 text-xs leading-none py-1 text-center text-white" style="width: 55%"></div>
+
+                               </div>
+                                <p class="text-xs font-semibold text-gray-400 mt-2">좋아요 45,941 total</p>
+                           </div>
+                      </div>
+                    </div>
+                    <!-- 상단바 끝 -->
+                    <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 ">
+                        <!-- 지도이미지 칸 -->
+                      <div class="relative w-full h-full col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScRaJTGB38z1J1mU5PWin09rAGY_JUYZBXbA&usqp=CAU');">
+                          
+                          <div class="absolute inset-0 bg-yellow-900 bg-opacity-25 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
+                            <div>
+                              <h3 class="text-center text-white text-lg">
+                                   롯데월드 데이트 코스
+                              </h3>
+                              <h3 class="text-center text-white text-3xl mt-2 font-bold">
+                                   좋아요 45,941
+                              </h3>
+                              <div class="flex space-x-4 mt-4">
+                                 <button class="block uppercase mx-auto shadow bg-white text-indigo-600 focus:shadow-outline 
+                                  focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  탐색하기
+                                </button>
+                                <button class="block uppercase mx-auto shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline 
+                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  댓글보기
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                       
+                      <!-- 순위같은거 있으면 좋으려나 -->
+                       <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://media.istockphoto.com/vectors/forest-scene-with-aurora-vector-id1176475543?k=20&m=1176475543&s=170667a&w=0&h=T7tXK4d4LuqHXdbQ9HlS44zaM-EI010NcCMerWB2_Tg=');">
+                          <div class="absolute inset-0 bg-blue-900 bg-opacity-75 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
+                          
+                            <div>
+                              <div class="text-white text-lg flex space-x-2 items-center">
+                                <div class="bg-white rounded-md p-2 flex items-center">
+                                  <i class="fas fa fa-address-card fa-sm text-blue-800"></i>
+                                </div>
+                                <p>이 코스의 순위는?</p>
+                              </div>
+                              <h3 class="text-white text-3xl mt-2 font-bold">
+                                  1위
+                              </h3>
+                               <h3 class="text-white text-lg mt-2 ">
+                                 2위 - 강남 원데이 클래스 체험<br>
+                                 3위 - 홍대 방탈출 카페 순회
+                              </h3>
+                              <!-- 클릭해서 바로 옮겨가기있으면 좋겠 -->
+                            </div>
+                          </div>
+                      </div>        
+                    </div>
+                    
+                  <!-- End Content-->
+              </div>
+          </main>
+        </div>
+    </div>
+</body>
+</body>
+</html>
