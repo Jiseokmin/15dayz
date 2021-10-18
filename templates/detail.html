@@ -33,9 +33,9 @@
 <body>
 
 <!-- https://alpinejs.dev/directives/data -->
-    <div class="flex h-screen w-full bg-yellow-100" x-data="{openMenu:1}">
+    <div class="flex h-screen w-full bg-pink-100" x-data="{openMenu:1}">
         <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->
-        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-yellow-200 sm:block">
+        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-pink-600 sm:block">
             <div class="mb-6">
                 <!--Start logo 사이드바 안에 있는 컨텐츠들입니다 -->
                 <div class="flex justify-center">
@@ -66,7 +66,7 @@
                     </li>
 
                     <!-- 로그인기능창으로 쓰면될거같음 -->
-                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer transition duration-500 ease-in-out bg-white hover:bg-yellow-100 transform hover:-translate-y-1 hover:scale-110 " @click="openMenu !== 2 ? openMenu = 2 : openMenu = null">
+                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer transition duration-500 ease-in-out bg-white hover:bg-pink-200 transform hover:-translate-y-1 hover:scale-110 " @click="openMenu !== 2 ? openMenu = 2 : openMenu = null">
                       <i class="fas fa-power-off fa-sm text-gray-400"></i>
                     </li>
                   </ul>
@@ -75,7 +75,7 @@
             </div>
         </aside>
         <!-- 보라색 누르면 나오는 메뉴 -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block " 
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
                x-show="openMenu ==  1" 
 
                style="display: none;">
@@ -84,48 +84,48 @@
               <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
                 <!-- 아이콘은 같은회사꺼 씁니다 -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                  <div class="rounded-full p-2 bg-yellow-100 flex flex-col items-center">
-                    <i class="fas fa-chart-pie fa-sm text-gray-500"></i>
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
                 </div>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                  <div class="rounded-full p-2 bg-yellow-100 flex flex-col items-center">
-                    <i class="fas fa-calculator fa-sm text-gray-500"></i>
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">오늘의핫플</p>
                 </div>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                  <div class="rounded-full p-2 bg-yellow-100 flex flex-col items-center">
-                    <i class="fas fa-wallet fa-sm text-gray-500"></i>
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-wallet fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">예산별추천</p>
                 </div>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                  <div class="rounded-full p-2 bg-yellow-100 flex flex-col items-center">
-                    <i class="fas fa-archive fa-sm text-gray-500"></i>
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">지역별추천</p>
                 </div>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                  <div class="rounded-full p-2 bg-yellow-100 flex flex-col items-center">
-                    <i class="fas fa-money-bill-wave-alt fa-sm text-gray-500"></i>
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-money-bill-wave-alt fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">클릭@!</p>
                 </div>
                 <!-- End Navitem -->
                  <!-- Start Navitem -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                  <div class="rounded-full p-2 bg-yellow-100 flex flex-col items-center">
-                    <i class="fas fa-shopping-basket fa-sm text-gray-500"></i>
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-shopping-basket fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">내리뷰</p>
                 </div>
@@ -135,25 +135,24 @@
             </div>
         </aside>
         <!-- End Open Menu -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-200 sm:block " 
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
                x-show="openMenu ==  2" 
                @click.away="openMenu = null"
                style="display: none;">
 <div class="w-full h-auto flex items-center justify-center">
-    <div class="bg-gray-200 w-full h-auto rounded-md pt-8 pb-12 mb-3 flex flex-col items-center">
-        <label class="font-light text-3xl mb-3"><span class= "text-md font-bold">SS</span>umbarota<span class="font-bold"><br>연애조작단</span></label>
-        <input type="text" class="w-full h-12 rounded-sm px-4 text-md focus:ring-blue-600 mb-2" placeholder="아이디"/>
-        <input type="password" class="w-full h-12 rounded-sm px-4 text-md focus:ring-blue-600 mb-2" placeholder="비밀번호"/>
-        <button class="w-full h-12 rounded-lg bg-yellow-300 text-gray-200 uppercase font-semibold hover:bg-blue-700 text-gray-100 transition mb-4">Login</button>
-        <p class="text-right mb-4 text-sm">아이디가 없어요</p>
-        <button class="w-full h-12 rounded-lg bg-red-600 text-gray-150 uppercase font-semibold hover:bg-red-700 text-gray-100 transition mb-4">Sign with Google</button>
-        <button class="w-full h-12 rounded-lg bg-gray-800 text-gray-150 uppercase font-semibold hover:bg-gray-900 text-gray-100 transition mb-4">Sign with Github</button>
+    <div class="bg-pink-200 w-full h-auto rounded-md pt-8 pb-12 mb-3 flex flex-col items-center">
+        <label class="font-light text-3xl mb-3"><span class= "text-pink-700 ">SS</span><span class="font-thin text-xl">umbarota</span><span class="font-bold"><br>연애조작단</span></label>
+        <input type="text" class="w-full h-11 rounded-md px-4 mb-2" placeholder="아이디"/>
+        <input type="password" class="w-full h-11 rounded-md px-4 mb-2" placeholder="비밀번호"/>
+        <button class="w-full h-12 rounded-lg bg-pink-400 text-gray-200 uppercase font-semibold hover:bg-pink-600 text-gray-100 transition mb-2">Login</button>
+        <button class="w-full h-12 rounded-lg bg-pink-300 text-gray-150 uppercase font-semibold hover:bg-pink-500 text-gray-100 transition mb-2">Sign with kakao</button>
+        <p class="text-right mb-4 text-sm font-medium text-pink-500 underline">아이디가 없어요</p>
     </div>
 </div>
         </aside>
 
         <!-- 이런식으로 aside를 통째로 추가 -->
-                <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-gray-200 sm:block " 
+                <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
                x-show="openMenu ==  3" 
 
                style="display: none;">
@@ -172,16 +171,16 @@
                 <p class="text-gray-600 font-light text-md">
                     넓고도 좁은 서울... 사용자들에 의해 검증된 시스템!
                     당신의 리뷰를 찾아보세요
-                    <a class="inline-flex text-yellow-500" href="#">가입하러가기</a>
+                    <a class="inline-flex text-pink-500" href="#">가입하러가기</a>
                 </p>
                 <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-red-400">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
                         #해시태그
                     </span>
-                    <span class="m-1 px-2 py-1 rounded bg-red-400">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
                         #핫플레이스
                     </span>
-                    <span class="m-1 px-2 py-1 rounded bg-red-400">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
                         #추천
                     </span>
                 </div>
@@ -222,7 +221,7 @@
               <div class="grid pb-10  mt-4 ">
                   <!-- Start Content-->
                     <div class="mb-2">
-                      <p class="text-lg font-semibold text-gray-400">여기에 날씨나 날짜기능 있으면 좋겠죠?</p>
+                      <p class="text-lg font-semibold text-gray-400">2021년 11월 01일 날씨 💕</p>
                     </div>
                     <div class="grid grid-cols-12 gap-6 border-b-2 pb-5">
                       <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
@@ -245,9 +244,9 @@
                       <div class="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4 xxl:col-span-4">
                           <div class="p-4">
                           <!-- 프로그래스 바 기능 있으면 좋겠죠? -->
-                              <p class="text-sm text-gray-400">리뷰온도</p>
+                              <p class="text-sm text-gray-400">Heart Temperature</p>
                               <div class="shadow w-full bg-gray-100 mt-2">
-                                  <div class="bg-indigo-600 text-xs leading-none py-1 text-center text-white" style="width: 55%"></div>
+                                  <div class="bg-pink-400 text-xs leading-none py-1 text-center text-white" style="width: 75%"></div>
 
                                </div>
                                 <p class="text-xs font-semibold text-gray-400 mt-2">좋아요 45,941 total</p>
@@ -257,10 +256,10 @@
                     <!-- 상단바 끝 -->
                     <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 ">
                         <!-- 지도이미지 칸 -->
-                      <div class="relative w-full h-full col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScRaJTGB38z1J1mU5PWin09rAGY_JUYZBXbA&usqp=CAU');">
+                      <div class="relative w-full h-52 col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
                           
-                          <div class="absolute inset-0 bg-yellow-900 bg-opacity-25 transition duration-300 ease-in-out"></div>
+                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
                           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
                             <div>
                               <h3 class="text-center text-white text-lg">
@@ -270,11 +269,11 @@
                                    좋아요 45,941
                               </h3>
                               <div class="flex space-x-4 mt-4">
-                                 <button class="block uppercase mx-auto shadow bg-white text-indigo-600 focus:shadow-outline 
+                                 <button class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
                                   탐색하기
                                 </button>
-                                <button class="block uppercase mx-auto shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline 
+                                <button class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
                                    focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
                                   댓글보기
                                 </button>
@@ -285,14 +284,14 @@
                        
                       <!-- 순위같은거 있으면 좋으려나 -->
                        <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://media.istockphoto.com/vectors/forest-scene-with-aurora-vector-id1176475543?k=20&m=1176475543&s=170667a&w=0&h=T7tXK4d4LuqHXdbQ9HlS44zaM-EI010NcCMerWB2_Tg=');">
-                          <div class="absolute inset-0 bg-blue-900 bg-opacity-75 transition duration-300 ease-in-out"></div>
+                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
+                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
                           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
                           
                             <div>
                               <div class="text-white text-lg flex space-x-2 items-center">
                                 <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-blue-800"></i>
+                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
                                 </div>
                                 <p>이 코스의 순위는?</p>
                               </div>
