@@ -18,8 +18,20 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href = "static/main.css"> -->
 </head>
-<body >
+
+<style>
+  body {
+  font-family: 'Do Hyeon', sans-serif;
+  }
+</style>
+<body>
+
 <!-- https://alpinejs.dev/directives/data -->
     <div class="flex h-screen w-full bg-gray-800 " x-data="{openMenu:1}">
         <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->
@@ -49,12 +61,12 @@
                     <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer">
                       <i class="fas fa fa-window-close fa-sm text-white"></i>
                     </li>
-                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-400 cursor-pointer">
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-400 cursor-pointer" @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
                       <i class="fas fa fa-calculator fa-sm text-white"></i>
                     </li>
 
                     <!-- 로그인기능창으로 쓰면될거같음 -->
-                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
+                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer" @click="openMenu !== 2 ? openMenu = 2 : openMenu = null">
                       <i class="fas fa-power-off fa-sm text-indigo-600"></i>
                     </li>
                   </ul>
@@ -123,7 +135,82 @@
             </div>
         </aside>
         <!-- End Open Menu -->
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-200 sm:block " 
+               x-show="openMenu ==  2" 
+               @click.away="openMenu = null"
+               style="display: none;">
+<div class="w-full h-auto flex items-center justify-center">
+    <div class="bg-gray-200 w-full h-auto rounded-md pt-8 pb-12 mb-3 flex flex-col items-center">
+        <label class="font-light text-3xl mb-3">서울<span class="font-bold"><br>너와나</span></label>
+        <input type="text" class="w-full h-12 rounded-sm px-4 text-md focus:ring-blue-600 mb-2" placeholder="아이디"/>
+        <input type="password" class="w-full h-12 rounded-sm px-4 text-md focus:ring-blue-600 mb-2" placeholder="비밀번호"/>
+        <button class="w-full h-12 rounded-lg bg-blue-600 text-gray-200 uppercase font-semibold hover:bg-blue-700 text-gray-100 transition mb-4">Login</button>
+        <p class="text-right mb-4 text-sm">아이디가 없어요</p>
+        <button class="w-full h-12 rounded-lg bg-red-600 text-gray-150 uppercase font-semibold hover:bg-red-700 text-gray-100 transition mb-4">Sign with Google</button>
+        <button class="w-full h-12 rounded-lg bg-gray-800 text-gray-150 uppercase font-semibold hover:bg-gray-900 text-gray-100 transition mb-4">Sign with Github</button>
+    </div>
+</div>
+        </aside>
+
+        <!-- 이런식으로 aside를 통째로 추가 -->
+                <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-gray-200 sm:block " 
+               x-show="openMenu ==  3" 
+               @click.away="openMenu = null"
+               style="display: none;">
+
+<div class="flex flex-wrap place-items-center h-screen">
+    <!-- card -->
+    <div class="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-5 hover: rounded-lg md:w-140 cursor-pointer m-auto">
         
+            <div class="bg-white w-full p-7 mt-3">
+                <p class="text-indigo-500 text-2xl font-medium">
+                    가입하세요!
+                </p>
+                <p class="text-gray-800 text-sm font-medium mb-2">
+                    폰트가 매우 다단계 같네요 얼른 폰트 이쁜거 찾아야겠어요
+                </p>
+                <p class="text-gray-600 font-light text-md">
+                    넓고도 좁은 서울... 사용자들에 의해 검증된 시스템!
+                    <a class="inline-flex text-indigo-500" href="#">가입하러가기</a>
+                </p>
+                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-indigo-500">
+                        #해시태그
+                    </span>
+                    <span class="m-1 px-2 py-1 rounded bg-indigo-500">
+                        #핫플레이스
+                    </span>
+                    <span class="m-1 px-2 py-1 rounded bg-indigo-500">
+                        #추천
+                    </span>
+                </div>
+                <div class="flex items-center mt-2">
+                    <img class='w-10 h-10 object-cover rounded-full' alt='User avatar' src='https://stickershop.line-scdn.net/stickershop/v1/product/8543/LINEStorePC/main.png;compress=true'>
+        
+                    <div class="pl-3">
+                        <div class="font-medium">
+                            김 피카츄
+                        </div>
+                        <div class="text-gray-600 text-sm">
+                            CTO of pokemonCenter
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- Does this resource worth a follow? -->
+<div class="absolute bottom-0 right-0 mb-4 mr-4 z-10">
+    <div>
+        <a title="Follow me on Kakao" href="" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <img class="object-cover object-center w-full h-full rounded-full" src="https://i0.wp.com/forhappywomen.com/wp-content/uploads/2018/11/%EC%82%B0%EB%B6%80%EC%9D%B8%EA%B3%BC-%ED%8F%AC%ED%95%B4%ED%94%BC%EC%9A%B0%EB%A8%BC-%EB%AC%B8%EC%9D%98-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%8C%EB%9F%AC%EC%8A%A4%EC%B9%9C%EA%B5%AC-%EB%B2%84%ED%8A%BC.png?resize=586%2C586&ssl=1"/>
+        </a>
+    </div>
+</div>
+
+        </aside>
+
         <!-- End Sidebar -->
 
         <div class="flex flex-col flex-1 w-full overflow-y-auto">

@@ -5,6 +5,10 @@
 // 작성하시고 해당 html에다가 
 // <link rel="stylesheet" type="text/css" href = "(css파일이름).css">
 
-// js파일 임포트할때는 제이쿼리 임포틓한거보다 밑줄에 둬야 한다고 합니다
+// js파일 임포트할때는 제이쿼리 임포트한거보다 밑줄에 둬야 한다고 합니다
 // https://grace-go.tistory.com/59
 // <script src=".js의 위치"></script> */
+
+  body {
+  font-family: 'Do Hyeon', sans-serif;
+  }
