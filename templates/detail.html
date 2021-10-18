@@ -4,7 +4,37 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
+
+    <script>
+         $(document).ready(function () {
+            showStar();
+         });
+
+         function showStar() {
+            $.ajax({
+                type: 'GET',
+                url: '/review',
+                data: {},
+                success: function (response) {
+                    let reviews = response['reviews'];
+
+                    for(let i = 0 ; i < reviews.length; i ++) {
+                        let course_name = reviews[i]['course_name'];
+                        let thema = reviews[i]['thema'];
+                        let hashtag = reviews[i]['hashtag'];
+                        let start_spot = reviews[i]['start_spot'];
+                        let via_spot = reviews[i]['via_spot'];
+                        let end_spot = reviews[i]['end_spot'];
+                        let contents = reviews[i]['contents'];
+                        let like = reviews[i]['like'];
+                    }
+                }
+            });
+        }
+
+    </script>
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
     <head>
