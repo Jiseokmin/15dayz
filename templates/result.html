@@ -9,10 +9,10 @@
 
     <script>
          $(document).ready(function () {
-            showStar();
+            showReview();
          });
 
-         function showStar() {
+         function showReview() {
             $.ajax({
                 type: 'GET',
                 url: '/review',
@@ -32,6 +32,10 @@
                     }
                 }
             });
+        }
+        //탐색하기 버튼 클릭 시 지도 보여주기
+        function showMap() {
+            window.location.href = '/reviews';
         }
 
     </script>
@@ -301,7 +305,7 @@
                               </h3>
                               <div class="flex space-x-4 mt-4">
                                  <button class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  focus:outline-none text-white text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
                                   탐색하기
                                 </button>
                                 <button class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
