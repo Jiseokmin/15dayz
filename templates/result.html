@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
+
+    <script>
+         $(document).ready(function () {
+            showStar();
+         });
+
+         function showStar() {
+            $.ajax({
+                type: 'GET',
+                url: '/review',
+                data: {},
+                success: function (response) {
+                    let reviews = response['reviews'];
+
+                    for(let i = 0 ; i < reviews.length; i ++) {
+                        let course_name = reviews[i]['course_name'];
+                        let thema = reviews[i]['thema'];
+                        let hashtag = reviews[i]['hashtag'];
+                        let start_spot = reviews[i]['start_spot'];
+                        let via_spot = reviews[i]['via_spot'];
+                        let end_spot = reviews[i]['end_spot'];
+                        let contents = reviews[i]['contents'];
+                        let like = reviews[i]['like'];
+                    }
+                }
+            });
+        }
+
+    </script>
+</head>
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSumbarota 연애조작단</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href = "static/main.css"> -->
+</head>
+
+<style>
+  body {
+  font-family: 'Do Hyeon', sans-serif;
+  }
+</style>
+<body>
+
+<!-- https://alpinejs.dev/directives/data -->
+    <div class="flex h-screen w-full bg-pink-100" x-data="{openMenu:1}">
+        <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->
+        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-pink-600 sm:block">
+            <div class="mb-6">
+                <!--Start logo 사이드바 안에 있는 컨텐츠들입니다 -->
+                <div class="flex justify-center">
+                
+                  <div class="w-14 h-14 rounded-full bg-white border-2 border-white mt-2">
+                    <!-- 유저프로필 -->
+                    <img 
+                      src="https://stickershop.line-scdn.net/stickershop/v1/product/8543/LINEStorePC/main.png;compress=true" 
+                     class="rounded-full w-auto"
+                    />
+                  </div>
+                </div>
+                <!-- 로고 밑에 아이콘들 -->
+                <div>
+                  <ul class="mt-6 leading-10 px-4">
+                  <!-- mb : 마진 bottom 줄임말 테일윈드 페이지상단에 약어를 검색하면 나와여 -->
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-purple-400 cursor-pointer border-r-2 border-b-2"
+                        @click="openMenu !== 1 ? openMenu = 1 : openMenu = null"
+                      >
+                      <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
+                      <i class="fas fa-map-marker fa-sm text-white"></i>
+                    </li>
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2">
+                      <i class="fas fa fa-window-close fa-sm text-white"></i>
+                    </li>
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-400 cursor-pointer border-r-2 border-b-2" @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
+                      <i class="fas fa fa-calculator fa-sm text-white"></i>
+                    </li>
+
+                    <!-- 로그인기능창으로 쓰면될거같음 -->
+                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer transition duration-500 ease-in-out bg-white hover:bg-pink-200 transform hover:-translate-y-1 hover:scale-110 " @click="openMenu !== 2 ? openMenu = 2 : openMenu = null">
+                      <i class="fas fa-power-off fa-sm text-gray-400"></i>
+                    </li>
+                  </ul>
+                </div>
+                <!--여기까지 네비게이션 -->
+            </div>
+        </aside>
+        <!-- 보라색 누르면 나오는 메뉴 -->
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
+               x-show="openMenu ==  1" 
+
+               style="display: none;">
+            <div class="mb-6">
+              <!--오픈메뉴 함수로 열리는 메뉴들 -->
+              <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
+                <!-- 아이콘은 같은회사꺼 씁니다 -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">오늘의핫플</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-wallet fa-sm text-pink-500"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">예산별추천</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-archive fa-sm text-pink-500"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">지역별추천</p>
+                </div>
+                <!-- End Navitem -->
+                <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-money-bill-wave-alt fa-sm text-pink-500"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">클릭@!</p>
+                </div>
+                <!-- End Navitem -->
+                 <!-- Start Navitem -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                    <i class="fas fa-shopping-basket fa-sm text-pink-500"></i>
+                  </div>
+                  <p class="text-xs mt-1 text-center font-semibold">내리뷰</p>
+                </div>
+                <!-- 아이콘 적고 크기 맞추고 글씨적는 식으로 변경가능-->
+              </div>
+              <!-- 여기까지가 사이드 바 -->
+            </div>
+        </aside>
+        <!-- End Open Menu -->
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
+               x-show="openMenu ==  2" 
+               @click.away="openMenu = null"
+               style="display: none;">
+<div class="w-full h-auto flex items-center justify-center">
+    <div class="bg-pink-200 w-full h-auto rounded-md pt-8 pb-12 mb-3 flex flex-col items-center">
+        <label class="font-light text-3xl mb-3"><span class= "text-pink-700 ">SS</span><span class="font-thin text-xl">umbarota</span><span class="font-bold"><br>연애조작단</span></label>
+        <input type="text" class="w-full h-11 rounded-md px-4 mb-2" placeholder="아이디"/>
+        <input type="password" class="w-full h-11 rounded-md px-4 mb-2" placeholder="비밀번호"/>
+        <button class="w-full h-12 rounded-lg bg-pink-400 text-gray-200 uppercase font-semibold hover:bg-pink-600 text-gray-100 transition mb-2">Login</button>
+        <button class="w-full h-12 rounded-lg bg-pink-300 text-gray-150 uppercase font-semibold hover:bg-pink-500 text-gray-100 transition mb-2">Sign with kakao</button>
+        <p class="text-right mb-4 text-sm font-medium text-pink-500 underline">아이디가 없어요</p>
+    </div>
+</div>
+        </aside>
+
+        <!-- 이런식으로 aside를 통째로 추가 -->
+                <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
+               x-show="openMenu ==  3" 
+
+               style="display: none;">
+
+<div class="flex flex-wrap place-items-center h-screen">
+    <!-- card -->
+    <div class="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-3 hover: rounded-lg md:w-140 cursor-pointer m-auto">
+        
+            <div class="bg-white w-full p-6 mt-3">
+                <p class="text-gray-500 text-2xl font-medium">
+                    가입하세요!
+                </p>
+                <p class="text-gray-800 text-sm font-medium mb-2">
+                    폰트가 매우 다단계 같네요 얼른 폰트 이쁜거 찾아야겠어요
+                </p>
+                <p class="text-gray-600 font-light text-md">
+                    넓고도 좁은 서울... 사용자들에 의해 검증된 시스템!
+                    당신의 리뷰를 찾아보세요
+                    <a class="inline-flex text-pink-500" href="#">가입하러가기</a>
+                </p>
+                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                </div>
+                <div class="flex items-center mt-2">
+                    <img class='w-10 h-10 object-cover rounded-full' alt='User avatar' src='https://stickershop.line-scdn.net/stickershop/v1/product/8543/LINEStorePC/main.png;compress=true'>
+        
+                    <div class="pl-3">
+                        <div class="font-medium">
+                            김 피카츄
+                        </div>
+                        <div class="text-gray-600 text-sm">
+                            CTO of pokemonCenter
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+</div>
+<!-- Does this resource worth a follow? -->
+<div class="absolute bottom-0 right-0 mb-4 mr-4 z-10">
+    <div>
+        <a title="Follow me on Kakao" href="" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <img class="object-cover object-center w-full h-full rounded-full" src="https://i0.wp.com/forhappywomen.com/wp-content/uploads/2018/11/%EC%82%B0%EB%B6%80%EC%9D%B8%EA%B3%BC-%ED%8F%AC%ED%95%B4%ED%94%BC%EC%9A%B0%EB%A8%BC-%EB%AC%B8%EC%9D%98-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%8C%EB%9F%AC%EC%8A%A4%EC%B9%9C%EA%B5%AC-%EB%B2%84%ED%8A%BC.png?resize=586%2C586&ssl=1"/>
+        </a>
+    </div>
+</div>
+
+        </aside>
+
+        <!-- End Sidebar -->
+
+        <div class="flex flex-col flex-1 w-full overflow-y-auto">
+            <!-- 상단바입니다 -->
+            <!--End Topbar -->
+          <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
+              <div class="grid pb-10  mt-4 ">
+                  <!-- Start Content-->
+                    <div class="mb-2">
+                      <p class="text-lg font-semibold text-gray-400">2021년 11월 01일 [$동작]구의 핫플레이스 💕</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 ">
+                        <!-- 지도이미지 칸 -->
+                      <div class="relative w-full h-52 col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
+                          
+                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
+                            <div>
+                              <h3 class="text-center text-white text-lg">
+                                   좋아요 45,941
+                              </h3>
+                              <h3 class="text-center text-white text-3xl mt-2 font-bold">
+                                   롯데월드 데이트 코스
+                              </h3>
+                              <div class="flex space-x-4 mt-4">
+                                 <button class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
+                                  focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  탐색하기
+                                </button>
+                                <button class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
+                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  댓글보기
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                       
+                      <!-- 순위같은거 있으면 좋으려나 -->
+                       <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
+                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
+                          
+                            <div>
+                              <div class="text-white text-lg flex space-x-2 items-center">
+                                <div class="bg-white rounded-md p-2 flex items-center">
+                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
+                                </div>
+                                <p>이 코스의 순위는?</p>
+                              </div>
+                              <h3 class="text-white text-3xl mt-2 font-bold">
+                                  1위
+                              </h3>
+                               <h3 class="text-white text-lg mt-2 ">
+                                 2위 - 강남 원데이 클래스 체험<br>
+                                 3위 - 홍대 방탈출 카페 순회
+                              </h3>
+                 <!-- 클릭해서 바로 옮겨가기있으면 좋겠 -->
+                            </div>
+                          </div>
+                      </div>        
+                    </div>
+
+                                        <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 ">
+                        <!-- 지도이미지 칸 -->
+                      <div class="relative w-full h-52 col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
+                          
+                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
+                            <div>
+                              <h3 class="text-center text-white text-lg">
+                                   좋아요 42,001
+                              </h3>
+                              <h3 class="text-center text-white text-3xl mt-2 font-bold">
+                                   한강공원 데이트 코스
+                              </h3>
+                              <div class="flex space-x-4 mt-4">
+                                 <button class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
+                                  focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  탐색하기
+                                </button>
+                                <button class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
+                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  댓글보기
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                       
+                      <!-- 순위같은거 있으면 좋으려나 -->
+                       <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
+                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
+                          
+                            <div>
+                              <div class="text-white text-lg flex space-x-2 items-center">
+                                <div class="bg-white rounded-md p-2 flex items-center">
+                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
+                                </div>
+                                <p>이 코스의 순위는?</p>
+                              </div>
+                              <h3 class="text-white text-3xl mt-2 font-bold">
+                                  4위
+                              </h3>
+                               <h3 class="text-white text-lg mt-2 ">
+                                 5위 - 뭐가 있을까<br>
+                                 6위 - 나중에 자료조사하는걸로
+                              </h3>
+                 <!-- 클릭해서 바로 옮겨가기있으면 좋겠 -->
+                            </div>
+                          </div>
+                      </div>        
+                    </div>
+                    
+                  <!-- End Content-->
+              </div>
+          </main>
+        </div>
+    </div>
+</body>
+</body>
+</html>
