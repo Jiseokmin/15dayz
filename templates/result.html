@@ -133,7 +133,7 @@
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-wallet fa-sm text-pink-500"></i>
                   </div>
-                  <p class="text-xs mt-1 text-center font-semibold">예산별추천</p>
+                  <p class="text-xs mt-1 text-center font-semibold" @click="openMenu !== 4 ? openMenu = 4 : openMenu = null">마이페이지</p>
                 </div>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
@@ -145,20 +145,13 @@
                 </div>
                 <!-- End Navitem -->
                 <!-- Start Navitem -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
-                    <i class="fas fa-money-bill-wave-alt fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold">클릭@!</p>
-                </div>
-                <!-- End Navitem -->
-                 <!-- Start Navitem -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+
+                <!-- <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-shopping-basket fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">내리뷰</p>
-                </div>
+                </div> -->
                 <!-- 아이콘 적고 크기 맞추고 글씨적는 식으로 변경가능-->
               </div>
               <!-- 여기까지가 사이드 바 -->
@@ -180,6 +173,45 @@
     </div>
 </div>
         </aside>
+
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
+               x-show="openMenu ==  4" 
+               @click.away="openMenu = null"
+               style="display: none;">
+
+<div class="min-h-screen flex flex-col mx-auto bg-pink-200 opacity-100 font-poppins px-4 bg-no-repeat bg-cover bg-center">
+  <div class="flex justify-between px-1 pt-4 items-center">
+
+    <div>
+      <p class="font-semibold">My Profile</p>
+    </div>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    </div>
+  </div>
+  <div class="flex items-center px-1 pt-10 justify-between">
+    <div class="w-24 h-24 bg-pink-50 flex items-center rounded-full">
+      <img class="h-20 w-20 mx-auto" src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTNfNzcg/MDAxNDkyMDUwMTI0MzQw.GWS90WzAH6XFv5EBEM8LuEFxfRqY5u54XrxlJ9g6sG8g.1-m9ppHruZRFDtZlunZcGKwKihv86z-WM1BiPFoJ-wsg.PNG.jkirby/%EB%9D%BC%EC%9D%B4%EC%B8%84_%EC%95%8C%EB%A1%9C%EB%9D%BC.png?type=w800">
+    </div>
+    <div class="w-9/12 flex items-center">
+      <div class="w-10/12 flex flex-col leading-none pl-4">
+        <p class="text-2xl font-bold">라이츄</p>
+        <p class="text-sm pt-2 font-light text-gray-700">Network Engineer</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="pt-12 px-4 w-full flex flex-col">
+    <p class="font-semibold text-gray-600">My Status</p>
+    <div class="flex w-full pt-2 space-x-2">
+      <button class="bg-pink-400 w-32 rounded-full px-4 py-2 font-ligth text-white flex"> 나의 리뷰</button>
+      <button class="bg-pink-400 w-32 rounded-full px-4 py-2 font-ligth text-white flex"> 관심목록</button>
+    </div>
+  </div>
+
+        </aside>
+
+        
 
         <!-- 이런식으로 aside를 통째로 추가 -->
                 <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
