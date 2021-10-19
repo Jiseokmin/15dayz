@@ -9,31 +9,8 @@
 
     <script>
          $(document).ready(function () {
-            showReview();
+
          });
-
-         function showReview() {
-            $.ajax({
-                type: 'GET',
-                url: '/review',
-                data: {},
-                success: function (response) {
-                    let reviews = response['reviews'];
-
-                    for(let i = 0 ; i < reviews.length; i ++) {
-                        let course_name = reviews[i]['course_name'];
-                        let thema = reviews[i]['thema'];
-                        let hashtag = reviews[i]['hashtag'];
-                        let start_spot = reviews[i]['start_spot'];
-                        let via_spot = reviews[i]['via_spot'];
-                        let end_spot = reviews[i]['end_spot'];
-                        let contents = reviews[i]['contents'];
-                        let like = reviews[i]['like'];
-                    }
-                }
-            });
-        }
-
     </script>
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
