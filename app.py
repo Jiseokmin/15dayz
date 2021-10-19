@@ -16,6 +16,14 @@ db = client.date_service
 def home():
     return render_template('detail.html')
 
+@app.route('/result')
+def result():
+    return render_template('result.html')
+
+@app.route('/reviews')
+def show_map():
+    return render_template('reviews.html')
+
 #모든 리뷰 가져와서 전달
 @app.route('/review', methods=['GET'])
 def read_reviews():
