@@ -14,7 +14,7 @@ doc = {
     'password': '111',
 }
 
-db.login.insert_one(doc)
+## 프로그램 실행할 때마다 DB에 insert가 되어서 이 부분 주석 처리하겠습니다 !  db.login.insert_one(doc)
 
 # ID = "a01080341168@gmail.com"
 # PW = "pass"
