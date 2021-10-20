@@ -26,7 +26,6 @@ doc = {
 
 @app.route('/')
 def home():
-    return render_template('index.html')
     if "userID" in session:
         return render_template("index.html", username=session.get("userID"), login=True)
     else:
@@ -49,11 +48,6 @@ def login():
 def logout():
     session.pop("userID")
     return redirect("home")
-
-
-@app.route('/')
-def home():
-    return render_template('index.html')
 
 @app.route('/detail')
 def detail():
