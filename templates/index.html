@@ -45,7 +45,18 @@
                 <p class="text-gray-500">
                     or use email your account
                 </p>
-                <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+<!--
+<form methods = "get" id="login" action={{url_for("login")}}>
+  <input type="id" id="loginId" name="loginId" placeholder="ID">
+  <input type="password" id="loginPw" name="loginPw" placeholder="Password">
+  <button type="submit" class="login">로그인</button>
+</form>
+-->
+                {% if login == True %}
+                <h3>로그인에 성공하였습니다. {{username}}님 어서오세요!</h3>
+                <a href= {{url_for("logout")}}>로그아웃</a>
+                {% else %}
+                <form methods = "get" id="login" action={{url_for("login")}} class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                     <div class="pb-2 pt-2">
                         <input type="email" name="email" id="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-gray-100">
                     </div>
@@ -56,7 +67,7 @@
                         <a href="#">Forgot your password?</a>
                     </div>
                     <div class="px-2 pb-2 pt-2 relative flex-auto">
-                        <button class="uppercase w-full p-2 text-lg rounded-full bg-pink-500 hover:bg-pink-600 focus:outline-none text-white">sign in</button>
+                        <button type="submit" class="uppercase w-full p-2 text-lg rounded-full bg-pink-500 hover:bg-pink-600 focus:outline-none text-white">sign in</button>
                         <div>
 
                     <div class="px-2 pb-2 pt-2 p-2 w-full lg:px-0 mx-auto">
@@ -83,7 +94,7 @@
                         </a>
                     </div>
                 </form>
-
+                {% endif %}
             </div>
         </div>
     </section>
