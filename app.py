@@ -7,7 +7,7 @@ client = MongoClient('13.124.239.157', 27017)
 db = client.date_service
 
 app.secret_key = "99d7e201187334217ba4f1c51a72e412"
-
+''' DB login 입력
 doc = {
     'name': 'Tester',
     'userid': '111@111.com',
@@ -15,9 +15,7 @@ doc = {
 }
 
 db.login.insert_one(doc)
-
-# ID = "a01080341168@gmail.com"
-# PW = "pass"
+'''
 
 # 샘플데이터 추가
 # doc = {'course_name': '샘플코스22', 'thema': '따듯한 날', 'hashtag': '강서, 등촌역',
