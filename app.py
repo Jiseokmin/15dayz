@@ -55,6 +55,7 @@ def detail():
     return render_template('detail.html')
 
 
+
 @app.route('/result')
 def result():
     return render_template('result.html')
@@ -63,6 +64,15 @@ def result():
 @app.route('/reviews')
 def show_map():
     return render_template('reviews.html')
+
+@app.route('/making')
+def making():
+    return render_template('making.html')
+
+@app.route('/showreviews')
+def showReview():
+    return render_template('showreviews.html')
+
 
 # 모든 리뷰 가져와서 전달
 

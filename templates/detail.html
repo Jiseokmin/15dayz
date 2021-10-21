@@ -11,6 +11,22 @@
          $(document).ready(function () {
 
          });
+                function home() {
+                window.location.href = '/detail';
+                };
+                function result() {
+                window.location.href = '/result';
+            };
+                function making() {
+            window.location.href = '/making';
+        };
+                function showReview() {
+            window.location.href = '/showreviews';
+        };
+
+                        function logout() {
+            window.location.href = '/index';
+        };
     </script>
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
@@ -73,32 +89,32 @@
 
 
               
-<a href="./result.html" target="_blank">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  >
+<!-- <a href="./result.html" target="_blank"> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="result()" >
                   
-                <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center" >
                     <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
                 </div>
-                </a>
+                <!-- </a> -->
               
-<a href ="./result.html" target="_blank">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null ">
+<!-- <a href ="./result.html" target="_blank"> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null " onclick="result()">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa fa-paw fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">오늘의핫플</p>
                 </div>
-</a>
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 4 ? openMenu = 7 : openMenu = null">
+<!-- </a> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center ">
                     <i class="fas fa fa-id-card fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold " >마이페이지</p>
                 </div>
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 5 ? openMenu = 5 : openMenu = null">
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 5 ? openMenu = 5 : openMenu = null" onclick="result()">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
@@ -139,7 +155,7 @@
     </div>
     <div>
                     <i class="fas fa-calculator fa-sm text-pink-500 shadow-xl cursor-pointer text-sm" 
-                    @click="openMenu !== 2 ? openMenu = 2 : openMenu = null"> logout</i>
+                    @click="openMenu !== 2 ? openMenu = 2 : openMenu = null" onclick="logout();"> logout</i>
 
     </div>
   </div>
@@ -158,22 +174,21 @@
   <div class="pt-12 px-4 w-full flex flex-col">
     <p class="font-semibold text-gray-600">My Status</p>
     <div class="flex w-full pt-2 space-x-2">
-<a href="./making.html" target="_blank">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110">
+
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="making();">
                   <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center ">
                     <i class="fas fa-calculator fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">리뷰 작성</p>
                 </div>
-                </a>
-    <a href="./showreviews.html">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
+
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="showReview();">
                   <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
                     <i class="fas fa-calculator fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">나의 리뷰</p>
                 </div>
-                </a>
+
 
 
                                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">

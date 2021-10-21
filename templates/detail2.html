@@ -11,6 +11,10 @@
          $(document).ready(function () {
 
          });
+        
+        function result() {
+            window.location.href = '/result';
+        }
     </script>
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
@@ -72,29 +76,29 @@
               <div class="grid grid-cols-1 gap-4 mt-6">
                 <!-- 아이콘은 같은회사꺼 씁니다 -->
 
-                <a href="./result.html" target="_blank">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  >
+                <!-- <a href="./result.html" target="_blank"> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="result()" >
                   
                 <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
                 </div>
-                </a>
+                <!-- </a> -->
               
-<a href ="./result.html" target="_blank">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null ">
+<!-- <a href ="./result.html" target="_blank"> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="result()">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa fa-paw fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">오늘의핫플</p>
                 </div>
-</a>
+<!-- </a> -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-id-card fa-sm text-pink-500"></i>
                   </div>
-                  <p class="text-xs mt-1 text-center font-semibold" >마이페이지</p>
+                  <p class="text-xs mt-1 text-center font-semibold">마이페이지</p>
                 </div>
 
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
@@ -120,7 +124,7 @@
         <input type="password" class="w-full h-11 rounded-md px-4 mb-2" placeholder="비밀번호"/>
         <button class="w-full h-12 rounded-lg bg-pink-400  uppercase font-semibold hover:bg-pink-600 text-gray-100 transition mb-2">Login</button>
         <button class="w-full h-12 rounded-lg bg-pink-300 text-gray-150 uppercase font-semibold hover:bg-pink-500 text-gray-100 transition mb-2">Sign with kakao</button>
-        <p class="text-right mb-4 text-sm font-medium text-pink-500 underline">아이디가 없어요</p>
+        <p class="text-right mb-4 text-sm font-medium text-pink-500 underline" onclick="index()">아이디가 없어요</p>
     </div>
 </div>
         </aside>
@@ -145,7 +149,7 @@
                 <p class="text-gray-600 font-light text-md">
                     넓고도 좁은 서울... 사용자들에 의해 검증된 시스템!
                     간단한 가입만으로 제한없이 액세스 가능합니다.
-                    <a class="inline-flex text-pink-500" href="./index.html">가입하러가기</a>
+                    <a class="inline-flex text-pink-500" onclick="home()">가입하러가기</a>
                 </p>
                 <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
                     <span class="m-1 px-2 py-1 rounded bg-pink-400">

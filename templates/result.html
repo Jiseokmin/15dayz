@@ -37,6 +37,9 @@
         function showMap() {
             window.location.href = '/reviews';
         }
+        function home() {
+            window.location.href = '/detail';
+        }
 
     </script>
 </head>
@@ -98,24 +101,24 @@
               <div class="grid grid-cols-1 gap-4 mt-6">
                 <!-- 아이콘은 같은회사꺼 씁니다 -->
 
-<a href="./result.html">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  >
+<!-- <a href="./result.html"> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="home();" >
                   
                 <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
                   </div>
-                  <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
+                  <p class="text-xs mt-1 text-center font-semibold">홈으로가기</p>
                 </div>
-                </a>
+                <!-- </a> -->
               
-<a href ="./result.html">
+<!-- <a href ="./result.html"> -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null ">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-calculator fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">디렉터추천</p>
                 </div>
-</a>
+<!-- </a> -->
 
 
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 5 ? openMenu = 5 : openMenu = null">
