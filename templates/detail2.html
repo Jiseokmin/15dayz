@@ -52,15 +52,9 @@
                       <i class="fas fa fa-window-close fa-sm text-white"></i>
                     </li>
 
-<<<<<<< HEAD
-                    <!-- 로그인기능창으로 쓰면될거같음 -->
-                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer transition duration-500 ease-in-out hover:bg-pink-200 transform hover:-translate-y-1 hover:scale-110 " @click="openMenu !== 2 ? openMenu = 2 : openMenu = null">
+                    <!-- 전원버튼 불꺼짐 -->
+                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto  cursor-pointer transition duration-500 ease-in-out bg-pink-100 transform hover:-translate-y-1 hover:scale-110 " @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                       <i class="fas fa-power-off fa-sm text-gray-400"></i>
-=======
-                    <!-- 전원버튼 불들어옴 -->
-                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto  cursor-pointer transition duration-500 ease-in-out bg-yellow-100 transform hover:-translate-y-1 hover:scale-150 " @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
-                      <i class="fas fa-power-off fa-sm text-pink-500"></i>
->>>>>>> 118d93ac44a76dc86e853a32fc7f944804acb423
                     </li>
                   </ul>
                 </div>
@@ -73,11 +67,7 @@
 
                style="display: none;">
             <div class="mb-6">
-<<<<<<< HEAD
-              <!--오픈메뉴 함수로 열리는 메뉴들 -->
-=======
               <!--오픈메뉴 함수로 열리는 메뉴들 4개 -->
->>>>>>> 118d93ac44a76dc86e853a32fc7f944804acb423
               <div class="grid grid-cols-1 gap-4 mt-6">
                 <!-- 아이콘은 같은회사꺼 씁니다 -->
 
@@ -96,14 +86,14 @@
                   <p class="text-xs mt-1 text-center font-semibold ">오늘의핫플</p>
                 </div>
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer" @click="openMenu !== 4 ? openMenu = 7 : openMenu = null">
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-wallet fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold" >마이페이지</p>
                 </div>
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer" @click="openMenu !== 5 ? openMenu = 5 : openMenu = null">
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
@@ -114,8 +104,8 @@
             </div>
         </aside>
 
-        <!-- 마이페이지창 -->
-        <!-- <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
+        <!-- End Open Menu -->
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
                x-show="openMenu ==  7" 
                @click.away="openMenu = null"
                style="display: none;">
@@ -129,81 +119,29 @@
         <p class="text-right mb-4 text-sm font-medium text-pink-500 underline">아이디가 없어요</p>
     </div>
 </div>
-        </aside> -->
-
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
-               x-show="openMenu ==  7" 
-               @click.away="openMenu = null"
-               style="display: none;">
-
-<div class="min-h-screen flex flex-col mx-auto bg-pink-200 opacity-100 font-poppins px-4 bg-no-repeat bg-cover bg-center">
-  <div class="flex justify-between px-1 pt-4 items-center">
-
-    <div>
-      <p class="font-semibold">My Profile</p>
-    </div>
-    <div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 14c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-7c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-    </div>
-  </div>
-  <div class="flex items-center px-1 pt-10 justify-between">
-    <div class="w-24 h-24 bg-pink-50 flex items-center rounded">
-      <img class="h-20 w-20 mx-auto" src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTNfNzcg/MDAxNDkyMDUwMTI0MzQw.GWS90WzAH6XFv5EBEM8LuEFxfRqY5u54XrxlJ9g6sG8g.1-m9ppHruZRFDtZlunZcGKwKihv86z-WM1BiPFoJ-wsg.PNG.jkirby/%EB%9D%BC%EC%9D%B4%EC%B8%84_%EC%95%8C%EB%A1%9C%EB%9D%BC.png?type=w800">
-    </div>
-    <div class="w-9/12 flex items-center">
-      <div class="w-10/12 flex flex-col leading-none pl-4">
-        <p class="text-2xl font-bold">라이츄</p>
-        <p class="text-sm pt-2 font-light text-gray-700">환영합니다!</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="pt-12 px-4 w-full flex flex-col">
-    <p class="font-semibold text-gray-600">My Status</p>
-    <div class="flex w-full pt-2 space-x-2">
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
-                  <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
-                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold ">리뷰 작성</p>
-                </div>
-
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
-                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold ">나의 리뷰</p>
-                </div>
-
-
-                                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
-                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold ">관심 목록</p>
-                </div>
-
-    </div>
-  </div>
-
         </aside>
 
-
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
+        <!-- 이런식으로 aside를 통째로 추가 -->
+                <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
                x-show="openMenu ==  8" 
-               @click.away="openMenu = null"
+
                style="display: none;">
+<!-- 가입하세요! -->
 <div class="flex flex-wrap place-items-center h-screen">
     <!-- card -->
     <div class="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-3 hover: rounded-lg md:w-140 cursor-pointer m-auto">
         
             <div class="bg-white w-full p-6 mt-3">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
+                <p class="text-gray-500 text-2xl font-medium">
+                    가입하세요!
+                </p>
+                <p class="text-gray-800 text-sm font-medium mb-2">
+                    폰트가 매우 다단계 같네요 얼른 폰트 이쁜거 찾아야겠어요
                 </p>
                 <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500" href="#">보러가기</a>
+                    넓고도 좁은 서울... 사용자들에 의해 검증된 시스템!
+                    당신의 리뷰를 찾아보세요
+                    <a class="inline-flex text-pink-500" href="#">가입하러가기</a>
                 </p>
                 <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
                     <span class="m-1 px-2 py-1 rounded bg-pink-400">
@@ -216,131 +154,27 @@
                         #추천
                     </span>
                 </div>
-                
-            </div>
-                        <div class="bg-white w-full p-6 mt-3">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500" href="#">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
+                <div class="flex items-center mt-2">
+                    <img class='w-10 h-10 object-cover rounded-full' alt='User avatar' src='https://stickershop.line-scdn.net/stickershop/v1/product/8543/LINEStorePC/main.png;compress=true'>
+        
+                    <div class="pl-3">
+                        <div class="font-medium">
+                            김 피카츄
+                        </div>
+                        <div class="text-gray-600 text-sm">
+                            CTO of pokemonCenter
+                        </div>
+                    </div>
                 </div>
-                
             </div>
-                        <div class="bg-white w-full p-6 mt-3">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500" href="#">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-                                    <div class="bg-white w-full p-6 mt-3">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500" href="#">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-                                    <div class="bg-white w-full p-6 mt-3">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500" href="#">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-                                    <div class="bg-white w-full p-6 mt-3">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500" href="#">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
+        </a>
     </div>
-
-
     
 </div>
-
-
-                
 <!-- Does this resource worth a follow? -->
-<div class="absolute bottom-0 left-30 mb-4 mr-4 z-10"
-style="  display: inline-block;
-  position: sticky;
-  top: 20px;
-  left: 100px;
-  width: 80px;
-  height: 80px;">
+<div class="absolute bottom-0 right-0 mb-4 mr-4 z-10">
     <div>
-        <a title="Follow me on Kakao" href="" target="_blank" class="block sticky w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+        <a title="Follow me on Kakao" href="" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
             <img class="object-cover object-center w-full h-full rounded-full" src="https://i0.wp.com/forhappywomen.com/wp-content/uploads/2018/11/%EC%82%B0%EB%B6%80%EC%9D%B8%EA%B3%BC-%ED%8F%AC%ED%95%B4%ED%94%BC%EC%9A%B0%EB%A8%BC-%EB%AC%B8%EC%9D%98-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%8C%EB%9F%AC%EC%8A%A4%EC%B9%9C%EA%B5%AC-%EB%B2%84%ED%8A%BC.png?resize=586%2C586&ssl=1"/>
         </a>
     </div>
@@ -453,16 +287,3 @@ style="  display: inline-block;
 </body>
 </body>
 </html>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
