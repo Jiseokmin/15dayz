@@ -48,6 +48,7 @@ def login():
 def logout():
     session.pop("userID")
     return redirect("home")
+    # return render_template('index.html')
 
 
 @app.route('/detail')
@@ -72,6 +73,12 @@ def making():
 @app.route('/showreviews')
 def showReview():
     return render_template('showreviews.html')
+
+@app.route('/detail2')
+def detail2():
+    return render_template('detail2.html')
+
+
 
 
 # 모든 리뷰 가져와서 전달

@@ -13,6 +13,22 @@
     <link rel="stylesheet" type="text/css" href = "../static/main.css">
     <link rel="stylesheet" type="text/js" href="../tailwind.config.js">
 
+        <script>
+         $(document).ready(function () {
+
+         });
+                function home() {
+                window.location.href = '/detail';
+                };
+
+                function logout() {
+                window.location.href = '/index';
+        };
+                function detail2() {
+                window.location.href = '/detail2';
+                };
+    </script>
+
 
 </head>
 <body>
@@ -47,6 +63,9 @@
                 </p>
                 {% if login == True %}
                 <h3>로그인에 성공하였습니다. {{username}}님 어서오세요!</h3>
+                <div class="px-2 pb-2 pt-2 p-2 w-full lg:px-0 mx-auto"></div>
+                <button class="uppercase block w-full p-2 text-lg rounded-full bg-pink-500 hover:bg-pink-600  focus:outline-none text-white" onclick="home();">시작하기</button>
+                </div>
                 <a href= {{url_for("logout")}}>로그아웃</a>
                 {% else %}
                 <form methods = "get" id="login" action={{url_for("login")}} class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
@@ -64,9 +83,9 @@
                         <div>
 
                     <div class="px-2 pb-2 pt-2 p-2 w-full lg:px-0 mx-auto">
-                    <a href="./detail.html">
-                    <button class="uppercase block w-full p-2 text-lg rounded-full bg-pink-500 hover:bg-pink-600  focus:outline-none text-white" >지금 바로보기</button>
-                </a>
+                    <!-- <a href="./detail.html"> -->
+                    <button class="uppercase block w-full p-2 text-lg rounded-full bg-pink-500 hover:bg-pink-600  focus:outline-none text-white" onclick="detail2();">지금 바로보기</button>
+                <!-- </a> -->
 
                 </div>
 
