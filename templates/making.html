@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리뷰 작성 페이지</title>
-</head>
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +11,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href = "../static/main.css">
     <link rel="stylesheet" type="text/js" href="../tailwind.config.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>리뷰 작성 페이지</title>
+
+    <script>
+        function make_course() {
+            let location = $('#location').val();
+            let thema = $('#thema').val();
+            let time = $('#time').val();
+            let budget = $('#budget').val();
+            let main_location = $('#main_location').val();
+            let via1 = $('#via1').val();
+            let via1_comment = $('#via1_comment').val();
+            let via2 = $('#via2').val();
+            let via2_comment = $('#via2_comment').val();
+            let via3 = $('#via3').val();
+            let via3_comment = $('#via3_comment').val();
+            let comment = $('#comment').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/making',
+                data: {
+                    location_give: location, thema_give: thema, time_give: time,
+                    budget_give: budget, main_location_give: main_location, via1_give: via1,
+                    via1_comment_give: via1_comment, via2_give: via2, via2_comment_give: via2_comment,
+                    via3_give: via3, via3_comment_give: via3_comment, comment_give: comment
+                },
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload();
+                }
+            });
+        }
+    </script>
+</head>
+
 
 <body>
 
@@ -24,7 +59,7 @@
         <h6 class="text-pink-500 text-4xl font-bold">
           Make the best course with your hand!
         </h6>
-        <button class="bg-pink-500 text-white active:bg-pink-600 uppercase text-lg px-6 py-2 rounded hover:bg-pink-200 focus:bg-pink-200 mr-1 ease-linear transition-all duration-150" type="button">
+        <button class="bg-pink-500 text-white active:bg-pink-600 uppercase text-lg px-6 py-2 rounded hover:bg-pink-200 focus:bg-pink-200 mr-1 ease-linear transition-all duration-150" type="button" onclick="make_course()">
             Make it!
         </button>
       </div>
@@ -40,7 +75,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2">
                 지역
               </label>
-              <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서대문구">
+              <input id="location" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서대문구">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -48,7 +83,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 테마
               </label>
-              <input type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="아웃도어">
+              <input id="thema" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="아웃도어">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -56,7 +91,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 소요시간 (선택입력)
               </label>
-              <input type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="8시간">
+              <input id="time" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="8시간">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -64,7 +99,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 예산 (선택입력)
               </label>
-              <input type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="7만원">
+              <input id="budget" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="7만원">
             </div>
           </div>
         </div>
@@ -80,7 +115,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 메인 로케이션
               </label>
-              <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서울특별시 송파구 잠실동 올림픽로 240">
+              <input id="main_location" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서울특별시 송파구 잠실동 올림픽로 240">
             </div>
           </div>
           <div class="w-full lg:w-4/12 px-4">
@@ -88,8 +123,8 @@
              <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 경유지1
               </label>
-              <input type="email" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="카페">
-                                          <input type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="따뜻한 커피 한잔 들고 걸으면">
+              <input id="via1" type="email" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="카페">
+                                          <input id="via1_comment" type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="따뜻한 커피 한잔 들고 걸으면">
             </div>
           </div>
           <div class="w-full lg:w-4/12 px-4">
@@ -97,8 +132,8 @@
              <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 경유지2
               </label>
-              <input type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="도서관">
-                                          <input type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="책과 커피가 있으면 그게 인테리어지">
+              <input id="via2" type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="도서관">
+                                          <input id="via2_comment" type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="책과 커피가 있으면 그게 인테리어지">
             </div>
           </div>
           <div class="w-full lg:w-4/12 px-4">
@@ -106,9 +141,9 @@
              <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 경유지3
               </label>
-              <input type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="편의점">
+              <input id="via3" type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="편의점">
                             
-                            <input type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="초콜릿을 사서 지칠때 드세요">
+                            <input id="via3_comment" type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="초콜릿을 사서 지칠때 드세요">
             </div>
           </div>
         </div>
@@ -124,7 +159,7 @@
               <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                 당신만의 꿀팁이 있다면 남겨주세요!
               </label>
-              <textarea type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" rows="4" placeholder="꿀팁 - 롯데타워 푸드코트 맛있음"></textarea>
+              <textarea id="comment" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" rows="4" placeholder="꿀팁 - 롯데타워 푸드코트 맛있음"></textarea>
             </div>
           </div>
         </div>

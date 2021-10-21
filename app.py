@@ -38,9 +38,11 @@ def login():
     if db.login.find_one({'userid': _id_}) and db.login.find_one({'password': _password_}):
         session["userID"] = _id_
         return render_template("detail.html", username=session.get("userID"), login=True)
-#        return redirect(url_for("home"))
+    #        return redirect(url_for("home"))
     else:
         return render_template("detail2.html", login=False)
+
+
 #        return redirect(url_for("home"))
 
 
@@ -56,7 +58,6 @@ def detail():
     return render_template('detail.html')
 
 
-
 @app.route('/result')
 def result():
     return render_template('result.html')
@@ -66,19 +67,55 @@ def result():
 def show_map():
     return render_template('reviews.html')
 
+
 @app.route('/making')
 def making():
     return render_template('making.html')
+
+
+@app.route('/making', methods=['POST'])
+def make_course():
+    location_receive = request.form['location_give']
+    thema_receive = request.form['thema_give']
+    time_receive = request.form['time_give']
+    budget_receive = request.form['budget_give']
+    main_location_receive = request.form['main_location_give']
+    via1_receive = request.form['via1_give']
+    via1_comment_receive = request.form['via1_comment_give']
+    via2_receive = request.form['via2_give']
+    via2_comment_receive = request.form['via2_give']
+    via3_receive = request.form['via3_give']
+    via3_comment_receive = request.form['via3_give']
+    comment_receive = request.form['comment_give']
+
+    doc = {
+        'location': location_receive,
+        'thema': thema_receive,
+        'time': time_receive,
+        'budget': budget_receive,
+        'main_location': main_location_receive,
+        'via1': via1_receive,
+        'via1_comment': via1_comment_receive,
+        'via2': via2_receive,
+        'via2_comment': via2_comment_receive,
+        'via3': via3_receive,
+        'via3_comment': via3_comment_receive,
+        'comment': comment_receive
+    }
+
+    db.courses.insert_one(doc)
+
+    return jsonify({'msg': '저장 완료!'})
+
 
 @app.route('/showreviews')
 def showReview():
     return render_template('showreviews.html')
 
+
 @app.route('/detail2')
 def detail2():
     return render_template('detail2.html')
-
-
 
 
 # 모든 리뷰 가져와서 전달
