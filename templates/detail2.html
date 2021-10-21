@@ -17,7 +17,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SSumbarota 연애조작단 for login users</title>
+    <title>SSumbarota 연애조작단 for non-login users</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -46,10 +46,10 @@
                         @click="openMenu !== 1 ? openMenu = 1 : openMenu = null"
                       >
                       <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
-                      <i class="fas fa-map-marker fa-sm text-white"></i>
+                      <i class="fas fa fa-globe fa-sm text-white"></i>
                     </li>
                     <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2 " @click="openMenu !== 8 ? openMenu = 8 : openMenu = null">
-                      <i class="fas fa fa-window-close fa-sm text-white"></i>
+                      <i class="fas fa fa-heartbeat fa-sm text-white"></i>
                     </li>
 
                     <!-- 전원버튼 불꺼짐 -->
@@ -61,6 +61,7 @@
             </div>
         </aside>
 
+
         <!-- 보라색 누르면 나오는 메뉴 -->
         <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
                x-show="openMenu ==  1" 
@@ -71,30 +72,33 @@
               <div class="grid grid-cols-1 gap-4 mt-6">
                 <!-- 아이콘은 같은회사꺼 씁니다 -->
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer"  @click="openMenu !== 2 ? openMenu = 2 : openMenu = null">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                <a href="./result.html" target="_blank">
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  >
+                  
+                <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
-
                 </div>
-
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
+                </a>
+              
+<a href ="./result.html" target="_blank">
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null ">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
-                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
+                    <i class="fas fa fa-paw fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">오늘의핫플</p>
                 </div>
-
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+</a>
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
-                    <i class="fas fa-wallet fa-sm text-pink-500"></i>
+                    <i class="fas fa-id-card fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold" >마이페이지</p>
                 </div>
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center ">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">지역별추천</p>
@@ -129,19 +133,19 @@
 <!-- 가입하세요! -->
 <div class="flex flex-wrap place-items-center h-screen">
     <!-- card -->
-    <div class="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-3 hover: rounded-lg md:w-140 cursor-pointer m-auto">
+    <div class="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-3 hover: rounded-lg md:w-140 m-auto">
         
             <div class="bg-white w-full p-6 mt-3">
                 <p class="text-gray-500 text-2xl font-medium">
                     가입하세요!
                 </p>
                 <p class="text-gray-800 text-sm font-medium mb-2">
-                    폰트가 매우 다단계 같네요 얼른 폰트 이쁜거 찾아야겠어요
+                    실제 이용자들의 후기가 궁금하신가요?
                 </p>
                 <p class="text-gray-600 font-light text-md">
                     넓고도 좁은 서울... 사용자들에 의해 검증된 시스템!
-                    당신의 리뷰를 찾아보세요
-                    <a class="inline-flex text-pink-500" href="#">가입하러가기</a>
+                    간단한 가입만으로 제한없이 액세스 가능합니다.
+                    <a class="inline-flex text-pink-500" href="./index.html">가입하러가기</a>
                 </p>
                 <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
                     <span class="m-1 px-2 py-1 rounded bg-pink-400">
