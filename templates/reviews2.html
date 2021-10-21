@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e37b83186c91a497858bd200cbebce30"></script>
+    <title>SSumbarota 연애조작단 - 리뷰페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         rel="stylesheet" />
@@ -18,10 +21,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href = "../static/main.css">
+</head>
 
-	<title>SSumbarota 연애조작단 - 리뷰페이지</title>
-
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e37b83186c91a497858bd200cbebce30"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e37b83186c91a497858bd200cbebce30"></script>
 <script>
 	$(document).ready(function () {
 		var container = document.getElementById('map');
@@ -64,6 +66,10 @@
 		}
 	});
 
+                    function home() {
+                window.location.href = '/detail';
+                };
+
 </script>
 
 <body>
@@ -74,7 +80,7 @@
       <div class="lg:px-0 font-bold capitalize mt-2 flex justify-between p-1 m-1">
         <span class= "text-pink-900 text-2xl">SS</span><span class="font-thin text-xl text-pink-100">umbarota</span>
         </div>
-        <button class="flex text-base text-pink-100 bg-pink-400 rounded p-1 m-1 hover:bg-pink-300" onclick="home();">back to home</button>
+        <button class="flex text-base text-pink-100 bg-pink-400 rounded p-1 m-1" onclick="home();">home</button>
       
 
 
@@ -87,16 +93,10 @@
       ">
         <!-- main post -->
         <div class="mb-4 lg:mb-0  p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
-          <div id="map" class="map rounded-md w-full h-80"> </div>
+          <img src="" class="rounded-md object-cover w-full h-80" id="map">
           <span class="text-pink-700 text-sm hidden md:block mt-4"> </span>
-                    <h1 class="text-pink-100 bg-pink-600 text-4xl font-bold mt-2 mb-2 leading-tight rounded shadow-md">
-            [$구] 롯데월드 
-            
-            <button class="text-pink-100 bg-pink-400 rounded-md shadow-md ml-2 fas fa fa-heartbeat fa-sm transform hover:-translate-y-1 hover:scale-150" title="이 리뷰를 관심리뷰로 저장할래요"></button>
-
-            <button class="text-pink-100 bg-pink-400 rounded-md shadow-md ml-1 fas fa fa fa-thumbs-up fa-sm transform hover:-translate-y-1 hover:scale-150" title="이 리뷰를 좋은 리뷰로 추천할래요"></button>
-            <button class="text-pink-100 bg-pink-400 rounded-md shadow-md ml-1 fas fa fa fa fa-bomb fa-sm transform hover:-translate-y-1 hover:scale-150" title="이 리뷰를 신고할래요"></button>
-            
+          <h1 class="text-pink-800 text-4xl font-bold mt-2 mb-2 leading-tight">
+            [$구]핫플레이스 롯데월드 데이트코스
           </h1>
           <p class="text-gray-600 mb-4">
             모두 함께 떠나요 환상의 나라 롯데월드 한 10줄 정도는 들어갈 수 있게 모두 함께 떠나요 환상의 나라 롯데월드 한 10줄 정도는 들어갈 수 있게모두 함께 떠나요 환상의 나라 롯데월드 한 10줄 정도는 들어갈 수 있게모두 함께 떠나요 환상의 나라 롯데월드 한 10줄 정도는 들어갈 수 있게
@@ -106,15 +106,10 @@
 
 
     <div class="bg-pink-200">
-                    <h2 class="text-pink-100 bg-pink-600 text-4xl font-bold mt-2 mb-2 leading-tight rounded shadow-md">
-            추천 경유지
-          </h2>
       <div class="block space-x-0 lg:flex justify-between lg:space-x-2">
-
-
 <!-- 경유지1 -->
-        <div class="rounded w-full lg:w-1/3 p-4 lg:p-0 bg-pink-100 mx-1 shadow-md">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Map_Seoul-teukbyeolsi.svg/450px-Map_Seoul-teukbyeolsi.svg.png" class="rounded" alt="technology" />
+        <div class="rounded w-full lg:w-1/3 p-4 lg:p-0 bg-pink-100 mx-1">
+          <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded" alt="technology" />
           <div class="p-4">
             <h2 class="font-bold text-2xl text-gray-800">롯데타워 아쿠아리움</h2>
             <p class="text-gray-700 mt-2">
@@ -123,8 +118,8 @@
           </div>
         </div>
 
-        <div class="rounded w-full lg:w-1/3 p-4 lg:p-0 bg-pink-100 mx-1 shadow-md">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Map_Seoul-teukbyeolsi.svg/450px-Map_Seoul-teukbyeolsi.svg.png" class="rounded" alt="technology" />
+        <div class="rounded w-full lg:w-1/3 p-4 lg:p-0 bg-pink-100 mx-1">
+          <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded" alt="technology" />
           <div class="p-4">
             <h2 class="font-bold text-2xl text-gray-800">근처 약국</h2>
             <p class="text-gray-700 mt-2">
@@ -135,12 +130,12 @@
         </div>
 
 
-        <div class="rounded w-full lg:w-1/3 p-4 lg:p-0 bg-pink-100 mx-1 shadow-md">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Map_Seoul-teukbyeolsi.svg/450px-Map_Seoul-teukbyeolsi.svg.png" class="rounded" alt="technology" />
+        <div class="rounded w-full lg:w-1/3 p-4 lg:p-0 bg-pink-100 mx-1">
+          <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="rounded" alt="technology" />
           <div class="p-4">
-            <h2 class="font-bold text-2xl text-gray-800">추천경유지가 없어요!!</h2>
+            <h2 class="font-bold text-2xl text-gray-800">롯데타워 전망대</h2>
             <p class="text-gray-700 mt-2">
-              추천 경유지도 마커하면 페이지가 너무 렉걸리려나여
+              당일 아쿠아리움 방문자는 전망대 입장료 할인!
             </p>
 
           </div>

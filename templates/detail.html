@@ -20,9 +20,9 @@
                 function making() {
             window.location.href = '/making';
         };
-                function showReview() {
-            window.location.href = '/showreviews';
-        };
+        function showMap() {
+            window.location.href = '/reviews';
+        }
 
                         function logout() {
             window.location.href = '/index';
@@ -182,7 +182,7 @@
                   <p class="text-xs mt-1 text-center font-semibold ">리뷰 작성</p>
                 </div>
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="showReview();">
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="showMap();">
                   <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
                     <i class="fas fa-calculator fa-sm text-pink-500"></i>
                   </div>
