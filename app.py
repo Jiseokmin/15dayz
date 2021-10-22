@@ -30,6 +30,14 @@ def home():
         return render_template("index.html", login=False)
 
 
+@app.route('/index')
+def index():
+    if "userID" in session:
+        return render_template("index.html", username=session.get("userID"), login=True)
+    else:
+        return render_template("index.html", login=False)
+
+
 @app.route("/login", methods=["get"])
 def login():
     _id_ = request.args.get("email")
@@ -41,16 +49,14 @@ def login():
     #        return redirect(url_for("home"))
     else:
         return render_template("detail2.html", login=False)
-
-
 #        return redirect(url_for("home"))
 
 
 @app.route("/logout")
 def logout():
-    session.pop("userID")
-    return redirect("home")
-    # return render_template('index.html')
+    session.pop("userID", None)
+    return redirect("index")
+    # return render_template("index.html", login=False)
 
 
 @app.route('/detail')
