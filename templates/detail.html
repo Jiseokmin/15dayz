@@ -154,9 +154,10 @@
       <p class="font-semibold">My Profile</p>
     </div>
     <div>
+        <a href= {{url_for("logout")}}>
                     <i class="fas fa-calculator fa-sm text-pink-500 shadow-xl cursor-pointer text-sm" 
-                    @click="openMenu !== 2 ? openMenu = 2 : openMenu = null" onclick="home();"> logout</i>
-
+                    @click="openMenu !== 2 ? openMenu = 2 : openMenu = null" onclick="logout();"> logout</i>
+        </a>
     </div>
   </div>
   <div class="flex items-center px-1 pt-10 justify-between">
