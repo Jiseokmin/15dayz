@@ -123,6 +123,12 @@ def showReview():
 def detail2():
     return render_template('detail2.html')
 
+@app.errorhandler(404) 
+def page_not_found(error):
+    return render_template('404notfound.html')
+
+
+
 
 # 모든 리뷰 가져와서 전달
 
