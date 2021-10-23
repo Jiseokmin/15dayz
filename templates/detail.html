@@ -8,557 +8,1026 @@
     <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
 
     <script>
-         $(document).ready(function () {
+        $(document).ready(function () {
 
-         });
-                function home() {
-                window.location.href = '/detail';
-                };
-                function result() {
-                window.location.href = '/result';
-            };
-                function making() {
+        });
+
+        function home() {
+            window.location.href = '/detail';
+        };
+
+        function result() {
+            window.location.href = '/result';
+        };
+
+        function making() {
             window.location.href = '/making';
         };
+
         function showMap() {
             window.location.href = '/reviews';
         }
 
-                        function logout() {
+        function logout() {
             window.location.href = '/index';
         };
     </script>
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SSumbarota 연애조작단 for login users</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+          rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        rel="stylesheet" />
+          rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        rel="stylesheet" />
+          rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href = "../static/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
 </head>
 
 <!-- https://alpinejs.dev/directives/data -->
-    <div class="flex h-screen w-full bg-pink-100" x-data="{openMenu:1}">
-        <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->
-        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-pink-600 sm:block">
-            <div class="mb-6">
-                <!--Start logo 사이드바 안에 있는 컨텐츠들입니다 -->
-                <div>
+<div class="flex h-screen w-full bg-pink-100" x-data="{openMenu:1}">
+    <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->
+    <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-pink-600 sm:block">
+        <div class="mb-6">
+            <!--Start logo 사이드바 안에 있는 컨텐츠들입니다 -->
+            <div>
                 <!-- 최상단 아이콘 2개 -->
-                  <ul class="mt-6 leading-10 px-4">
-                  <!-- mb : 마진 bottom 줄임말 테일윈드 페이지상단에 약어를 검색하면 나와여 -->
+                <ul class="mt-6 leading-10 px-4">
+                    <!-- mb : 마진 bottom 줄임말 테일윈드 페이지상단에 약어를 검색하면 나와여 -->
                     <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-purple-400 cursor-pointer border-r-2 border-b-2"
                         @click="openMenu !== 1 ? openMenu = 1 : openMenu = null"
-                      >
-                      <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
-                      <i class="fas fa fa-globe fa-sm text-white"></i>
+                    >
+                        <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
+                        <i class="fas fa fa-globe fa-sm text-white"></i>
                     </li>
-                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2 " @click="openMenu !== 8 ? openMenu = 8 : openMenu = null">
-                      <i class="fas fa fa-heartbeat fa-sm text-white"></i>
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2 "
+                        @click="openMenu !== 8 ? openMenu = 8 : openMenu = null">
+                        <i class="fas fa fa-heartbeat fa-sm text-white"></i>
                     </li>
 
                     <!-- 전원버튼 불들어옴 -->
-                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto  cursor-pointer transition duration-500 ease-in-out bg-yellow-100 transform hover:-translate-y-1 hover:scale-150 " @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
-                      <i class="fas fa-power-off fa-sm text-pink-500"></i>
+                    <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto  cursor-pointer transition duration-500 ease-in-out bg-yellow-100 transform hover:-translate-y-1 hover:scale-150 "
+                        @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+                        <i class="fas fa-power-off fa-sm text-pink-500"></i>
                     </li>
-                  </ul>
-                </div>
+                </ul>
             </div>
-        </aside>
+        </div>
+    </aside>
 
-        <!-- 보라색 누르면 나오는 메뉴 -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
-               x-show="openMenu ==  1" 
+    <!-- 보라색 누르면 나오는 메뉴 -->
+    <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block "
+           x-show="openMenu ==  1"
 
-               style="display: none;">
-            <div class="mb-6">
-              <!--오픈메뉴 함수로 열리는 메뉴들 4개 -->
-              <div class="grid grid-cols-1 gap-4 mt-6">
+           style="display: none;">
+        <div class="mb-6">
+            <!--오픈메뉴 함수로 열리는 메뉴들 4개 -->
+            <div class="grid grid-cols-1 gap-4 mt-6">
                 <!-- 아이콘은 같은회사꺼 씁니다 -->
 
 
-              
-<!-- <a href="./result.html" target="_blank"> -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="result()" >
-                  
-                <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center" >
-                    <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
+                <!-- <a href="./result.html" target="_blank"> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
+                     onclick="result()">
+
+                    <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                        <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
+                    </div>
+                    <p class="text-xs mt-1 text-center font-semibold">전체보기</p>
                 </div>
                 <!-- </a> -->
-              
-<!-- <a href ="./result.html" target="_blank"> -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null " onclick="result()">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
-                    <i class="fas fa fa-paw fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold ">오늘의핫플</p>
+
+                <!-- <a href ="./result.html" target="_blank"> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
+                     @click="openMenu !== 3 ? openMenu = 3 : openMenu = null " onclick="result()">
+                    <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                        <i class="fas fa fa-paw fa-sm text-pink-500"></i>
+                    </div>
+                    <p class="text-xs mt-1 text-center font-semibold ">오늘의핫플</p>
                 </div>
-<!-- </a> -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center ">
-                    <i class="fas fa fa-id-card fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold " >마이페이지</p>
+                <!-- </a> -->
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
+                     @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+                    <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center ">
+                        <i class="fas fa fa-id-card fa-sm text-pink-500"></i>
+                    </div>
+                    <p class="text-xs mt-1 text-center font-semibold ">마이페이지</p>
                 </div>
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 5 ? openMenu = 5 : openMenu = null" onclick="result()">
-                  <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
-                    <i class="fas fa-archive fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold">지역별추천</p>
+                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
+                     @click="openMenu !== 5 ? openMenu = 5 : openMenu = null" onclick="result()">
+                    <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
+                        <i class="fas fa-archive fa-sm text-pink-500"></i>
+                    </div>
+                    <p class="text-xs mt-1 text-center font-semibold">지역별추천</p>
                 </div>
 
-              </div>
             </div>
-        </aside>
+        </div>
+    </aside>
 
-        <!-- 마이페이지창 -->
-        <!-- <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
-               x-show="openMenu ==  7" 
-               @click.away="openMenu = null"
-               style="display: none;">
+    <!-- 마이페이지창 -->
+    <!-- <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block "
+           x-show="openMenu ==  7"
+           @click.away="openMenu = null"
+           style="display: none;">
 <div class="w-full h-auto flex items-center justify-center">
-    <div class="bg-pink-200 w-full h-auto rounded-md pt-8 pb-12 mb-3 flex flex-col items-center">
-        <label class="font-light text-3xl mb-3"><span class= "text-pink-700 ">SS</span><span class="font-thin text-xl">umbarota</span><span class="font-bold"><br>연애조작단</span></label>
-        <input type="text" class="w-full h-11 rounded-md px-4 mb-2" placeholder="아이디"/>
-        <input type="password" class="w-full h-11 rounded-md px-4 mb-2" placeholder="비밀번호"/>
-        <button class="w-full h-12 rounded-lg bg-pink-400  uppercase font-semibold hover:bg-pink-600 text-gray-100 transition mb-2">Login</button>
-        <button class="w-full h-12 rounded-lg bg-pink-300 text-gray-150 uppercase font-semibold hover:bg-pink-500 text-gray-100 transition mb-2">Sign with kakao</button>
-        <p class="text-right mb-4 text-sm font-medium text-pink-500 underline">아이디가 없어요</p>
-    </div>
+<div class="bg-pink-200 w-full h-auto rounded-md pt-8 pb-12 mb-3 flex flex-col items-center">
+    <label class="font-light text-3xl mb-3"><span class= "text-pink-700 ">SS</span><span class="font-thin text-xl">umbarota</span><span class="font-bold"><br>연애조작단</span></label>
+    <input type="text" class="w-full h-11 rounded-md px-4 mb-2" placeholder="아이디"/>
+    <input type="password" class="w-full h-11 rounded-md px-4 mb-2" placeholder="비밀번호"/>
+    <button class="w-full h-12 rounded-lg bg-pink-400  uppercase font-semibold hover:bg-pink-600 text-gray-100 transition mb-2">Login</button>
+    <button class="w-full h-12 rounded-lg bg-pink-300 text-gray-150 uppercase font-semibold hover:bg-pink-500 text-gray-100 transition mb-2">Sign with kakao</button>
+    <p class="text-right mb-4 text-sm font-medium text-pink-500 underline">아이디가 없어요</p>
 </div>
-        </aside> -->
-
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
-               x-show="openMenu ==  7" 
-               @click.away="openMenu = null"
-               style="display: none;">
-
-<div class="min-h-screen flex flex-col mx-auto bg-pink-200 opacity-100 font-poppins px-4 bg-no-repeat bg-cover bg-center">
-  <div class="flex justify-between px-1 pt-4 items-center">
-
-    <div>
-      <p class="font-semibold">My Profile</p>
-    </div>
-    <div>
-        <a href= {{url_for("logout")}}>
-                    <i class="fas fa-calculator fa-sm text-pink-500 shadow-xl cursor-pointer text-sm" 
-                    @click="openMenu !== 2 ? openMenu = 2 : openMenu = null" onclick="logout();"> logout</i>
-        </a>
-    </div>
-  </div>
-  <div class="flex items-center px-1 pt-10 justify-between">
-    <div class="w-24 h-24 bg-pink-50 flex items-center rounded shadow-xl" >
-      <img class="h-20 w-20 mx-auto" src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTNfNzcg/MDAxNDkyMDUwMTI0MzQw.GWS90WzAH6XFv5EBEM8LuEFxfRqY5u54XrxlJ9g6sG8g.1-m9ppHruZRFDtZlunZcGKwKihv86z-WM1BiPFoJ-wsg.PNG.jkirby/%EB%9D%BC%EC%9D%B4%EC%B8%84_%EC%95%8C%EB%A1%9C%EB%9D%BC.png?type=w800">
-    </div>
-    <div class="w-9/12 flex items-center">
-      <div class="w-10/12 flex flex-col leading-none pl-4">
-        <p class="text-2xl font-bold">라이츄</p>
-        <p class="text-sm pt-2 font-light text-gray-700">환영합니다!</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="pt-12 px-4 w-full flex flex-col">
-    <p class="font-semibold text-gray-600">My Status</p>
-    <div class="flex w-full pt-2 space-x-2">
-
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="making();">
-                  <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center ">
-                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold ">리뷰 작성</p>
-                </div>
-
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="showMap();">
-                  <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
-                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold ">나의 리뷰</p>
-                </div>
-
-
-
-                                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
-                  <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
-                    <i class="fas fa-calculator fa-sm text-pink-500"></i>
-                  </div>
-                  <p class="text-xs mt-1 text-center font-semibold ">관심 목록</p>
-                </div>
-
-    </div>
-  </div>
-
-        </aside>
-
-
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block " 
-               x-show="openMenu ==  8" 
-               @click.away="openMenu = null"
-               style="display: none;">
-<div class="flex flex-wrap place-items-center h-screen">
-    <!-- card -->
-    <div class="overflow-hidden shadow-lg hover: rounded-lg md:w-140 m-auto">
-        
-            <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-                       <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-            </div>
-
-                        <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
-                <p class="text-gray-500 text-1xl font-medium">
-                    까치산 등반 코스 후기
-                </p>
-                <p class="text-gray-600 font-light text-md">
-                    힘들었지만 보람있었어요
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
-                </p>
-                <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #해시태그
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #핫플레이스
-                    </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
-                        #추천
-                    </span>
-                </div>
-                
-                
-            </div>
-    </div>
-
-
-    
 </div>
+    </aside> -->
+
+    <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block "
+           x-show="openMenu ==  7"
+           @click.away="openMenu = null"
+           style="display: none;">
+
+        <div class="min-h-screen flex flex-col mx-auto bg-pink-200 opacity-100 font-poppins px-4 bg-no-repeat bg-cover bg-center">
+            <div class="flex justify-between px-1 pt-4 items-center">
+
+                <div>
+                    <p class="font-semibold">My Profile</p>
+                </div>
+                <div>
+                    <a href= {{ url_for("logout") }}>
+                        <i class="fas fa-calculator fa-sm text-pink-500 shadow-xl cursor-pointer text-sm"
+                           @click="openMenu !== 2 ? openMenu = 2 : openMenu = null" onclick="logout();"> logout</i>
+                    </a>
+                </div>
+            </div>
+            <div class="flex items-center px-1 pt-10 justify-between">
+                <div class="w-24 h-24 bg-pink-50 flex items-center rounded shadow-xl">
+                    <img class="h-20 w-20 mx-auto"
+                         src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTNfNzcg/MDAxNDkyMDUwMTI0MzQw.GWS90WzAH6XFv5EBEM8LuEFxfRqY5u54XrxlJ9g6sG8g.1-m9ppHruZRFDtZlunZcGKwKihv86z-WM1BiPFoJ-wsg.PNG.jkirby/%EB%9D%BC%EC%9D%B4%EC%B8%84_%EC%95%8C%EB%A1%9C%EB%9D%BC.png?type=w800">
+                </div>
+                <div class="w-9/12 flex items-center">
+                    <div class="w-10/12 flex flex-col leading-none pl-4">
+                        <p class="text-2xl font-bold">라이츄</p>
+                        <p class="text-sm pt-2 font-light text-gray-700">환영합니다!</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pt-12 px-4 w-full flex flex-col">
+                <p class="font-semibold text-gray-600">My Status</p>
+                <div class="flex w-full pt-2 space-x-2">
+
+                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
+                         onclick="making();">
+                        <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center ">
+                            <i class="fas fa-calculator fa-sm text-pink-500"></i>
+                        </div>
+                        <p class="text-xs mt-1 text-center font-semibold ">리뷰 작성</p>
+                    </div>
+
+                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
+                         @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="showMap();">
+                        <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
+                            <i class="fas fa-calculator fa-sm text-pink-500"></i>
+                        </div>
+                        <p class="text-xs mt-1 text-center font-semibold ">나의 리뷰</p>
+                    </div>
 
 
-                
-<!-- Does this resource worth a follow? -->
-<div class="absolute bottom-0 left-30 mb-4 mr-4 z-10"
-style="  display: inline-block;
+                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
+                         @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
+                        <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
+                            <i class="fas fa-calculator fa-sm text-pink-500"></i>
+                        </div>
+                        <p class="text-xs mt-1 text-center font-semibold ">관심 목록</p>
+                    </div>
+
+                </div>
+            </div>
+
+    </aside>
+
+
+    <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-0 overflow-y-auto bg-pink-200 sm:block "
+           x-show="openMenu ==  8"
+           @click.away="openMenu = null"
+           style="display: none;">
+        <div class="flex flex-wrap place-items-center h-screen">
+            <!-- card -->
+            <div class="overflow-hidden shadow-lg hover: rounded-lg md:w-140 m-auto">
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+                </div>
+
+                <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
+                    <p class="text-gray-500 text-1xl font-medium">
+                        까치산 등반 코스 후기
+                    </p>
+                    <p class="text-gray-600 font-light text-md">
+                        힘들었지만 보람있었어요
+                        <a class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
+                    </p>
+                    <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #해시태그
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #핫플레이스
+                    </span>
+                        <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                        #추천
+                    </span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!-- Does this resource worth a follow? -->
+        <div class="absolute bottom-0 left-30 mb-4 mr-4 z-10"
+             style="  display: inline-block;
   position: sticky;
   top: 20px;
   left: 100px;
   width: 80px;
   height: 80px;">
-    <div>
-        <a title="Follow me on Kakao" href="" target="_blank" class="block sticky w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
-            <img class="object-cover object-center w-full h-full rounded-full" src="https://i0.wp.com/forhappywomen.com/wp-content/uploads/2018/11/%EC%82%B0%EB%B6%80%EC%9D%B8%EA%B3%BC-%ED%8F%AC%ED%95%B4%ED%94%BC%EC%9A%B0%EB%A8%BC-%EB%AC%B8%EC%9D%98-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%8C%EB%9F%AC%EC%8A%A4%EC%B9%9C%EA%B5%AC-%EB%B2%84%ED%8A%BC.png?resize=586%2C586&ssl=1"/>
-        </a>
-    </div>
-</div>
+            <div>
+                <a title="Follow me on Kakao" href="" target="_blank"
+                   class="block sticky w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+                    <img class="object-cover object-center w-full h-full rounded-full"
+                         src="https://i0.wp.com/forhappywomen.com/wp-content/uploads/2018/11/%EC%82%B0%EB%B6%80%EC%9D%B8%EA%B3%BC-%ED%8F%AC%ED%95%B4%ED%94%BC%EC%9A%B0%EB%A8%BC-%EB%AC%B8%EC%9D%98-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%8C%EB%9F%AC%EC%8A%A4%EC%B9%9C%EA%B5%AC-%EB%B2%84%ED%8A%BC.png?resize=586%2C586&ssl=1"/>
+                </a>
+            </div>
+        </div>
 
-        </aside>
+    </aside>
 
-        <!-- End Sidebar -->
+    <!-- End Sidebar -->
 
-        <div class="flex flex-col flex-1 w-full overflow-y-auto">
-            <!-- 상단바입니다 -->
-            <!--End Topbar -->
-          <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
-              <div class="grid pb-10  mt-4 ">
-                  <!-- Start Content-->
-                    <div class="mb-2">
-                      <p class="text-lg font-semibold text-gray-400">2021년 11월 01일 [$동작]구의 데이트코스 💕</p>
-                    </div>
-                    <div class="grid grid-cols-12 gap-6 border-b-2 pb-5">
-                      <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
+    <div class="flex flex-col flex-1 w-full overflow-y-auto">
+        <!-- 상단바입니다 -->
+        <!--End Topbar -->
+        <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
+            <div class="grid pb-10  mt-4 ">
+                <!-- Start Content-->
+                <div class="mb-2">
+                    <p class="text-lg font-semibold text-gray-400">2021년 11월 01일 [$동작]구의 데이트코스 💕</p>
+                </div>
+                <div class="grid grid-cols-12 gap-6 border-b-2 pb-5">
+                    <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
                         <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 mt-3">
-                           <div class="p-4">
-                              <p class="text-xl font-bold">마커 클릭시 [$코스이름]</p>
-                              <p class="text-xs font-semibold text-gray-400">[$작성자]</p>
-                           </div>
-                           <div class="p-4">
-                              <p class="text-xl font-bold">테마</p>
-                              <p class="text-xs font-semibold text-gray-400">[$테마를 #해시태그형태로]</p>
-                           </div>
-                           <div class="p-4 col-span-2">
-                              <p class="text-xl font-bold">이런 사람에게 추천해요</p>
-                              <p class="text-xs font-semibold text-gray-400">[인도어 아웃도어같은 성향을 유저데이터에 추가하면 어떨까여]</p>
-                           </div>
-                        
+                            <div class="p-4">
+                                <p class="text-xl font-bold">마커 클릭시 [$코스이름]</p>
+                                <p class="text-xs font-semibold text-gray-400">[$작성자]</p>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xl font-bold">테마</p>
+                                <p class="text-xs font-semibold text-gray-400">[$테마를 #해시태그형태로]</p>
+                            </div>
+                            <div class="p-4 col-span-2">
+                                <p class="text-xl font-bold">이런 사람에게 추천해요</p>
+                                <p class="text-xs font-semibold text-gray-400">[인도어 아웃도어같은 성향을 유저데이터에 추가하면 어떨까여]</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4 xxl:col-span-4">
+                        <div class="p-4">
+                            <!-- 프로그래스 바 기능 있으면 좋겠죠? -->
+                            <p class="text-sm text-gray-400">Heart Temperature</p>
+                            <div class="shadow w-full bg-gray-100 mt-2">
+                                <div class="bg-pink-400 text-xs leading-none py-1 text-center text-white"
+                                     style="width: 75%"></div>
+
+                            </div>
+                            <p class="text-xs font-semibold text-gray-400 mt-2">[$좋아요] 45,941 total</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 상단바 끝 -->
+                <div id="map" style="width:100%;height:350px;"></div>
+
+                <script type="text/javascript"
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3fb1d81eaff16a6e4b3acd6169d25567"></script>
+                <script>
+                    $(document).ready(function () {
+                        showpath()
+                    })
+
+                    function showpath() {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/mapcontrol',
+                            data: {},
+                            success: function (response) {
+                                console.log(response)
+
+                            }
+
+
+                        })
+                    }
+                </script>
+                <script>
+                    // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
+                    var areas = [
+                        {
+                            name: '용산구',
+                            path: [
+                                new kakao.maps.LatLng(37.5548768201904, 126.96966524449994),
+                                new kakao.maps.LatLng(37.55308718044556, 126.97642899633566),
+                                new kakao.maps.LatLng(37.55522076659584, 126.97654602427454),
+                                new kakao.maps.LatLng(37.55320655210504, 126.97874667968763),
+                                new kakao.maps.LatLng(37.55368689494708, 126.98541456064552),
+                                new kakao.maps.LatLng(37.54722934282707, 126.995229135048),
+                                new kakao.maps.LatLng(37.549694559809545, 126.99832516302801),
+                                new kakao.maps.LatLng(37.550159406110104, 127.00436818301327),
+                                new kakao.maps.LatLng(37.54820235864802, 127.0061334023129),
+                                new kakao.maps.LatLng(37.546169758665414, 127.00499711608721),
+                                new kakao.maps.LatLng(37.54385947805103, 127.00727818360471),
+                                new kakao.maps.LatLng(37.54413326436179, 127.00898460651953),
+                                new kakao.maps.LatLng(37.539639030116945, 127.00959054834321),
+                                new kakao.maps.LatLng(37.537681185520256, 127.01726163044557),
+                                new kakao.maps.LatLng(37.53378887274516, 127.01719284893274),
+                                new kakao.maps.LatLng(37.52290225898471, 127.00614038053493),
+                                new kakao.maps.LatLng(37.51309192794448, 126.99070240960813),
+                                new kakao.maps.LatLng(37.50654651085339, 126.98553683648308),
+                                new kakao.maps.LatLng(37.50702053393398, 126.97524914998174),
+                                new kakao.maps.LatLng(37.51751820477105, 126.94988506562748),
+                                new kakao.maps.LatLng(37.52702918583156, 126.94987870367682),
+                                new kakao.maps.LatLng(37.534519656862926, 126.94481851935942),
+                                new kakao.maps.LatLng(37.537500243531994, 126.95335659960566),
+                                new kakao.maps.LatLng(37.54231338779177, 126.95817394011969),
+                                new kakao.maps.LatLng(37.54546318600178, 126.95790512689311),
+                                new kakao.maps.LatLng(37.548791603525764, 126.96371984820232),
+                                new kakao.maps.LatLng(37.55155543391863, 126.96233786542686),
+                                new kakao.maps.LatLng(37.5541513366375, 126.9657135934734),
+                                new kakao.maps.LatLng(37.55566236579088, 126.9691850696746),
+                                new kakao.maps.LatLng(37.5548768201904, 126.96966524449994)
+                            ]
+                        }, {
+                            name: '중구',
+                            path: [
+                                new kakao.maps.LatLng(37.544062989758594, 127.00854659142894),
+                                new kakao.maps.LatLng(37.54385947805103, 127.00727818360471),
+                                new kakao.maps.LatLng(37.546169758665414, 127.00499711608721),
+                                new kakao.maps.LatLng(37.54820235864802, 127.0061334023129),
+                                new kakao.maps.LatLng(37.550159406110104, 127.00436818301327),
+                                new kakao.maps.LatLng(37.549694559809545, 126.99832516302801),
+                                new kakao.maps.LatLng(37.54722934282707, 126.995229135048),
+                                new kakao.maps.LatLng(37.55368689494708, 126.98541456064552),
+                                new kakao.maps.LatLng(37.55320655210504, 126.97874667968763),
+                                new kakao.maps.LatLng(37.55522076659584, 126.97654602427454),
+                                new kakao.maps.LatLng(37.55308718044556, 126.97642899633566),
+                                new kakao.maps.LatLng(37.55487749311664, 126.97240854546743),
+                                new kakao.maps.LatLng(37.5548766923893, 126.9691718124876),
+                                new kakao.maps.LatLng(37.55566236579088, 126.9691850696746),
+                                new kakao.maps.LatLng(37.55155543391863, 126.96233786542686),
+                                new kakao.maps.LatLng(37.55498984534305, 126.96173858545431),
+                                new kakao.maps.LatLng(37.55695455613004, 126.96343068837372),
+                                new kakao.maps.LatLng(37.5590262922649, 126.9616731414449),
+                                new kakao.maps.LatLng(37.56197662569172, 126.96946316364357),
+                                new kakao.maps.LatLng(37.56582132960869, 126.96669525397355),
+                                new kakao.maps.LatLng(37.56824746386509, 126.96909838710842),
+                                new kakao.maps.LatLng(37.569485309984174, 126.97637402412326),
+                                new kakao.maps.LatLng(37.56810323716611, 126.98905202099309),
+                                new kakao.maps.LatLng(37.56961739576364, 127.00225936812329),
+                                new kakao.maps.LatLng(37.56966688588187, 127.0152677241078),
+                                new kakao.maps.LatLng(37.572022763755164, 127.0223363152772),
+                                new kakao.maps.LatLng(37.57190723475508, 127.02337770475695),
+                                new kakao.maps.LatLng(37.56973041414113, 127.0234585247501),
+                                new kakao.maps.LatLng(37.565200182350495, 127.02358387477513),
+                                new kakao.maps.LatLng(37.56505173515675, 127.02678930885806),
+                                new kakao.maps.LatLng(37.563390358462826, 127.02652159646888),
+                                new kakao.maps.LatLng(37.5607276739534, 127.02339232029838),
+                                new kakao.maps.LatLng(37.55779412537163, 127.0228934248264),
+                                new kakao.maps.LatLng(37.556850715898484, 127.01807638779917),
+                                new kakao.maps.LatLng(37.55264513061776, 127.01620129137214),
+                                new kakao.maps.LatLng(37.547466935106435, 127.00931996404753),
+                                new kakao.maps.LatLng(37.54502351209897, 127.00815187343248),
+                                new kakao.maps.LatLng(37.544062989758594, 127.00854659142894)
+                            ]
+                        }, {
+                            name: '종로구',
+                            path: [
+                                new kakao.maps.LatLng(37.631840777111364, 126.9749313865046),
+                                new kakao.maps.LatLng(37.632194205253654, 126.97609588529602),
+                                new kakao.maps.LatLng(37.629026103322374, 126.97496405167149),
+                                new kakao.maps.LatLng(37.6285585388996, 126.97992605309885),
+                                new kakao.maps.LatLng(37.626378096236195, 126.97960492198952),
+                                new kakao.maps.LatLng(37.6211493968146, 126.98365245774505),
+                                new kakao.maps.LatLng(37.6177725051378, 126.9837302191854),
+                                new kakao.maps.LatLng(37.613985109550605, 126.98658977758268),
+                                new kakao.maps.LatLng(37.611364924201304, 126.98565700183143),
+                                new kakao.maps.LatLng(37.60401657024552, 126.98665951539246),
+                                new kakao.maps.LatLng(37.60099164566844, 126.97852019816328),
+                                new kakao.maps.LatLng(37.59790270809407, 126.97672287261275),
+                                new kakao.maps.LatLng(37.59447673441787, 126.98544283754865),
+                                new kakao.maps.LatLng(37.59126960661375, 126.98919808879788),
+                                new kakao.maps.LatLng(37.592300831997434, 127.0009511248032),
+                                new kakao.maps.LatLng(37.58922302426079, 127.00228260552726),
+                                new kakao.maps.LatLng(37.586091007146834, 127.00667090686603),
+                                new kakao.maps.LatLng(37.58235007703611, 127.00677925856456),
+                                new kakao.maps.LatLng(37.58047228501006, 127.00863575242668),
+                                new kakao.maps.LatLng(37.58025588757531, 127.01058748333907),
+                                new kakao.maps.LatLng(37.582338528091164, 127.01483104096094),
+                                new kakao.maps.LatLng(37.581693162424465, 127.01673289259993),
+                                new kakao.maps.LatLng(37.57758802896556, 127.01812215416163),
+                                new kakao.maps.LatLng(37.5788668917658, 127.02140099081309),
+                                new kakao.maps.LatLng(37.578034045208426, 127.02313962015988),
+                                new kakao.maps.LatLng(37.57190723475508, 127.02337770475695),
+                                new kakao.maps.LatLng(37.56966688588187, 127.0152677241078),
+                                new kakao.maps.LatLng(37.56961739576364, 127.00225936812329),
+                                new kakao.maps.LatLng(37.5681357695346, 126.99014772014593),
+                                new kakao.maps.LatLng(37.569315246023024, 126.9732046364419),
+                                new kakao.maps.LatLng(37.56824746386509, 126.96909838710842),
+                                new kakao.maps.LatLng(37.56582132960869, 126.96669525397355),
+                                new kakao.maps.LatLng(37.57874076105342, 126.95354824618335),
+                                new kakao.maps.LatLng(37.581020184166476, 126.95812059678624),
+                                new kakao.maps.LatLng(37.59354736740056, 126.95750665936443),
+                                new kakao.maps.LatLng(37.595061575856455, 126.9590412421402),
+                                new kakao.maps.LatLng(37.59833350100327, 126.9576941779143),
+                                new kakao.maps.LatLng(37.59875701675023, 126.95306020161668),
+                                new kakao.maps.LatLng(37.602476031211225, 126.95237386792348),
+                                new kakao.maps.LatLng(37.60507154496655, 126.95404376087069),
+                                new kakao.maps.LatLng(37.60912809443569, 126.95032198271032),
+                                new kakao.maps.LatLng(37.615539700280216, 126.95072546923387),
+                                new kakao.maps.LatLng(37.62433621196653, 126.94900237336302),
+                                new kakao.maps.LatLng(37.62642708817027, 126.95037844036497),
+                                new kakao.maps.LatLng(37.629590994617104, 126.95881385457929),
+                                new kakao.maps.LatLng(37.629794440379136, 126.96376660599225),
+                                new kakao.maps.LatLng(37.632373740990175, 126.97302793692637),
+                                new kakao.maps.LatLng(37.631840777111364, 126.9749313865046)
+                            ]
+                        }, {
+                            name: '서대문구',
+                            path: [
+                                new kakao.maps.LatLng(37.59851932019209, 126.95347706883003),
+                                new kakao.maps.LatLng(37.5992407011344, 126.95499403097206),
+                                new kakao.maps.LatLng(37.59833350100327, 126.9576941779143),
+                                new kakao.maps.LatLng(37.595061575856455, 126.9590412421402),
+                                new kakao.maps.LatLng(37.59354736740056, 126.95750665936443),
+                                new kakao.maps.LatLng(37.581020184166476, 126.95812059678624),
+                                new kakao.maps.LatLng(37.57874076105342, 126.95354824618335),
+                                new kakao.maps.LatLng(37.56197662569172, 126.96946316364357),
+                                new kakao.maps.LatLng(37.5575156365052, 126.95991288916548),
+                                new kakao.maps.LatLng(37.55654562007193, 126.9413708153468),
+                                new kakao.maps.LatLng(37.555098093384, 126.93685861757348),
+                                new kakao.maps.LatLng(37.55884751347576, 126.92659242918415),
+                                new kakao.maps.LatLng(37.5633319104926, 126.92828128083327),
+                                new kakao.maps.LatLng(37.56510367293256, 126.92601582346325),
+                                new kakao.maps.LatLng(37.57082994377989, 126.9098094620638),
+                                new kakao.maps.LatLng(37.57599550420081, 126.902091747923),
+                                new kakao.maps.LatLng(37.587223103650295, 126.91284666446226),
+                                new kakao.maps.LatLng(37.58541570520177, 126.91531241017965),
+                                new kakao.maps.LatLng(37.585870567159255, 126.91638068573187),
+                                new kakao.maps.LatLng(37.583095195853055, 126.9159399866114),
+                                new kakao.maps.LatLng(37.583459593417196, 126.92175886498167),
+                                new kakao.maps.LatLng(37.587104600730505, 126.92388813813815),
+                                new kakao.maps.LatLng(37.588386594820484, 126.92800815682232),
+                                new kakao.maps.LatLng(37.59157595859555, 126.92776504133688),
+                                new kakao.maps.LatLng(37.59455434247408, 126.93027139545339),
+                                new kakao.maps.LatLng(37.59869748704149, 126.94088480070904),
+                                new kakao.maps.LatLng(37.60065830191363, 126.9414041615336),
+                                new kakao.maps.LatLng(37.60305781086164, 126.93995273804141),
+                                new kakao.maps.LatLng(37.610598531321436, 126.95037536795142),
+                                new kakao.maps.LatLng(37.6083605525023, 126.95056259057313),
+                                new kakao.maps.LatLng(37.60507154496655, 126.95404376087069),
+                                new kakao.maps.LatLng(37.602476031211225, 126.95237386792348),
+                                new kakao.maps.LatLng(37.59851932019209, 126.95347706883003)
+                            ]
+                        }, {
+                            name: '동대문구',
+                            path: [
+                                new kakao.maps.LatLng(37.607062869017085, 127.07111288773496),
+                                new kakao.maps.LatLng(37.60107201319839, 127.07287376670605),
+                                new kakao.maps.LatLng(37.59724304056685, 127.06949105186925),
+                                new kakao.maps.LatLng(37.58953367466315, 127.07030363208528),
+                                new kakao.maps.LatLng(37.58651213184981, 127.07264218709383),
+                                new kakao.maps.LatLng(37.5849555116177, 127.07216063016078),
+                                new kakao.maps.LatLng(37.58026781100598, 127.07619547037923),
+                                new kakao.maps.LatLng(37.571869232268774, 127.0782018408153),
+                                new kakao.maps.LatLng(37.559961773835425, 127.07239004251258),
+                                new kakao.maps.LatLng(37.56231553903832, 127.05876047165025),
+                                new kakao.maps.LatLng(37.57038253579033, 127.04794980454399),
+                                new kakao.maps.LatLng(37.572878529071055, 127.04263554582458),
+                                new kakao.maps.LatLng(37.57302061077518, 127.0381755492195),
+                                new kakao.maps.LatLng(37.56978273516453, 127.03099733100001),
+                                new kakao.maps.LatLng(37.57190723475508, 127.02337770475695),
+                                new kakao.maps.LatLng(37.57838361223621, 127.0232348231103),
+                                new kakao.maps.LatLng(37.58268174514337, 127.02953994610249),
+                                new kakao.maps.LatLng(37.58894739851823, 127.03553876830637),
+                                new kakao.maps.LatLng(37.5911852565689, 127.03621919708065),
+                                new kakao.maps.LatLng(37.59126734230753, 127.03875553445558),
+                                new kakao.maps.LatLng(37.5956815721534, 127.04062845365279),
+                                new kakao.maps.LatLng(37.5969637344377, 127.04302522879048),
+                                new kakao.maps.LatLng(37.59617641777492, 127.04734129391157),
+                                new kakao.maps.LatLng(37.60117358544485, 127.05101351973708),
+                                new kakao.maps.LatLng(37.600149587503246, 127.05209540476308),
+                                new kakao.maps.LatLng(37.60132672748398, 127.05508130598699),
+                                new kakao.maps.LatLng(37.6010580545608, 127.05917142337097),
+                                new kakao.maps.LatLng(37.605121767227374, 127.06219611364686),
+                                new kakao.maps.LatLng(37.607062869017085, 127.07111288773496)
+                            ]
+                        }, {
+                            name: '성북구',
+                            path: [
+                                new kakao.maps.LatLng(37.63654916557213, 126.98446028560235),
+                                new kakao.maps.LatLng(37.631446839436855, 126.99372381657889),
+                                new kakao.maps.LatLng(37.626192451322005, 126.99927047335905),
+                                new kakao.maps.LatLng(37.62382095469671, 127.00488450145781),
+                                new kakao.maps.LatLng(37.624026217174986, 127.00788862747375),
+                                new kakao.maps.LatLng(37.6205124078061, 127.00724034082933),
+                                new kakao.maps.LatLng(37.61679651952433, 127.01014412786792),
+                                new kakao.maps.LatLng(37.61472018601129, 127.01451127202589),
+                                new kakao.maps.LatLng(37.614629670135216, 127.01757841621624),
+                                new kakao.maps.LatLng(37.61137091590441, 127.02219857751122),
+                                new kakao.maps.LatLng(37.612692696824915, 127.02642583551054),
+                                new kakao.maps.LatLng(37.612367438936786, 127.03018593770908),
+                                new kakao.maps.LatLng(37.60896889076571, 127.0302525167858),
+                                new kakao.maps.LatLng(37.61279787695882, 127.03730791358603),
+                                new kakao.maps.LatLng(37.62426467261789, 127.04973339977498),
+                                new kakao.maps.LatLng(37.61449950127667, 127.06174181124696),
+                                new kakao.maps.LatLng(37.61561580859776, 127.06985247014711),
+                                new kakao.maps.LatLng(37.61351359068103, 127.07170798866412),
+                                new kakao.maps.LatLng(37.60762512162974, 127.07105453180604),
+                                new kakao.maps.LatLng(37.605121767227374, 127.06219611364686),
+                                new kakao.maps.LatLng(37.6010580545608, 127.05917142337097),
+                                new kakao.maps.LatLng(37.60132672748398, 127.05508130598699),
+                                new kakao.maps.LatLng(37.600149587503246, 127.05209540476308),
+                                new kakao.maps.LatLng(37.60117358544485, 127.05101351973708),
+                                new kakao.maps.LatLng(37.59617641777492, 127.04734129391157),
+                                new kakao.maps.LatLng(37.59644879095525, 127.04184728392097),
+                                new kakao.maps.LatLng(37.59126734230753, 127.03875553445558),
+                                new kakao.maps.LatLng(37.5911852565689, 127.03621919708065),
+                                new kakao.maps.LatLng(37.58894739851823, 127.03553876830637),
+                                new kakao.maps.LatLng(37.58268174514337, 127.02953994610249),
+                                new kakao.maps.LatLng(37.57782865303167, 127.02296295333255),
+                                new kakao.maps.LatLng(37.57889204835333, 127.02179043639809),
+                                new kakao.maps.LatLng(37.57758802896556, 127.01812215416163),
+                                new kakao.maps.LatLng(37.581693162424465, 127.01673289259993),
+                                new kakao.maps.LatLng(37.582338528091164, 127.01483104096094),
+                                new kakao.maps.LatLng(37.58025588757531, 127.01058748333907),
+                                new kakao.maps.LatLng(37.58047228501006, 127.00863575242668),
+                                new kakao.maps.LatLng(37.58235007703611, 127.00677925856456),
+                                new kakao.maps.LatLng(37.586091007146834, 127.00667090686603),
+                                new kakao.maps.LatLng(37.58922302426079, 127.00228260552726),
+                                new kakao.maps.LatLng(37.592300831997434, 127.0009511248032),
+                                new kakao.maps.LatLng(37.59126960661375, 126.98919808879788),
+                                new kakao.maps.LatLng(37.59447673441787, 126.98544283754865),
+                                new kakao.maps.LatLng(37.59790270809407, 126.97672287261275),
+                                new kakao.maps.LatLng(37.60099164566844, 126.97852019816328),
+                                new kakao.maps.LatLng(37.60451393107786, 126.98678626394351),
+                                new kakao.maps.LatLng(37.611364924201304, 126.98565700183143),
+                                new kakao.maps.LatLng(37.613985109550605, 126.98658977758268),
+                                new kakao.maps.LatLng(37.6177725051378, 126.9837302191854),
+                                new kakao.maps.LatLng(37.6211493968146, 126.98365245774505),
+                                new kakao.maps.LatLng(37.626378096236195, 126.97960492198952),
+                                new kakao.maps.LatLng(37.6285585388996, 126.97992605309885),
+                                new kakao.maps.LatLng(37.62980449548538, 126.97468284124939),
+                                new kakao.maps.LatLng(37.633657663246694, 126.97740053878216),
+                                new kakao.maps.LatLng(37.63476479485093, 126.98154674721893),
+                                new kakao.maps.LatLng(37.63780700422825, 126.9849494717052),
+                                new kakao.maps.LatLng(37.63654916557213, 126.98446028560235)
+                            ]
+                        }, {
+                            name: '성동구',
+                            path: [
+                                new kakao.maps.LatLng(37.57275246810175, 127.04241813085706),
+                                new kakao.maps.LatLng(37.57038253579033, 127.04794980454399),
+                                new kakao.maps.LatLng(37.56231553903832, 127.05876047165025),
+                                new kakao.maps.LatLng(37.5594131360664, 127.07373408220053),
+                                new kakao.maps.LatLng(37.52832388381049, 127.05621773388143),
+                                new kakao.maps.LatLng(37.53423885672233, 127.04604398310076),
+                                new kakao.maps.LatLng(37.53582328355087, 127.03979942567628),
+                                new kakao.maps.LatLng(37.53581367627865, 127.0211714455564),
+                                new kakao.maps.LatLng(37.53378887274516, 127.01719284893274),
+                                new kakao.maps.LatLng(37.537681185520256, 127.01726163044557),
+                                new kakao.maps.LatLng(37.53938672166098, 127.00993448922989),
+                                new kakao.maps.LatLng(37.54157804358092, 127.00879872996808),
+                                new kakao.maps.LatLng(37.54502351209897, 127.00815187343248),
+                                new kakao.maps.LatLng(37.547466935106435, 127.00931996404753),
+                                new kakao.maps.LatLng(37.55264513061776, 127.01620129137214),
+                                new kakao.maps.LatLng(37.556850715898484, 127.01807638779917),
+                                new kakao.maps.LatLng(37.55779412537163, 127.0228934248264),
+                                new kakao.maps.LatLng(37.5607276739534, 127.02339232029838),
+                                new kakao.maps.LatLng(37.563390358462826, 127.02652159646888),
+                                new kakao.maps.LatLng(37.56505173515675, 127.02678930885806),
+                                new kakao.maps.LatLng(37.565200182350495, 127.02358387477513),
+                                new kakao.maps.LatLng(37.57190723475508, 127.02337770475695),
+                                new kakao.maps.LatLng(37.56978273516453, 127.03099733100001),
+                                new kakao.maps.LatLng(37.57302061077518, 127.0381755492195),
+                                new kakao.maps.LatLng(37.57275246810175, 127.04241813085706)
+                            ]
+                        }, {
+                            name: '마포구',
+                            path: [
+                                new kakao.maps.LatLng(37.584651324803644, 126.88883849288884),
+                                new kakao.maps.LatLng(37.57082994377989, 126.9098094620638),
+                                new kakao.maps.LatLng(37.56510367293256, 126.92601582346325),
+                                new kakao.maps.LatLng(37.5633319104926, 126.92828128083327),
+                                new kakao.maps.LatLng(37.55884751347576, 126.92659242918415),
+                                new kakao.maps.LatLng(37.55675317809392, 126.93190919632814),
+                                new kakao.maps.LatLng(37.555098093384, 126.93685861757348),
+                                new kakao.maps.LatLng(37.55654562007193, 126.9413708153468),
+                                new kakao.maps.LatLng(37.557241466445234, 126.95913438471307),
+                                new kakao.maps.LatLng(37.55908394430372, 126.96163689468189),
+                                new kakao.maps.LatLng(37.55820141918588, 126.96305432966605),
+                                new kakao.maps.LatLng(37.554784413504734, 126.9617251098019),
+                                new kakao.maps.LatLng(37.548791603525764, 126.96371984820232),
+                                new kakao.maps.LatLng(37.54546318600178, 126.95790512689311),
+                                new kakao.maps.LatLng(37.54231338779177, 126.95817394011969),
+                                new kakao.maps.LatLng(37.539468942052544, 126.955731506394),
+                                new kakao.maps.LatLng(37.536292068277106, 126.95128907260018),
+                                new kakao.maps.LatLng(37.53569162926515, 126.94627494388307),
+                                new kakao.maps.LatLng(37.53377712226906, 126.94458373402794),
+                                new kakao.maps.LatLng(37.54135238063506, 126.93031191951576),
+                                new kakao.maps.LatLng(37.539036674424615, 126.9271006565075),
+                                new kakao.maps.LatLng(37.54143034750605, 126.9224138272872),
+                                new kakao.maps.LatLng(37.54141748538761, 126.90483000187002),
+                                new kakao.maps.LatLng(37.548015078285694, 126.89890097452322),
+                                new kakao.maps.LatLng(37.56300401736817, 126.86623824787709),
+                                new kakao.maps.LatLng(37.57178997971358, 126.85363039091744),
+                                new kakao.maps.LatLng(37.57379738998644, 126.85362646212587),
+                                new kakao.maps.LatLng(37.57747251471329, 126.864939928088),
+                                new kakao.maps.LatLng(37.5781913017327, 126.87625939970273),
+                                new kakao.maps.LatLng(37.57977132158497, 126.87767870371688),
+                                new kakao.maps.LatLng(37.584440882833654, 126.87653889183002),
+                                new kakao.maps.LatLng(37.59079311146897, 126.88205386700724),
+                                new kakao.maps.LatLng(37.584651324803644, 126.88883849288884)
+                            ]
+                        },
+                        {
+                            name: '송파구',
+
+                            path: [new kakao.maps.LatLng(37.516834948137756, 127.14509193538333),
+                                new kakao.maps.LatLng(37.54316556390522, 127.10916921812664),
+                                new kakao.maps.LatLng(37.52420775277487, 127.06750996187267),
+                                new kakao.maps.LatLng(37.50253510069335, 127.07193771506702),
+                                new kakao.maps.LatLng(37.50250336653933, 127.07227112710261),
+                                new kakao.maps.LatLng(37.466520485549076, 127.1242068799681),
+                                new kakao.maps.LatLng(37.516834948137756, 127.14509193538333)]
+                        },
+                        {
+                            name: '강동구',
+
+                            path: [
+                                new kakao.maps.LatLng(37.516834948137756, 127.14509193538333),
+                                new kakao.maps.LatLng(37.5567598238559, 127.11525230322401),
+                                new kakao.maps.LatLng(37.55037761537388, 127.11153397119577),
+                                new kakao.maps.LatLng(37.54316625854222, 127.10914248211203),
+                                new kakao.maps.LatLng(37.54316556390522, 127.10916921812664),
+                                new kakao.maps.LatLng(37.516834948137756, 127.14509193538333)
+                            ]
+                        },
+                        {
+                            name: '도봉구',
+
+                            path: [
+                                new kakao.maps.LatLng(37.68444952137286, 127.00866351452741),
+                                new kakao.maps.LatLng(37.67015573008051, 127.01849458128332),
+                                new kakao.maps.LatLng(37.652183699643025, 127.0124440453936),
+                                new kakao.maps.LatLng(37.630451408785774, 127.04259884914953),
+                                new kakao.maps.LatLng(37.647048829750474, 127.0558246822651),
+                                new kakao.maps.LatLng(37.68581356414116, 127.05180331222847),
+                                new kakao.maps.LatLng(37.701455279213995, 127.01541510754204),
+                                new kakao.maps.LatLng(37.68444952137286, 127.00866351452741)
+                            ]
+                        },
+                    ];
+
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                        mapOption = {
+                            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+                            level: 8 // 지도의 확대 레벨
+                        };
+
+                    var map = new kakao.maps.Map(mapContainer, mapOption),
+                        customOverlay = new kakao.maps.CustomOverlay({}),
+                        infowindow = new kakao.maps.InfoWindow({removable: true});
+
+                    // 지도에 영역데이터를 폴리곤으로 표시합니다
+                    for (var i = 0, len = areas.length; i < len; i++) {
+                        displayArea(areas[i]);
+                    }
+
+                    // 다각형을 생상하고 이벤트를 등록하는 함수입니다
+                    function displayArea(area) {
+
+                        // 다각형을 생성합니다
+                        var polygon = new kakao.maps.Polygon({
+                            map: map, // 다각형을 표시할 지도 객체
+                            path: area.path,
+                            strokeWeight: 2,
+                            strokeColor: '#004c80',
+                            strokeOpacity: 0.8,
+                            fillColor: '#fff',
+                            fillOpacity: 0.7
+                        });
+
+                        // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다
+                        // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
+                        kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
+                            polygon.setOptions({fillColor: '#09f'});
+
+                            customOverlay.setContent('<div class="area">' + area.name + '</div>');
+
+                            customOverlay.setPosition(mouseEvent.latLng);
+                            customOverlay.setMap(map);
+                        });
+
+                        // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
+                        kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
+
+                            customOverlay.setPosition(mouseEvent.latLng);
+                        });
+
+                        // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
+                        // 커스텀 오버레이를 지도에서 제거합니다
+                        kakao.maps.event.addListener(polygon, 'mouseout', function () {
+                            polygon.setOptions({fillColor: '#fff'});
+                            customOverlay.setMap(null);
+                        });
+
+                        // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
+                        kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
+                            var content = '<div class="info">' +
+                                '   <div class="title">' + area.name + '</div>' +
+                                '   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></area>' +
+                                '</div>';
+
+                            infowindow.setContent(content);
+                            infowindow.setPosition(mouseEvent.latLng);
+                            infowindow.setMap(map);
+                        });
+                    }
+                </script>
+                <!-- <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 "> -->
+                <!-- 지도이미지 칸 -->
+                <!-- <div class="relative w-full h-52 col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                  style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
+
+                    <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
+                    <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
+                      <div>
+                        <h3 class="text-center text-white text-lg">
+                             롯데월드 데이트 코스
+                        </h3>
+                        <h3 class="text-center text-white text-3xl mt-2 font-bold">
+                             좋아요 45,941
+                        </h3>
+                        <div class="flex space-x-4 mt-4">
+                           <button class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
+                            focus:outline-none  text-xs py-3 px-4 rounded font-bold">
+                            탐색하기
+                          </button>
+                          <button class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
+                             focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                            댓글보기
+                          </button>
                         </div>
                       </div>
-                      <div class="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4 xxl:col-span-4">
-                          <div class="p-4">
-                          <!-- 프로그래스 바 기능 있으면 좋겠죠? -->
-                              <p class="text-sm text-gray-400">Heart Temperature</p>
-                              <div class="shadow w-full bg-gray-100 mt-2">
-                                  <div class="bg-pink-400 text-xs leading-none py-1 text-center text-white" style="width: 75%"></div>
+                    </div>
+                </div>
+                  -->
+                <!-- 순위같은거 있으면 좋으려나 -->
+                <!-- <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                 style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
+                   <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
+                   <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
 
-                               </div>
-                                <p class="text-xs font-semibold text-gray-400 mt-2">[$좋아요] 45,941 total</p>
-                           </div>
-                      </div>
-                    </div>
-                    <!-- 상단바 끝 -->
-                    <div>여기에 상세지도(구별로) 마커나 경로... 마커로 갑시다!</div>
-                    <!-- <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 "> -->
-                        <!-- 지도이미지 칸 -->
-                      <!-- <div class="relative w-full h-52 col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
-                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                            <div>
-                              <h3 class="text-center text-white text-lg">
-                                   롯데월드 데이트 코스
-                              </h3>
-                              <h3 class="text-center text-white text-3xl mt-2 font-bold">
-                                   좋아요 45,941
-                              </h3>
-                              <div class="flex space-x-4 mt-4">
-                                 <button class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold">
-                                  탐색하기
-                                </button>
-                                <button class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
-                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                  댓글보기
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                        -->
-                      <!-- 순위같은거 있으면 좋으려나 -->
-                       <!-- <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
-                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
-                            <div>
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>이 코스의 순위는?</p>
-                              </div>
-                              <h3 class="text-white text-3xl mt-2 font-bold">
-                                  1위
-                              </h3>
-                               <h3 class="text-white text-lg mt-2 ">
-                                 2위 - 강남 원데이 클래스 체험<br>
-                                 3위 - 홍대 방탈출 카페 순회
-                              </h3> -->
-                              <!-- 클릭해서 바로 옮겨가기있으면 좋겠 -->
-                            </div>
-                          </div>
-                      </div>        
-                    </div>
-                    
-                  <!-- End Content-->
-              </div>
-          </main>
-        </div>
+                     <div>
+                       <div class="text-white text-lg flex space-x-2 items-center">
+                         <div class="bg-white rounded-md p-2 flex items-center">
+                           <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
+                         </div>
+                         <p>이 코스의 순위는?</p>
+                       </div>
+                       <h3 class="text-white text-3xl mt-2 font-bold">
+                           1위
+                       </h3>
+                        <h3 class="text-white text-lg mt-2 ">
+                          2위 - 강남 원데이 클래스 체험<br>
+                          3위 - 홍대 방탈출 카페 순회
+                       </h3> -->
+                <!-- 클릭해서 바로 옮겨가기있으면 좋겠 -->
+            </div>
     </div>
+</div>
+</div>
+
+<!-- End Content-->
+</div>
+</main>
+</div>
+</div>
 </body>
 </body>
 </html>
