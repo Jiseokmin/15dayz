@@ -12,8 +12,8 @@ app.secret_key = SECRET_KEY
 
 doc_login = {
     'name': 'Tester',
-    'userid': '111@111.com',
-    'password': '111',
+    'userid': TEST_USER_ID,
+    'password': TEST_USER_PW,
 }
 
 # 프로그램 실행할 때마다 DB에 insert가 되어서 이 부분 주석 처리하겠습니다 !  db.login.insert_one(doc_login)
