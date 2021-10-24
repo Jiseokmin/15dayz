@@ -52,7 +52,7 @@
 <body>
 
 <div class="py-1 bg-pink-500" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT6yeLguLL4N7rGSIhtFoCZ38B_DYy8FAB7w&usqp=CAU')">
-<div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
+<div class="w-full lg:w-8/12 px-4 mx-auto mt-6 sm:text-base">
   <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-pink-200 border-0">
     <div class="rounded-lg bg-pink-100 mb-0 px-6 py-6 " >
       <div class="text-center flex justify-between">
@@ -75,7 +75,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2">
                 지역
               </label>
-              <input id="location" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서대문구">
+              <input id="location" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서대문구">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -83,7 +83,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 테마
               </label>
-              <input id="thema" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="아웃도어">
+              <input id="thema" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="아웃도어">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -91,7 +91,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 소요시간 (선택입력)
               </label>
-              <input id="time" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="8시간">
+              <input id="time" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="8시간">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -99,7 +99,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 예산 (선택입력)
               </label>
-              <input id="budget" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="7만원">
+              <input id="budget" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="7만원">
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 메인 로케이션
               </label>
-              <input id="main_location" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서울특별시 송파구 잠실동 올림픽로 240">
+              <input id="main_location" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서울특별시 송파구 잠실동 올림픽로 240">
             </div>
           </div>
           <div class="w-full lg:w-4/12 px-4">
@@ -123,8 +123,8 @@
              <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 경유지1
               </label>
-              <input id="via1" type="email" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="카페">
-                                          <input id="via1_comment" type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="따뜻한 커피 한잔 들고 걸으면">
+              <input id="via1" type="email" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="카페">
+                            <textarea id="via1_comment" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="초콜릿을 사서 지칠때 드세요" rows="4"></textarea>
             </div>
           </div>
           <div class="w-full lg:w-4/12 px-4">
@@ -132,8 +132,8 @@
              <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 경유지2
               </label>
-              <input id="via2" type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="도서관">
-                                          <input id="via2_comment" type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="책과 커피가 있으면 그게 인테리어지">
+              <input id="via2" type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="도서관">
+                            <textarea id="via2_comment" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="초콜릿을 사서 지칠때 드세요" rows="4"></textarea>
             </div>
           </div>
           <div class="w-full lg:w-4/12 px-4">
@@ -141,9 +141,9 @@
              <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 경유지3
               </label>
-              <input id="via3" type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="편의점">
+              <input id="via3" type="text" class="border-0 px-3 py-3 mb-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="편의점">
                             
-                            <input id="via3_comment" type="text" class="border-0 px-3 py-8 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="초콜릿을 사서 지칠때 드세요">
+                            <textarea id="via3_comment" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="초콜릿을 사서 지칠때 드세요" rows="4"></textarea>
             </div>
           </div>
         </div>
@@ -156,10 +156,10 @@
         <div class="flex flex-wrap">
           <div class="w-full lg:w-12/12 px-4">
             <div class="relative w-full mb-3">
-              <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+              <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" >
                 당신만의 꿀팁이 있다면 남겨주세요!
               </label>
-              <textarea id="comment" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" rows="4" placeholder="꿀팁 - 롯데타워 푸드코트 맛있음"></textarea>
+              <textarea id="comment" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="꿀팁 - 롯데타워 푸드코트 맛있음" rows="4"></textarea>
             </div>
           </div>
         </div>

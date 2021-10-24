@@ -119,14 +119,15 @@ def make_course():
     return jsonify({'msg': '저장 완료!'})
 
 
-@app.route('/showreviews')
-def showReview():
-    return render_template('showreviews.html')
-
-
 @app.route('/detail2')
 def detail2():
     return render_template('detail2.html')
+
+@app.errorhandler(404) 
+def page_not_found(error):
+    return render_template('404notfound.html')
+
+
 
 
 # 모든 리뷰 가져와서 전달
