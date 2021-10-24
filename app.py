@@ -6,7 +6,7 @@ app = Flask(__name__, template_folder='templates')
 client = MongoClient('13.124.239.157', 27017)
 db = client.date_service
 
-app.secret_key = "99d7e201187334217ba4f1c51a72e412"
+app.secret_key = ""
 
 doc = {
     'name': 'Tester',
