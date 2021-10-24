@@ -14,6 +14,9 @@ MONGODB_SETTINGS = {
     'DB': 'flaskexample'
 }
 
+TEST_USER_ID = '111@111.com'
+TEST_USER_PW = '111'
+
 # flask mail settings
 MAIL_DEFAULT_SENDER = 'noreply@yourmail.com'
 
