@@ -58,6 +58,37 @@ def logout():
     # return render_template("index.html", login=False)
 
 
+@app.route('/user_register', methods=['POST'])
+def user_register():
+    firstname_receive = request.form['firstname_give']
+    lastname_receive = request.form['lastname_give']
+    regi_email_receive = request.form['regi_email_give']
+    regi_password_receive = request.form['regi_password_give']
+    password_confirm_receive = request.form['password_confirm_give']
+
+    if db.login.find_one({'userid': regi_email_receive}) :
+        return jsonify({'msg': '이미 가입되어 있는 ID입니다.! 새로운 ID로 가입하세요!'})
+    else :
+        if regi_password_receive == password_confirm_receive :
+            doc_regi = {
+                'firstname': firstname_receive,
+                'lastname': lastname_receive,
+                'regi_email': regi_email_receive,
+                'regi_password': regi_password_receive,
+                'password_comfirm': password_confirm_receive,
+            }
+            doc_login = {
+                'regi_email': regi_email_receive,
+                'regi_password': regi_password_receive,
+            }
+
+            db.user_regi.insert_one(doc_regi)
+            db.login.insert_one(doc_login)
+            return jsonify({'msg': '가입 성공! email ID와 Password를 이용해서 Login하세요!'})
+        else :
+            return jsonify({'msg': '가입 실패! Password를 다시 확인해 주세요!'})
+
+
 @app.route('/tests', methods=['GET'])
 def read_test():
     all_reviews = list(test_db.mapcontrol2.find({}, {'_id': False}))

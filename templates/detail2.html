@@ -65,6 +65,8 @@
                       <i class="fas fa fa-heartbeat fa-sm text-white"></i>
                     </li>
 
+
+
                     <!-- 전원버튼 불꺼짐 -->
                     <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto  cursor-pointer transition duration-500 ease-in-out bg-pink-100 transform hover:-translate-y-1 hover:scale-110 " @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                       <i class="fas fa-power-off fa-sm text-gray-400"></i>
@@ -203,96 +205,25 @@
 
         <!-- End Sidebar -->
 
-        <div class="flex flex-col flex-1 w-full overflow-y-auto">
+        <div class="flex flex-col flex-1 w-full">
             <!-- 상단바입니다 -->
             <!--End Topbar -->
-          <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
+          <main class="relative z-0 flex-1 pb-8 px-6 bg-pink-50">
               <div class="grid pb-10  mt-4 ">
-                  <!-- Start Content-->
-                    <div class="mb-2">
-                      <p class="text-lg font-semibold text-gray-400">2021년 11월 01일 [$동작]구의 데이트코스 💕</p>
-                    </div>
-                    <div class="grid grid-cols-12 gap-6 border-b-2 pb-5">
-                      <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
-                        <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 mt-3">
-                           <div class="p-4">
-                              <p class="text-xl font-bold">마커 클릭시 [$코스이름]</p>
-                              <p class="text-xs font-semibold text-gray-400">[$작성자]</p>
-                           </div>
-                           <div class="p-4">
-                              <p class="text-xl font-bold">테마</p>
-                              <p class="text-xs font-semibold text-gray-400">[$테마를 #해시태그형태로]</p>
-                           </div>
-                           <div class="p-4 col-span-2">
-                              <p class="text-xl font-bold">이런 사람에게 추천해요</p>
-                              <p class="text-xs font-semibold text-gray-400">[인도어 아웃도어같은 성향을 유저데이터에 추가하면 어떨까여]</p>
-                           </div>
-                        
-                        </div>
-                      </div>
-                      <div class="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4 xxl:col-span-4">
-                          <div class="p-4">
-                          <!-- 프로그래스 바 기능 있으면 좋겠죠? -->
-                              <p class="text-sm text-gray-400">Heart Temperature</p>
-                              <div class="shadow w-full bg-gray-100 mt-2">
-                                  <div class="bg-pink-400 text-xs leading-none py-1 text-center text-white" style="width: 75%"></div>
 
-                               </div>
-                                <p class="text-xs font-semibold text-gray-400 mt-2">[$좋아요] 45,941 total</p>
-                           </div>
-                      </div>
-                    </div>
+
                     <!-- 상단바 끝 -->
-                    <div>여기에 상세지도(구별로) 마커나 경로... 마커로 갑시다!</div>
-                    <!-- <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 "> -->
-                        <!-- 지도이미지 칸 -->
-                      <!-- <div class="relative w-full h-52 col-span-2 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
-                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                            <div>
-                              <h3 class="text-center text-white text-lg">
-                                   롯데월드 데이트 코스
-                              </h3>
-                              <h3 class="text-center text-white text-3xl mt-2 font-bold">
-                                   좋아요 45,941
-                              </h3>
-                              <div class="flex space-x-4 mt-4">
-                                 <button class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold">
-                                  탐색하기
-                                </button>
-                                <button class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
-                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                  댓글보기
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                        -->
-                      <!-- 순위같은거 있으면 좋으려나 -->
-                       <!-- <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
-                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
-                            <div>
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>이 코스의 순위는?</p>
-                              </div>
-                              <h3 class="text-white text-3xl mt-2 font-bold">
-                                  1위
-                              </h3>
-                               <h3 class="text-white text-lg mt-2 ">
-                                 2위 - 강남 원데이 클래스 체험<br>
-                                 3위 - 홍대 방탈출 카페 순회
-                              </h3> -->
-                              <!-- 클릭해서 바로 옮겨가기있으면 좋겠 -->
+        <!-- <div  class="flex flex-col flex-grow w-30 h-30 p-2 overflow-hidden" >
+
+               <iframe id="gather" class="justify-items-stretch rounded-md flex-shrink-0 overflow-hidden" src="https://gather.town/app/BYIlICx1p05yty8H/15days"
+               frameborder="0" allowfullscreen>
+               <br>
+               데스크탑에서 제대로 보여요
+               <br>
+               체크
+               </iframe>  
+</div> -->
+
                             </div>
                           </div>
                       </div>        

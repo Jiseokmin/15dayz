@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-        <script>
+    <script>
          $(document).ready(function () {
 
          });
@@ -30,6 +30,28 @@
                 function detail2() {
                 window.location.href = '/detail2';
                 };
+
+        function user_register() {
+            let firstname = $('#firstname').val();
+            let lastname = $('#lastname').val();
+            let regi_email = $('#regi_email').val();
+            let regi_password = $('#regi_password').val();
+            let password_confirm = $('#password_confirm').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/user_register',
+                data: {
+                    firstname_give: firstname, lastname_give: lastname, regi_email_give: regi_email,
+                    regi_password_give: regi_password, password_confirm_give: password_confirm
+                },
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload();
+                }
+            });
+        }
+
     </script>
 
 </head>
@@ -78,10 +100,7 @@
                     <div class="pb-2 pt-2">
                         <input class="block w-full p-4 text-lg rounded-sm bg-gray-100" type="password" name="password" id="password" placeholder="Password">
                     </div>
-                    <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
-                        <a href="#">Forgot your password?</a>
-                    </div>
-                    <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
+                    <div class="cursor-pointer text-right text-gray-400 hover:underline hover:text-gray-100">
 		                <a onclick="openModal('main-modal')">회원가입하러가기</a>
                     </div>
 
@@ -120,37 +139,40 @@
         
 
 
-	<div class="main-modal overflow-hidden fixed w-full inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
-		<div class="grid min-h-screen place-items-center">
-			<div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-10/12 lg:w-10/12 xs:w-1 rounded-2xl">
-			  <h1 class="text-xl font-semibold">안녕하세요 썸바르타 입니다. 👋, <span class="font-normal">이용약관을 참조해 회원가입을 진행해주세요.</span></h1>
+	<div class="main-modal fixed w-full inset-0 z-50 flex justify-center items-center animated fadeIn faster overflow-auto" style="background: rgba(0,0,0,.7);">
+		<div class="grid place-items-center">
+			<div class="w-10/12 px-10 py-6 bg-white sm:w-11/12 lg:w-11/12 xs:w-1 rounded-md">
+			<div class="lg:px-0 font-bold capitalize mt-2 flex p-1 m-1">
+            <span class= "text-pink-900 text-2xl">SS</span><span class="font-thin text-xl text-pink-200">umbarota<span class="pl-1 text-gray-500">registration</span>
+</span>
+            </div>
+            
 			  <form class="mt-6">
 				<div class="flex justify-between gap-3">
 				  <span class="">
-					<label for="firstname" class="block text-xs font-semibold text-gray-600 uppercase">Name</label>
-					<input id="firstname" type="text" name="firstname" placeholder="John" autocomplete="given-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+					<label for="firstname" class="block text-xs font-semibold text-gray-600 uppercase">이름</label>
+					<input id="firstname" type="text" name="firstname" placeholder="홍길동" autocomplete="given-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 				  </span>
 				  <span class="w-1/2">
-					<label for="lastname" class="block text-xs font-semibold text-gray-600 uppercase">Lastname</label>
-				  <input id="lastname" type="text" name="lastname" placeholder="Doe" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+					<label for="sex" class="block text-xs font-semibold text-gray-600 uppercase">성별</label>
+				  <input id="lastname" type="text" name="lastname" placeholder="선택입력" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 				  </span>
 				</div>
-				<label for="email" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">ID</label>
-				<input id="email" type="email" name="email" placeholder="Id는 이메일 형식을 사용해주세요" autocomplete="email" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
-				<label for="password" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
-				<input id="password" type="password" name="password" placeholder="자주쓰는 비밀번호는 사용하지 말아주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
-				<label for="password-confirm" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Confirm password</label>
-				<input id="password-confirm" type="password" name="password-confirm" placeholder="자주쓰는 비밀번호는 사용하지 말아주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+				<label for="regi_email" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">ID</label>
+				<input id="regi_email" type="email" name="regi_email" placeholder="Id는 이메일 형식을 사용해주세요" autocomplete="email" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+				<label for="regi_password" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
+				<input id="regi_password" type="password" name="regi_password" placeholder="자주쓰는 비밀번호는 사용하지 말아주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+				<label for="password_confirm" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Confirm password</label>
+				<input id="password_confirm" type="password" name="password_confirm" placeholder="비밀번호를 한 번 더 입력해주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 				<div class="">
 
-				<button type="submit" class="w-full py-3 mt-3 font-medium tracking-widest text-white uppercase bg-pink-300 shadow-lg focus:outline-none hover:bg-pink-500 hover:shadow-none rounded-3xl">
+				<button type="submit" class="w-full py-3 mt-3 font-medium tracking-widest text-white uppercase bg-pink-300 shadow-lg focus:outline-none hover:bg-pink-500 hover:shadow-none rounded-3xl" onclick="user_register()">
 				  가입하기
 				</button>
 			  </div>
-				<p class="flex justify-between inline-block mt-4 text-xs text-gray-500 cursor-pointer hover:text-black">Already registered?</p>
 			  </form>
-                <button   onclick="modalClose('main-modal')" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-gray-500 shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none rounded-3xl">
-				  돌아가기
+                <button onclick="modalClose('main-modal')" class="w-full py-3 mt-3 font-medium tracking-widest text-white uppercase bg-gray-500 shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none rounded-3xl">
+				  취소
 				</button>
 			</div>
 		  </div>

@@ -755,3 +755,11 @@
 	        animation: heartbeat 1.5s ease-in-out infinite both;
 }
 
+#gather {
+   display: block;   
+   border: none;   
+   height: 100vh;   
+   width: 70vw; 
+   
+   }
+
