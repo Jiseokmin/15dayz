@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-        <script>
+    <script>
          $(document).ready(function () {
 
          });
@@ -30,6 +30,28 @@
                 function detail2() {
                 window.location.href = '/detail2';
                 };
+
+        function user_register() {
+            let firstname = $('#firstname').val();
+            let lastname = $('#lastname').val();
+            let regi_email = $('#regi_email').val();
+            let regi_password = $('#regi_password').val();
+            let password_confirm = $('#password_confirm').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/user_register',
+                data: {
+                    firstname_give: firstname, lastname_give: lastname, regi_email_give: regi_email,
+                    regi_password_give: regi_password, password_confirm_give: password_confirm
+                },
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload();
+                }
+            });
+        }
+
     </script>
 
 </head>
@@ -135,15 +157,15 @@
 				  <input id="lastname" type="text" name="lastname" placeholder="Doe" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 				  </span>
 				</div>
-				<label for="email" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">ID</label>
-				<input id="email" type="email" name="email" placeholder="Id는 이메일 형식을 사용해주세요" autocomplete="email" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
-				<label for="password" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
-				<input id="password" type="password" name="password" placeholder="자주쓰는 비밀번호는 사용하지 말아주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
-				<label for="password-confirm" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Confirm password</label>
-				<input id="password-confirm" type="password" name="password-confirm" placeholder="자주쓰는 비밀번호는 사용하지 말아주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+				<label for="regi_email" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">ID</label>
+				<input id="regi_email" type="email" name="regi_email" placeholder="Id는 이메일 형식을 사용해주세요" autocomplete="email" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+				<label for="regi_password" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
+				<input id="regi_password" type="password" name="regi_password" placeholder="자주쓰는 비밀번호는 사용하지 말아주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+				<label for="password_confirm" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Confirm password</label>
+				<input id="password_confirm" type="password" name="password_confirm" placeholder="자주쓰는 비밀번호는 사용하지 말아주세요" autocomplete="new-password" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 				<div class="">
 
-				<button type="submit" class="w-full py-3 mt-3 font-medium tracking-widest text-white uppercase bg-pink-300 shadow-lg focus:outline-none hover:bg-pink-500 hover:shadow-none rounded-3xl">
+				<button type="submit" class="w-full py-3 mt-3 font-medium tracking-widest text-white uppercase bg-pink-300 shadow-lg focus:outline-none hover:bg-pink-500 hover:shadow-none rounded-3xl" onclick="user_register()">
 				  가입하기
 				</button>
 			  </div>
