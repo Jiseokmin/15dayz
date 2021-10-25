@@ -4,7 +4,7 @@ from settings import *
 
 app = Flask(__name__, template_folder='templates')
 
-client = MongoClient('13.124.239.157', 27017)
+client = MongoClient(PROJECT_SITE_URL, 27017)
 db = client.date_service
 test_db = client.mapcontrol
 
