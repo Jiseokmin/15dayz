@@ -41,6 +41,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href = "../static/main.css">
+    <script src="../static/test.js"></script>
 </head>
 
 <!-- https://alpinejs.dev/directives/data -->
@@ -53,13 +54,14 @@
                 <!-- 최상단 아이콘 2개 -->
                   <ul class="mt-6 leading-10 px-4">
                   <!-- mb : 마진 bottom 줄임말 테일윈드 페이지상단에 약어를 검색하면 나와여 -->
-                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-purple-400 cursor-pointer border-r-2 border-b-2"
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-purple-400 cursor-pointer border-r-2 border-b-2 transform  hover:scale-110 hover:bg-purple-300"
                         @click="openMenu !== 1 ? openMenu = 1 : openMenu = null"
                       >
                       <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
                       <i class="fas fa fa-globe fa-sm text-white"></i>
                     </li>
-                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2 " @click="openMenu !== 8 ? openMenu = 8 : openMenu = null">
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2 transform hover:scale-110 hover:bg-pink-300" 
+                    @click="openMenu !== 8 ? openMenu = 8 : openMenu = null">
                       <i class="fas fa fa-heartbeat fa-sm text-white"></i>
                     </li>
 
@@ -84,7 +86,7 @@
                 <!-- 아이콘은 같은회사꺼 씁니다 -->
 
                 <!-- <a href="./result.html" target="_blank"> -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="result()" >
+                <div id="shakeit2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" onclick="result()" >
                   
                 <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
@@ -94,21 +96,21 @@
                 <!-- </a> -->
               
 <!-- <a href ="./result.html" target="_blank"> -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="result()">
+                <div id="shakeit2_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="result()">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa fa-paw fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">오늘의핫플</p>
                 </div>
 <!-- </a> -->
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+                <div id="shakeit2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-id-card fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">마이페이지</p>
                 </div>
 
-                <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+                <div id="shakeit2_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center ">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
@@ -130,9 +132,9 @@
         <form methods = "get" id="login" action={{url_for("login")}} >
         <input type="email" name="email" id="email" class="w-full h-11 rounded-md px-4 mb-2" placeholder="아이디"/>
         <input type="password" name="password" id="password" class="w-full h-11 rounded-md px-4 mb-2" placeholder="비밀번호"/>
-        <button type="submit" class="w-full h-12 rounded-lg bg-pink-400  uppercase font-semibold hover:bg-pink-600 text-gray-100 transition mb-2" >Login</button>
-        <button class="w-full h-12 rounded-lg bg-pink-300 text-gray-150 uppercase font-semibold hover:bg-pink-500 text-gray-100 transition mb-2">Sign with kakao</button>
-        <p class="text-right mb-4 text-sm font-medium text-pink-500 underline" onclick="index()">아이디가 없어요</p>
+        <button id="btnheart" type="submit" class="w-full h-12 rounded-lg bg-pink-400  uppercase font-semibold hover:bg-pink-600 text-gray-100 transition mb-2" >Login</button>
+        <button id="btnheart" class="w-full h-12 rounded-lg bg-pink-300 text-gray-150 uppercase font-semibold hover:bg-pink-500 text-gray-100 transition mb-2">Sign with kakao</button>
+        <p id="noid" class="cursor-pointer text-right text-sm font-medium text-pink-500 underline ml-11 flex items-center" onclick="index()">아이디가 없어요</p>
         </form>
     </div>
 </div>
@@ -146,7 +148,7 @@
 <!-- 가입하세요! -->
 <div class="flex flex-wrap place-items-center h-screen">
     <!-- card -->
-    <div class="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-3 hover: rounded-lg md:w-140 m-auto">
+    <div id="shakeit" class="overflow-hidden shadow-lg transition duration-500 ease-in-out   rounded-lg md:w-140 m-auto">
         
             <div class="bg-white w-full p-6 mt-3">
                 <p class="text-gray-500 text-2xl font-medium">
@@ -158,16 +160,16 @@
                 <p class="text-gray-600 font-light text-md">
                     넓고도 좁은 서울... 사용자들에 의해 검증된 시스템!
                     간단한 가입만으로 제한없이 액세스 가능합니다.
-                    <a class="inline-flex text-pink-500 cursor-pointer" onclick="home()">가입하러가기</a>
+                    <a id="noid" class="inline-flex text-pink-500 cursor-pointer" onclick="home()">가입하러가기</a>
                 </p>
                 <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400 cursor-pointer">
                         #해시태그
                     </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400 cursor-pointer">
                         #핫플레이스
                     </span>
-                    <span class="m-1 px-2 py-1 rounded bg-pink-400">
+                    <span class="m-1 px-2 py-1 rounded bg-pink-400 cursor-pointer">
                         #추천
                     </span>
                 </div>
