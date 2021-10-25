@@ -74,6 +74,12 @@ def result():
     return render_template('result.html')
 
 
+@app.route('/result/list', methods = ['GET'])
+def result_course():
+    result_cou = list(db.courses.find({},{'_id':False}))
+    return jsonify({'result_course' : result_cou})
+
+
 @app.route('/reviews')
 def show_map():
     return render_template('reviews.html')

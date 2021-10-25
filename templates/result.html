@@ -9,27 +9,98 @@
 
     <script>
          $(document).ready(function () {
-            showReview();
+            result_course();
          });
 
-         function showReview() {
+         function result_course() {
             $.ajax({
                 type: 'GET',
-                url: '/review',
+                url: '/result/list',
                 data: {},
                 success: function (response) {
-                    let reviews = response['reviews'];
+                    let reviews = response['result_course'];
+                    console.log(reviews)
+                    for (let i=0; i < reviews.length; i++){
+                        let budget = reviews[i]['budget']
+                        let commnet = reviews[i]['commnet']
+                        let location = reviews[i]['location']
+                        let main_location = reviews[i]['main_location']
+                        let time = reviews[i]['time']
+                        let thema = reviews[i]['thema']
+                        let via1 = reviews[i]['via1']
+                        let via1_comment = reviews[i]['via1_comment']
+                        let via2 = reviews[i]['via2']
+                        let via2_commnet = reviews[i]['via2_comment']
+                        let via3 = reviews[i]['via3']
+                        let via3_comment = reviews[i]['via3_comment']
 
-                    for(let i = 0 ; i < reviews.length; i ++) {
-                        let course_name = reviews[i]['course_name'];
-                        let thema = reviews[i]['thema'];
-                        let hashtag = reviews[i]['hashtag'];
-                        let start_spot = reviews[i]['start_spot'];
-                        let via_spot = reviews[i]['via_spot'];
-                        let end_spot = reviews[i]['end_spot'];
-                        let contents = reviews[i]['contents'];
-                        let like = reviews[i]['like'];
+                        let temp_html = `<div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
+                        <!-- 지도이미지 칸 -->
+                      <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
+
+                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
+                            <div>
+                              <h3 id="maintitle" class="text-center text-white text-lg">
+                                   좋아요 45,941
+                              </h3>
+                              <h3 id="maintitle" class="text-center text-white text-3xl mt-2 font-bold">
+                                   ${main_location} 데이트 코스
+                              </h3>
+
+                                 <div class="flex  mt-5 items-center justify-center">
+                                 <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
+                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
+                                  탐색하기
+                                </button>
+                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
+                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+                                  댓글보기
+                                </button>
+                              </div>
+
+
+                            </div>
+                          </div>
+                      </div>
+
+                      <!-- 순위같은거 있으면 좋으려나 -->
+                       <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
+                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
+                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
+                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
+
+                            <div>
+                              <div class="text-white text-lg flex space-x-2 items-center">
+                                <div class="bg-white rounded-md p-2 flex items-center">
+                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
+                                </div>
+                                <p>이런 사람에게 추천해요</p>
+                              </div>
+                              <h3 id="hsitag" class="text-white text-2xl mt-2 font-bold mb-4">
+                                  ${commnet}
+                              </h3>
+
+                              <div class="text-white text-lg flex space-x-2 items-center">
+                                <div class="bg-white rounded-md p-2 flex items-center">
+                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
+                                </div>
+                                <p>소요 시간</p>
+                              </div>
+                              <h3 id="hsitag" class="text-white text-2xl font-bold leading-loose">
+                                  ${time} 이상
+                              </h3>
+
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    </div>`
+                        $(`#card-box`).append(temp_html)
+
                     }
+
                 }
             });
         }
@@ -76,24 +147,24 @@
             <div class="mb-6">
                 <!--Start logo 사이드바 안에 있는 컨텐츠들입니다 -->
                 <div class="flex justify-center">
-                
+
                   <div class="w-14 h-14 rounded-full bg-white border-2 border-white mt-2
                   " @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
                     <!-- 유저프로필 -->
-                    <img 
-                      src="https://stickershop.line-scdn.net/stickershop/v1/product/8543/LINEStorePC/main.png;compress=true" 
+                    <img
+                      src="https://stickershop.line-scdn.net/stickershop/v1/product/8543/LINEStorePC/main.png;compress=true"
                      class="rounded-full w-auto"
                     />
                   </div>
                 </div>
                 <!-- 로고 밑에 아이콘들 -->
-                
+
 
             </div>
         </aside>
         <!-- 보라색 누르면 나오는 메뉴 -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block " 
-               x-show="openMenu ==  1" 
+        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-pink-200 sm:block "
+               x-show="openMenu ==  1"
 
                style="display: none;">
             <div class="mb-6">
@@ -103,14 +174,14 @@
 
 <!-- <a href="./result.html"> -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110" onclick="home();" >
-                  
+
                 <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-chart-pie fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">홈으로가기</p>
                 </div>
                 <!-- </a> -->
-              
+
 <!-- <a href ="./result.html"> -->
                 <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null ">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
@@ -139,10 +210,10 @@
         </aside>
                 <!-- Start Navitem -->
 
- 
 
 
-    
+
+
 
 
         <!-- End Sidebar -->
@@ -155,7 +226,7 @@
                   <!-- Start Content-->
                     <div class="mb-2">
                       <p class="text-lg font-semibold text-gray-400  mb-2">2021년 11월 01일 [$동작]구의 핫플레이스 💕
-                      
+
 <form action="" class="flex justify-center bg-white rounded-xl border-2 overflow-hidden">
     <input type="search" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-blue-500 flex-grow p-2">
     <button type="submit">
@@ -168,13 +239,13 @@
 
                       </p>
                     </div>
-
+                    <div id="card-box">
                     <!-- 카드 -->
                     <div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
                         <!-- 지도이미지 칸 -->
                       <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
                         style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
+
                           <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
                           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
                             <div>
@@ -190,7 +261,7 @@
                                   focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
                                   탐색하기
                                 </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
+                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
                                    focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
                                   댓글보기
                                 </button>
@@ -200,13 +271,13 @@
                             </div>
                           </div>
                       </div>
-                       
+
                       <!-- 순위같은거 있으면 좋으려나 -->
                        <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
                         style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
                           <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
                           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
+
                             <div>
                               <div class="text-white text-lg flex space-x-2 items-center">
                                 <div class="bg-white rounded-md p-2 flex items-center">
@@ -230,325 +301,14 @@
 
                             </div>
                           </div>
-                      </div>        
-                    </div>
-
-                    <div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
-                        <!-- 지도이미지 칸 -->
-                      <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
-                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                            <div>
-                              <h3 id="maintitle" class="text-center text-white text-lg">
-                                   좋아요 45,941
-                              </h3>
-                              <h3 id="maintitle" class="text-center text-white text-3xl mt-2 font-bold">
-                                   롯데월드 데이트 코스
-                              </h3>
-
-                                 <div class="flex  mt-5 items-center justify-center">
-                                 <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
-                                  탐색하기
-                                </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
-                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                  댓글보기
-                                </button>
-                              </div>
-
-
-                            </div>
-                          </div>
                       </div>
-                       
-                      <!-- 순위같은거 있으면 좋으려나 -->
-                       <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
-                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
-                            <div>
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>이런 사람에게 추천해요</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl mt-2 font-bold mb-4">
-                                  #인싸 #아웃도어
-                              </h3>
-
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>소요 시간</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl font-bold leading-loose">
-                                  8시간 이상
-                              </h3>
-
-                            </div>
-                          </div>
-                      </div>        
                     </div>
-
-                    <div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
-                        <!-- 지도이미지 칸 -->
-                      <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
-                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                            <div>
-                              <h3 id="maintitle" class="text-center text-white text-lg">
-                                   좋아요 45,941
-                              </h3>
-                              <h3 id="maintitle" class="text-center text-white text-3xl mt-2 font-bold">
-                                   롯데월드 데이트 코스
-                              </h3>
-
-                                 <div class="flex  mt-5 items-center justify-center">
-                                 <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
-                                  탐색하기
-                                </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
-                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                  댓글보기
-                                </button>
-                              </div>
-
-
-                            </div>
-                          </div>
-                      </div>
-                       
-                      <!-- 순위같은거 있으면 좋으려나 -->
-                       <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
-                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
-                            <div>
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>이런 사람에게 추천해요</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl mt-2 font-bold mb-4">
-                                  #인싸 #아웃도어
-                              </h3>
-
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>소요 시간</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl font-bold leading-loose">
-                                  8시간 이상
-                              </h3>
-
-                            </div>
-                          </div>
-                      </div>        
-                    </div>
-
-                    <div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
-                        <!-- 지도이미지 칸 -->
-                      <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
-                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                            <div>
-                              <h3 id="maintitle" class="text-center text-white text-lg">
-                                   좋아요 45,941
-                              </h3>
-                              <h3 id="maintitle" class="text-center text-white text-3xl mt-2 font-bold">
-                                   롯데월드 데이트 코스
-                              </h3>
-
-                                 <div class="flex  mt-5 items-center justify-center">
-                                 <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
-                                  탐색하기
-                                </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
-                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                  댓글보기
-                                </button>
-                              </div>
-
-
-                            </div>
-                          </div>
-                      </div>
-                       
-                      <!-- 순위같은거 있으면 좋으려나 -->
-                       <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
-                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
-                            <div>
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>이런 사람에게 추천해요</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl mt-2 font-bold mb-4">
-                                  #인싸 #아웃도어
-                              </h3>
-
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>소요 시간</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl font-bold leading-loose">
-                                  8시간 이상
-                              </h3>
-
-                            </div>
-                          </div>
-                      </div>        
-                    </div>
-
-                    <div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
-                        <!-- 지도이미지 칸 -->
-                      <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
-                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                            <div>
-                              <h3 id="maintitle" class="text-center text-white text-lg">
-                                   좋아요 45,941
-                              </h3>
-                              <h3 id="maintitle" class="text-center text-white text-3xl mt-2 font-bold">
-                                   롯데월드 데이트 코스
-                              </h3>
-
-                                 <div class="flex  mt-5 items-center justify-center">
-                                 <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
-                                  탐색하기
-                                </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
-                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                  댓글보기
-                                </button>
-                              </div>
-
-
-                            </div>
-                          </div>
-                      </div>
-                       
-                      <!-- 순위같은거 있으면 좋으려나 -->
-                       <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
-                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
-                            <div>
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>이런 사람에게 추천해요</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl mt-2 font-bold mb-4">
-                                  #인싸 #아웃도어
-                              </h3>
-
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>소요 시간</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl font-bold leading-loose">
-                                  8시간 이상
-                              </h3>
-
-                            </div>
-                          </div>
-                      </div>        
-                    </div>
-
-                    <div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
-                        <!-- 지도이미지 칸 -->
-                      <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
-                          
-                          <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                            <div>
-                              <h3 id="maintitle" class="text-center text-white text-lg">
-                                   좋아요 45,941
-                              </h3>
-                              <h3 id="maintitle" class="text-center text-white text-3xl mt-2 font-bold">
-                                   롯데월드 데이트 코스
-                              </h3>
-
-                                 <div class="flex  mt-5 items-center justify-center">
-                                 <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
-                                  탐색하기
-                                </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline 
-                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                  댓글보기
-                                </button>
-                              </div>
-
-
-                            </div>
-                          </div>
-                      </div>
-                       
-                      <!-- 순위같은거 있으면 좋으려나 -->
-                       <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
-                          <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                          <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
-                          
-                            <div>
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>이런 사람에게 추천해요</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl mt-2 font-bold mb-4">
-                                  #인싸 #아웃도어
-                              </h3>
-
-                              <div class="text-white text-lg flex space-x-2 items-center">
-                                <div class="bg-white rounded-md p-2 flex items-center">
-                                  <i class="fas fa fa-address-card fa-sm text-pink-600"></i>
-                                </div>
-                                <p>소요 시간</p>
-                              </div>
-                              <h3 id="hsitag" class="text-white text-2xl font-bold leading-loose">
-                                  8시간 이상
-                              </h3>
-
-                            </div>
-                          </div>
-                      </div>        
                     </div>
 
 
+
+
+              </div>
           </main>
         </div>
     </div>
