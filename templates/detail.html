@@ -6,9 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href = "../static/main.css">
     <script>
          $(document).ready(function () {
+
+  $('body').append('<div style="box-sizing: border-box; position: absolute; margin-top: -32px; margin-left: -32px;" id="loadingDiv"><div id="load"><div id="loader">SSumbarota!</div></div></div>');
+  $(window).on('load', function(){
+  setTimeout(removeLoader, 2500); //wait for page load PLUS two seconds.
+});
+
+function removeLoader(){
+      $( "#loadingDiv" ).fadeOut(500, function() {
+      // fadeOut complete. Remove the loading div
+      $( "#loadingDiv" ).remove(); //makes page more lightweight 
+  });  
+}
 
          });
                 function home() {
@@ -45,7 +57,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href = "../static/main.css">
+
+
 </head>
 
 <!-- https://alpinejs.dev/directives/data -->

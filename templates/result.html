@@ -10,6 +10,19 @@
     <script>
          $(document).ready(function () {
             result_course();
+
+  $('body').append('<div style="box-sizing: border-box; position: absolute; margin-top: -32px; margin-left: -32px;" id="loadingDiv"><div id="load"><div id="loader">SSumbarota!</div></div></div>');
+  $(window).on('load', function(){
+  setTimeout(removeLoader, 2500); //wait for page load PLUS two seconds.
+});
+
+function removeLoader(){
+      $( "#loadingDiv" ).fadeOut(500, function() {
+      // fadeOut complete. Remove the loading div
+      $( "#loadingDiv" ).remove(); //makes page more lightweight 
+  });  
+}
+
          });
 
          function result_course() {
