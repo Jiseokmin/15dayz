@@ -115,6 +115,12 @@ def making():
     return render_template('making.html')
 
 
+@app.route('/result/list', methods = ['GET'])
+def result_course():
+    result_cou = list(db.courses.find({},{'_id':False}))
+    return jsonify({'result_course' : result_cou})
+
+
 @app.route('/making', methods=['POST'])
 def make_course():
     location_receive = request.form['location_give']
