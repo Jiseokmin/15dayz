@@ -123,10 +123,11 @@ def result_course():
 
 @app.route('/making', methods=['POST'])
 def make_course():
+    c_name_receive =  request.form['c_name_give']
     location_receive = request.form['location_give']
-    thema_receive = request.form['thema_give']
+    theme_receive = request.form['theme_give']
     time_receive = request.form['time_give']
-    budget_receive = request.form['budget_give']
+    budgets_receive = request.form['budgets_give']
     main_location_receive = request.form['main_location_give']
     via1_receive = request.form['via1_give']
     via1_comment_receive = request.form['via1_comment_give']
@@ -137,10 +138,11 @@ def make_course():
     comment_receive = request.form['comment_give']
 
     doc = {
+        'c_name' : c_name_receive,                    
         'location': location_receive,
-        'thema': thema_receive,
+        'theme': theme_receive,
         'time': time_receive,
-        'budget': budget_receive,
+        'budgets': budgets_receive,
         'main_location': main_location_receive,
         'via1': via1_receive,
         'via1_comment': via1_comment_receive,

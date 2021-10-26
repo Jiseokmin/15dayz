@@ -27,10 +27,11 @@
          });
 
         function make_course() {
+            let c_name = $('#c_name').val();
             let location = $('#location').val();
-            let thema = $('#thema').val();
+            let theme = $('#theme').val();
             let time = $('#time').val();
-            let budget = $('#budget').val();
+            let budgets = $('#budgets').val();
             let main_location = $('#main_location').val();
             let via1 = $('#via1').val();
             let via1_comment = $('#via1_comment').val();
@@ -44,8 +45,8 @@
                 type: 'POST',
                 url: '/making',
                 data: {
-                    location_give: location, thema_give: thema, time_give: time,
-                    budget_give: budget, main_location_give: main_location, via1_give: via1,
+                    c_name_give:c_name, location_give: location, theme_give: theme, time_give: time,
+                    budgets_give: budgets, main_location_give: main_location, via1_give: via1,
                     via1_comment_give: via1_comment, via2_give: via2, via2_comment_give: via2_comment,
                     via3_give: via3, via3_comment_give: via3_comment, comment_give: comment
                 },
@@ -83,9 +84,9 @@
           <div class="w-full lg:w-6/12 px-4">
             <div class="relative w-full mb-3">
               <label class="block uppercase text-pink-600 text-base font-bold mb-2">
-                지역
+                코스 이름
               </label>
-              <input id="location" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="서대문구">
+              <input id="c_name" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="축하 파티">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -93,7 +94,7 @@
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
                 테마
               </label>
-              <input id="thema" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="아웃도어">
+              <input id="theme" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="아웃도어">
             </div>
           </div>
           <div class="w-full lg:w-6/12 px-4">
@@ -107,12 +108,22 @@
           <div class="w-full lg:w-6/12 px-4">
             <div class="relative w-full mb-3">
               <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
-                예산 (선택입력)
+                지역
               </label>
-              <input id="budget" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="7만원">
+              <input id="location" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="강남구">
             </div>
           </div>
         </div>
+
+                  <div class="w-full lg:w-6/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase text-pink-600 text-base font-bold mb-2" >
+                예산 (선택입력)
+              </label>
+              <input id="budgets" type="text" class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-base shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 placeholder-blueGray-300" placeholder="4만원">
+            </div>
+          </div>
+
 
         <hr class="mt-6 border-b-1 border-blueGray-300">
 

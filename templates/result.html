@@ -21,16 +21,17 @@
                     let reviews = response['result_course'];
                     console.log(reviews)
                     for (let i=0; i < reviews.length; i++){
-                        let budget = reviews[i]['budget']
-                        let commnet = reviews[i]['commnet']
+                        let c_name = reviews[i]['c_name']
+                        let budgets = reviews[i]['budgets']
+                        let comment = reviews[i]['comment']
                         let location = reviews[i]['location']
                         let main_location = reviews[i]['main_location']
                         let time = reviews[i]['time']
-                        let thema = reviews[i]['thema']
+                        let theme = reviews[i]['theme']
                         let via1 = reviews[i]['via1']
                         let via1_comment = reviews[i]['via1_comment']
                         let via2 = reviews[i]['via2']
-                        let via2_commnet = reviews[i]['via2_comment']
+                        let via2_comment = reviews[i]['via2_comment']
                         let via3 = reviews[i]['via3']
                         let via3_comment = reviews[i]['via3_comment']
 
@@ -46,7 +47,7 @@
                                    좋아요 45,941
                               </h3>
                               <h3 id="maintitle" class="text-center text-white text-3xl mt-2 font-bold">
-                                   ${main_location} 데이트 코스
+                                   ${c_name} 데이트 코스
                               </h3>
 
                                  <div class="flex  mt-5 items-center justify-center">
@@ -79,7 +80,7 @@
                                 <p>이런 사람에게 추천해요</p>
                               </div>
                               <h3 id="hsitag" class="text-white text-2xl mt-2 font-bold mb-4">
-                                  ${commnet}
+                                  ${theme}
                               </h3>
 
                               <div class="text-white text-lg flex space-x-2 items-center">
@@ -97,7 +98,7 @@
                       </div>
                     </div>
                     </div>`
-                        $(`#card-box`).append(temp_html)
+                        $(`#card-box`).prepend(temp_html)
 
                     }
 
