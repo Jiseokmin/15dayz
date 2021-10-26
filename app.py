@@ -61,7 +61,7 @@ def logout():
 @app.route('/user_register', methods=['POST'])
 def user_register():
     firstname_receive = request.form['firstname_give']
-    lastname_receive = request.form['lastname_give']
+    sex_receive = request.form['sex_give']
     regi_email_receive = request.form['regi_email_give']
     regi_password_receive = request.form['regi_password_give']
     password_confirm_receive = request.form['password_confirm_give']
@@ -72,14 +72,14 @@ def user_register():
         if regi_password_receive == password_confirm_receive :
             doc_regi = {
                 'firstname': firstname_receive,
-                'lastname': lastname_receive,
+                'sex': sex_receive,
                 'regi_email': regi_email_receive,
                 'regi_password': regi_password_receive,
                 'password_comfirm': password_confirm_receive,
             }
             doc_login = {
-                'regi_email': regi_email_receive,
-                'regi_password': regi_password_receive,
+                'userid': regi_email_receive,
+                'password': regi_password_receive,
             }
 
             db.user_regi.insert_one(doc_regi)
