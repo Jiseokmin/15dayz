@@ -33,7 +33,7 @@
 
         function user_register() {
             let firstname = $('#firstname').val();
-            let lastname = $('#lastname').val();
+            let sex = $('#sex').val();
             let regi_email = $('#regi_email').val();
             let regi_password = $('#regi_password').val();
             let password_confirm = $('#password_confirm').val();
@@ -42,7 +42,7 @@
                 type: 'POST',
                 url: '/user_register',
                 data: {
-                    firstname_give: firstname, lastname_give: lastname, regi_email_give: regi_email,
+                    firstname_give: firstname, sex_give: sex, regi_email_give: regi_email,
                     regi_password_give: regi_password, password_confirm_give: password_confirm
                 },
                 success: function (response) {
@@ -155,7 +155,7 @@
 				  </span>
 				  <span class="w-1/2">
 					<label for="sex" class="block text-xs font-semibold text-gray-600 uppercase">성별</label>
-				  <input id="lastname" type="text" name="lastname" placeholder="선택입력" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+				  <input id="sex" type="text" name="sex" placeholder="선택입력" autocomplete="given-sex" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
 				  </span>
 				</div>
 				<label for="regi_email" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">ID</label>
