@@ -67,7 +67,7 @@
   }
 }
 
-@-webkit-keyframes wobble-hor-bottom {
+@keyframes wobble-hor-bottom {
   0%,
   100% {
     -webkit-transform: translateX(0%);
@@ -96,7 +96,7 @@
             transform: translateX(-6px) rotate(-1.2deg);
   }
 }
-@-webkit-keyframes bounce-bottom {
+@keyframes bounce-bottom {
   0% {
     -webkit-transform: translateY(45px);
             transform: translateY(45px);
@@ -385,7 +385,7 @@
   }
 }
 
-@-webkit-keyframes bounce-left {
+@keyframes bounce-left {
   0% {
     -webkit-transform: translateX(-48px);
             transform: translateX(-48px);
@@ -439,7 +439,7 @@
   }
 }
 
-@-webkit-keyframes jello-diagonal-1 {
+@keyframes jello-diagonal-1 {
   0% {
     -webkit-transform: skew(0deg 0deg);
             transform: skew(0deg 0deg);
@@ -469,7 +469,7 @@
             transform: skew(0deg 0deg);
   }
 }
-@-webkit-keyframes jello-diagonal-2 {
+@keyframes jello-diagonal-2 {
   0% {
     -webkit-transform: skew(0deg 0deg);
             transform: skew(0deg 0deg);

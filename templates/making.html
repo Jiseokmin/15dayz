@@ -21,14 +21,14 @@
 
     <script>
         $(document).ready(function () {
-            function home() {
-            window.location.href = '/detail';
-                };
-
             $('#main_location').click( function() {
                 openModal('main-modal');
             } );
          });
+
+        function home() {
+                window.location.href = '/detail';
+                };
 
         function make_course() {
             let c_name = $('#c_name').val();
@@ -56,6 +56,7 @@
                 },
                 success: function (response) {
                     alert(response['msg']);
+                    window.location.reload();
                     home();
                 }
             });
@@ -63,20 +64,10 @@
     </script>
 </head>
 
-<script type="text/javascript">
-        function loading(){
-            $("#loading").show();
-            $("#content").hide(); 
-        }
-</script>
-
 
 <body>
-    <div id="loading"> 
-    <img src="https://lh3.googleusercontent.com/tZ3RLO-svk8JQDukxhmWHLa_preYdCjm3ypOJo3AjHzBzs18ozK7GJgXyVkxOnmCqKBy6BtStCts1uvmNur7fETilEtgJvmXq0T__1gJGE0hBpffbyrG7kmxHiVKWDVmPKrTdkmE3gNIQ8B9oyBICV8f2AljrwXpkXEA7k8H-27Qt-ePUeD_U1-iTkdd55FHIY3T7BYnXdcR0lppLOaRoOPQhGrP1U4txqjGKQtU0_8nq1AyvusFXv7BstSv6Kveu8h-RWO6QVsBY2D0xmP1Dt4IbKvSVKncRVELFd4i-BHZGiFXizkZzs95_TCRYBvRiGkoU1A6fJQBsvt-seGScZaaIysrOmwAHT1Ts4Kmjn69G1OClqVHtDUJZilJX6GeL5XPYkHpewFTBmW9pZU3gM4zF1iddnihT1wI5xXfnZ-kqrKT-On8CpzU_gZBZ1NdJNUjTx9ysIT5z6sVlImRCh_0KjE5_nrbk2sneW-bW8MNiG9jwm1Z77Dfws3xHMdeZMstTgPnNbt0A14TqHJekB9fSiV1LfwZk8pupGCqQQqUc8ki8wO_eVBaMoBOVzqHZS3o7CQSdwwQ53wVzUjAMAas30dQuS8j1Tj-8fnkpkUTaWyNRvrywStRwwsiHDX9yUJZGX4vqQ_Q4ZbJrrP3g8er6ScHlKyWPL5BBqdhKb_zqjEynaFMuErvpk0EgbUyQoqMZy_HJcukHgSkBLOK-kA=s217-no?authuser=0" alt="">
-    </div>
 
-<div id="content" class="py-1 bg-pink-500" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT6yeLguLL4N7rGSIhtFoCZ38B_DYy8FAB7w&usqp=CAU')">
+<div class="py-1 bg-pink-500" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT6yeLguLL4N7rGSIhtFoCZ38B_DYy8FAB7w&usqp=CAU')">
 <div class="w-full lg:w-8/12 px-4 mx-auto mt-6 sm:text-base">
   <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-pink-200 border-0">
     <div class="rounded-lg bg-pink-100 mb-0 px-6 py-6 " >
@@ -84,7 +75,7 @@
         <h6 class="text-pink-500 text-4xl font-bold">
           Make the best course with your hand!
         </h6>
-        <button class="bg-pink-500 text-white active:bg-pink-600 uppercase text-lg px-6 py-2 rounded hover:bg-pink-200 focus:bg-pink-200 mr-1 ease-linear transition-all duration-150" type="button" onclick="make_course(), loading();">
+        <button class="bg-pink-500 text-white active:bg-pink-600 uppercase text-lg px-6 py-2 rounded hover:bg-pink-200 focus:bg-pink-200 mr-1 ease-linear transition-all duration-150" type="button" onclick="make_course()">
             Make it!
         </button>
       </div>
@@ -217,9 +208,9 @@
 
 <div class="main-modal fixed w-full inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
     <div class="map_wrap">
-        <div id="map" style="width:100%;height:100%;position:relative;"></div>
+        <div id="map" class="rounded-md" style="width:100%; height:100%; position:relative;"></div>
 
-        <div id="menu_wrap" class="bg_white">
+        <div id="menu_wrap" class="bg-pink-50 rounded-md">
             <div class="option">
                 <div>
                     <form onsubmit="searchPlaces(); return false;">
@@ -229,15 +220,16 @@
                 </div>
             </div>
             <hr>
-            <ul id="placesList"></ul>
+            <ul id="placesList" ></ul>
             <div id="pagination"></div>
         </div>
     </div>
 
     <div class="grid min-h-screen place-items-center">
-        <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-10/12 lg:w-10/12 xs:w-1 rounded-2xl">
-            <h1 class="text-xl font-semibold"><span class="font-normal">가고싶은 장소를 클릭해주세요!🔥🔥🔥🔥🔥</span></h1>
-                <button  onclick="modalClose('main-modal')" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-gray-500 shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none rounded-3xl">
+        <div class="w-11/12 p-8 bg-white sm:w-8/12 md:w-10/12 lg:w-10/12 xs:w-1 rounded-md">
+            <h1 class="text-xl font-semibold"><span class="font-normal text-pink-500 leading-normal">"지번"</span>이 등록된 마커만 유효해요!</h1>
+            <h2 class="leading-tight ">지도에서 원하는 장소를 찾아 클릭해주세요!</h2>
+                <button id="btnheart" onclick="modalClose('main-modal')" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-pink-300 shadow-lg focus:outline-none hover:bg-pink-500 hover:shadow-none rounded-md">
 				  돌아가기
 				</button>
         </div>
