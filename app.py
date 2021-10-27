@@ -117,9 +117,12 @@ def making():
 
 @app.route('/result/list', methods = ['GET'])
 def result_course():
-    result_cou = list(db.courses.find({},{'_id':False}))
-    return jsonify({'result_course' : result_cou})
-
+    keyword = request.args.get("keyword_give")
+    if keyword == '':
+        result_cou = list(db.courses.find({}, {'_id': False}))
+    else:
+        result_cou = list(db.courses.find({'location': keyword}, {'_id': False}))
+    return jsonify({'result_course': result_cou})
 
 @app.route('/making', methods=['POST'])
 def make_course():
