@@ -277,9 +277,14 @@ function result_course() {
                                   focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
                                   탐색하기
                                 </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
+   <button id="btnheart" onclick="openModal('main-modal')" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
+
                                    focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
+
                                   댓글보기
+
+
+
                                 </button>
                               </div>
 
@@ -325,6 +330,141 @@ function result_course() {
 
 
               </div>
+
+
+        	<div class="main-modal fixed w-full inset-0 z-50 flex justify-center items-center animated fadeIn faster overflow-auto" style="background: rgba(0,0,0,.7);">
+
+		<div class="grid place-items-center">
+
+			<div class="w-10/12 px-10 py-6 bg-white sm:w-11/12 lg:w-11/12 xs:w-1 rounded-md">
+
+			<div class="lg:px-0 font-bold capitalize mt-2 flex p-1 m-1">
+
+            <span class= "text-pink-900 text-2xl">SS</span><span class="font-thin text-xl text-pink-200">umbarota<span class="pl-1 text-gray-500">registration</span>
+
+</span>
+
+            </div>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+    /**
+
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+    /*
+
+    var disqus_config = function () {
+
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+
+    };
+
+    */
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+
+    var d = document, s = d.createElement('script');
+
+    s.src = 'https://ssumbarota.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+
+    (d.head || d.body).appendChild(s);
+
+    })();
+
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+			  <form class="mt-6">
+
+
+
+			  </form>
+
+                <button onclick="modalClose('main-modal')" class="w-full py-3 mt-3 font-medium tracking-widest text-white uppercase bg-gray-500 shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none rounded-3xl">
+
+				  취소
+
+				</button>
+
+			</div>
+
+		  </div>
+
+	</div>
+
+        <div class="another-modal"></div>
+
+
+
+
+
+          </main>
+
+        </div>
+
+    </div>
+
+<script>
+
+        all_modals = ['main-modal', 'another-modal']
+
+        all_modals.forEach((modal)=>{
+
+            const modalSelected = document.querySelector('.'+modal);
+
+            modalSelected.classList.remove('fadeIn');
+
+            modalSelected.classList.add('fadeOut');
+
+            modalSelected.style.display = 'none';
+
+        })
+
+        const modalClose = (modal) => {
+
+            const modalToClose = document.querySelector('.'+modal);
+
+            modalToClose.classList.remove('fadeIn');
+
+            modalToClose.classList.add('fadeOut');
+
+            setTimeout(() => {
+
+                modalToClose.style.display = 'none';
+
+            }, 500);
+
+        }
+
+
+
+        const openModal = (modal) => {
+
+            const modalToOpen = document.querySelector('.'+modal);
+
+            modalToOpen.classList.remove('fadeOut');
+
+            modalToOpen.classList.add('fadeIn');
+
+            modalToOpen.style.display = 'flex';
+
+        }
+
+
+
+	</script>
+
+
           </main>
         </div>
     </div>
