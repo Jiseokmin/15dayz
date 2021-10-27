@@ -16,11 +16,14 @@
 
          });
 
-         function result_course() {
+function result_course() {
+             let keyword = $('#keyword').val()
+             console.log(keyword)
+
             $.ajax({
                 type: 'GET',
                 url: '/result/list',
-                data: {},
+                data: {keyword_give:keyword},
                 success: function (response) {
                     let reviews = response['result_course'];
                     console.log(reviews)
@@ -117,6 +120,13 @@
             window.location.href = '/detail';
         }
 
+        function getKeyword()
+        {
+            var tempkeyword = $('#keyword').val();
+            console.log(tempkeyword)
+            return tempkeyword
+        }
+
     </script>
      <script src="js/loading.js"></script>
 </head>
@@ -139,14 +149,10 @@
     <link rel="stylesheet" type="text/css" href = "../static/main.css">
 </head>
 
-<style>
-  body {
-  font-family: 'Do Hyeon', sans-serif;
-  }
-</style>
+
 <body>
  <div id="loading-screen">
-      <img src="..\static\poke.gif" class="rotate" />
+      <img src="..\static\poke.gif" class="rotate" loop=infinite />
     </div>
 <!-- https://alpinejs.dev/directives/data -->
     <div class="flex h-screen w-full bg-pink-100" x-data="{openMenu:1}">
@@ -238,8 +244,8 @@
                       <p class="text-lg font-semibold text-gray-400  mb-2">2021년 11월 01일 [$동작]구의 핫플레이스 💕
 
 <form action="" class="flex justify-center bg-white rounded-xl border-2 overflow-hidden">
-    <input type="search" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-blue-500 flex-grow p-2">
-    <button type="submit">
+    <input type="search" id="keyword" name="keyword" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-blue-500 flex-grow p-2">
+        <button type="button" onclick="result_course();" value="Get Value">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 my-auto m-2" style="color: gray" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
