@@ -7,20 +7,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href = "../static/main.css">
+    <link rel="stylesheet" type="text/css" href = "../static/loading.css">
     <script>
          $(document).ready(function () {
-
-  $('body').append('<div style="box-sizing: border-box; position: absolute; margin-top: -32px; margin-left: -32px;" id="loadingDiv"><div id="load"><div id="loader">SSumbarota!</div></div></div>');
-  $(window).on('load', function(){
-  setTimeout(removeLoader, 2500); //wait for page load PLUS two seconds.
-});
-
-function removeLoader(){
-      $( "#loadingDiv" ).fadeOut(500, function() {
-      // fadeOut complete. Remove the loading div
-      $( "#loadingDiv" ).remove(); //makes page more lightweight 
-  });  
-}
 
          });
                 function home() {
@@ -41,6 +30,7 @@ function removeLoader(){
         };
     </script>
 </head>
+ <script src="js/loading.js"></script>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
     <head>
     <meta charset="UTF-8" />
@@ -60,7 +50,9 @@ function removeLoader(){
 
 
 </head>
-
+    <div id="loading-screen">
+      <img src="..\static\poke.gif" class="rotate" />
+    </div>
 <!-- https://alpinejs.dev/directives/data -->
     <div class="flex h-screen w-full bg-pink-100" x-data="{openMenu:1}">
         <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->

@@ -41,10 +41,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href = "../static/main.css">
-    <script src="../static/test.js"></script>
+    <link rel="stylesheet" type="text/css" href = "../static/loading.css">
 </head>
-
+ <script src="js/loading.js"></script>
 <!-- https://alpinejs.dev/directives/data -->
+    <div id="loading-screen">
+      <img src="..\static\poke.gif" class="rotate" />
+    </div>
     <div class="flex h-screen w-full bg-pink-100" x-data="{openMenu:1}">
         <!--Start SideBar 사이드바 aside는 사이드메뉴 담는 태그래여-->
         <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-pink-600 sm:block">

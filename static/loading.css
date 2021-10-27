@@ -1,0 +1,52 @@
+/* Loading 화면에 영향을 주는 CSS */
+
+#loading-screen {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(pink , rgb(255, 123, 244)) fixed;
+  animation: hideLodingScreen 0.5s ease-in-out forwards;
+  animation-delay: 2.5s;
+  z-index: 3;
+}
+
+@keyframes hideLodingScreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.circular-text {
+  color: white;
+  font-size: 25px;
+  animation: rotate 10s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  width: 15%;
+  position: absolute;
+  animation: rotate_image 1.8s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
+}

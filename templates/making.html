@@ -14,14 +14,16 @@
     <link rel="stylesheet" type="text/css" href = "../static/making.css">
     <link rel="stylesheet" type="text/css" href="../static/modal.css">
     <link rel="stylesheet" type="text/js" href="../tailwind.config.js">
-
+    <link rel="stylesheet" type="text/css" href = "../static/loading.css">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
 
     <title>리뷰 작성 페이지</title>
-
+ <script src="js/loading.js"></script>
     <script>
         $(document).ready(function () {
+        
             $('#main_location').click( function() {
                 openModal('main-modal');
             } );
@@ -69,7 +71,11 @@
 </head>
 
 
-<body>
+<body class="overflow-x-hidden">
+ <div id="loading-screen">
+      <img src="..\static\poke.gif" class="rotate" />
+    </div>
+
 
 <div class="py-1 bg-pink-500" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT6yeLguLL4N7rGSIhtFoCZ38B_DYy8FAB7w&usqp=CAU')">
 <div class="w-full lg:w-8/12 px-4 mx-auto mt-6 sm:text-base">
@@ -78,6 +84,7 @@
       <div class="text-center flex justify-between">
         <h6 class="text-pink-500 text-4xl font-bold">
           Make the best course with your hand!
+          
         </h6>
         <button class="bg-pink-500 text-white active:bg-pink-600 uppercase text-lg px-6 py-2 rounded hover:bg-pink-200 focus:bg-pink-200 mr-1 ease-linear transition-all duration-150" type="button" onclick="make_course()">
             Make it!
@@ -206,6 +213,8 @@
       </div>
     </div>
   </div>
+
+  
 </footer>
 </div>
 </div>
