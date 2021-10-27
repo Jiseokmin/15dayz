@@ -64,18 +64,29 @@
                   <ul class="mt-6 leading-10 px-4">
                   <!-- mb : 마진 bottom 줄임말 테일윈드 페이지상단에 약어를 검색하면 나와여 -->
                     <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-purple-400 cursor-pointer border-r-2 border-b-2 transform  hover:scale-110 hover:bg-purple-300"
+                    title="메뉴 펼치기"
                         @click="openMenu !== 1 ? openMenu = 1 : openMenu = null"
                       >
                       <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
                       <i class="fas fa fa-globe fa-sm text-white"></i>
                     </li>
-                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2 transform hover:scale-110 hover:bg-pink-300" @click="openMenu !== 8 ? openMenu = 8 : openMenu = null">
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-pink-400 cursor-pointer border-r-2 border-b-2 transform hover:scale-110 hover:bg-pink-300" 
+                    @click="openMenu !== 8 ? openMenu = 8 : openMenu = null"
+                    title="타임라인">
                       <i class="fas fa fa-heartbeat fa-sm text-white"></i>
                     </li>
 
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-300 cursor-pointer border-r-2 border-b-2 transform hover:scale-110 hover:bg-yellow-200" title="리뷰작성버튼 for mobile" onclick="making()">
+                      <i class="fas fa fa-child fa-sm text-white"></i>
+                    </li>
+
+                    <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-300 cursor-pointer border-r-2 border-b-2 transform hover:scale-110 hover:bg-blue-200" title="오늘의추천버튼 for mobile" onclick="result()">
+                      <i class="fas fa fa fa-comments fa-sm text-white"></i>
+                    </li>                    
+
                     <!-- 전원버튼 불들어옴 -->
                     <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto  cursor-pointer transition duration-500 ease-in-out bg-yellow-100 transform hover:-translate-y-1 hover:scale-150 " @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
-                      <i class="fas fa-power-off fa-sm text-pink-500"></i>
+                      <i class="fas fa fa-paper-plane fa-sm text-pink-500" ></i>
                     </li>
                   </ul>
                 </div>
@@ -166,12 +177,12 @@
     </div>
   </div>
   <div class="flex items-center px-1 pt-10 justify-between">
-    <div class="w-24 h-24 bg-pink-50 flex items-center rounded shadow-xl" >
-      <img class="h-20 w-20 mx-auto" src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTNfNzcg/MDAxNDkyMDUwMTI0MzQw.GWS90WzAH6XFv5EBEM8LuEFxfRqY5u54XrxlJ9g6sG8g.1-m9ppHruZRFDtZlunZcGKwKihv86z-WM1BiPFoJ-wsg.PNG.jkirby/%EB%9D%BC%EC%9D%B4%EC%B8%84_%EC%95%8C%EB%A1%9C%EB%9D%BC.png?type=w800">
+    <div class="w-24 h-24 bg-pink-50 flex items-center rounded-md shadow-xl" >
+      <img class="h-24 w-24 mx-auto rounded-md" src="https://v-phinf.pstatic.net/20210710_23/1625895857059IrsGx_GIF/image.GIF?type=w1000">
     </div>
     <div class="w-9/12 flex items-center">
       <div class="w-10/12 flex flex-col leading-none pl-4">
-        <p class="text-2xl font-bold">라이츄</p>
+        <p class="text-xl font-bold">유저이름</p>
         <p class="text-sm pt-2 font-light text-gray-700">환영합니다!</p>
       </div>
 
