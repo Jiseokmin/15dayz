@@ -61,12 +61,12 @@ function result_course() {
                                  <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
                                   focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap('${course_ids[i]}')">
                                   탐색하기
-                                </button>
-                                <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
+                                <button id="btnheart" onclick="openModal('main-modal')" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
                                    focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
                                   댓글보기
                                 </button>
                               </div>
+                              
 
 
                             </div>
@@ -244,11 +244,9 @@ function result_course() {
                       <p class="text-lg font-semibold text-gray-400  mb-2">2021년 11월 01일 [$동작]구의 핫플레이스 💕
 
 <form action="" class="flex justify-center bg-white rounded-xl border-2 overflow-hidden">
-    <input type="search" id="keyword" name="keyword" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-blue-500 flex-grow p-2">
-        <button type="button" onclick="result_course();" value="Get Value">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 my-auto m-2" style="color: gray" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
+    <input type="search" id="keyword" name="keyword" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-pink-500 flex-grow px-2 py-1">
+        <button type="button" class="transform scale-110" onclick="result_course();" value="Get Value">
+        <i id="btnheart" class="fas fa fa-paw fa-sm text-pink-500 h-7 w-7 my-auto m-2 p-1"> </i> 
     </button>
 </form>
 
@@ -277,6 +275,7 @@ function result_course() {
                                   focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
                                   탐색하기
                                 </button>
+                                
    <button id="btnheart" onclick="openModal('main-modal')" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
 
                                    focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
@@ -332,21 +331,10 @@ function result_course() {
               </div>
 
 
-        	<div class="main-modal fixed w-full inset-0 z-50 flex justify-center items-center animated fadeIn faster overflow-auto" style="background: rgba(0,0,0,.7);">
+        	<div class="main-modal fixed inset-0 z-50 flex justify-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
 
-		<div class="grid place-items-center">
-
-			<div class="w-10/12 px-10 py-6 bg-white sm:w-11/12 lg:w-11/12 xs:w-1 rounded-md">
-
-			<div class="lg:px-0 font-bold capitalize mt-2 flex p-1 m-1">
-
-            <span class= "text-pink-900 text-2xl">SS</span><span class="font-thin text-xl text-pink-200">umbarota<span class="pl-1 text-gray-500">registration</span>
-
-</span>
-
-            </div>
-
-<div id="disqus_thread"></div>
+<div id="disqus_thread" class="max-w-sm w-full my-10 items-center bg-white rounded-md border-4 border-pink-300 p-3"></div>
+<button onclick="modalClose('main-modal')" class="bg-pink-400 rounded-md fixed flex flex-row h-10 w-20 items-center justify-center hover:bg-gray-200 ">취소하기</button>
 
 <script>
 
@@ -382,26 +370,10 @@ function result_course() {
 
 </script>
 
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-			  <form class="mt-6">
 
 
-
-			  </form>
-
-                <button onclick="modalClose('main-modal')" class="w-full py-3 mt-3 font-medium tracking-widest text-white uppercase bg-gray-500 shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none rounded-3xl">
-
-				  취소
-
-				</button>
-
-			</div>
-
-		  </div>
 
 	</div>
-
         <div class="another-modal"></div>
 
 
