@@ -16,6 +16,7 @@ doc_login = {
     'password': TEST_USER_PW,
 }
 
+
 # 프로그램 실행할 때마다 DB에 insert가 되어서 이 부분 주석 처리하겠습니다 !  db.login.insert_one(doc_login)
 # 샘플데이터 추가
 # doc = {'course_name': '샘플코스22', 'thema': '따듯한 날', 'hashtag': '강서, 등촌역',
@@ -66,10 +67,10 @@ def user_register():
     regi_password_receive = request.form['regi_password_give']
     password_confirm_receive = request.form['password_confirm_give']
 
-    if db.login.find_one({'userid': regi_email_receive}) :
+    if db.login.find_one({'userid': regi_email_receive}):
         return jsonify({'msg': '이미 가입되어 있는 ID입니다.! 새로운 ID로 가입하세요!'})
-    else :
-        if regi_password_receive == password_confirm_receive :
+    else:
+        if regi_password_receive == password_confirm_receive:
             doc_regi = {
                 'firstname': firstname_receive,
                 'sex': sex_receive,
@@ -85,7 +86,7 @@ def user_register():
             db.user_regi.insert_one(doc_regi)
             db.login.insert_one(doc_login)
             return jsonify({'msg': '가입 성공! email ID와 Password를 이용해서 Login하세요!'})
-        else :
+        else:
             return jsonify({'msg': '가입 실패! Password를 다시 확인해 주세요!'})
 
 
@@ -115,15 +116,21 @@ def making():
     return render_template('making.html')
 
 
-@app.route('/result/list', methods = ['GET'])
+@app.route('/result/list', methods=['GET'])
 def result_course():
-    result_cou = list(db.courses.find({},{'_id':False}))
-    return jsonify({'result_course' : result_cou})
+    result_cou = list(db.courses.find({},{'_id': False}))
+    result_cou_id = {}
+    find_cou_id = list(db.courses.find({}))
+
+    for index, id in enumerate(find_cou_id) :
+        result_cou_id[index] = str(id['_id'])
+
+    return jsonify({'result_course': result_cou, 'result_cou_id': result_cou_id})
 
 
 @app.route('/making', methods=['POST'])
 def make_course():
-    c_name_receive =  request.form['c_name_give']
+    c_name_receive = request.form['c_name_give']
     location_receive = request.form['location_give']
     theme_receive = request.form['theme_give']
     time_receive = request.form['time_give']
@@ -138,7 +145,7 @@ def make_course():
     comment_receive = request.form['comment_give']
 
     doc = {
-        'c_name' : c_name_receive,                    
+        'c_name': c_name_receive,
         'location': location_receive,
         'theme': theme_receive,
         'time': time_receive,
@@ -162,11 +169,10 @@ def make_course():
 def detail2():
     return render_template('detail2.html')
 
-@app.errorhandler(404) 
+
+@app.errorhandler(404)
 def page_not_found(error):
     return render_template('404notfound.html')
-
-
 
 
 # 모든 리뷰 가져와서 전달
