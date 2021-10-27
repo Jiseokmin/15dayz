@@ -18,15 +18,15 @@
 
 function result_course() {
              let keyword = $('#keyword').val()
-             console.log(keyword)
 
             $.ajax({
                 type: 'GET',
                 url: '/result/list',
                 data: {keyword_give:keyword},
                 success: function (response) {
+                    let course_ids = response['result_cou_id'];
                     let reviews = response['result_course'];
-                    console.log(reviews)
+
                     for (let i=0; i < reviews.length; i++){
                         let c_name = reviews[i]['c_name']
                         let budgets = reviews[i]['budgets']
@@ -59,7 +59,7 @@ function result_course() {
 
                                  <div class="flex  mt-5 items-center justify-center">
                                  <button id="btnheart" class="block uppercase mx-auto shadow bg-white text-pink-600 focus:shadow-outline hover:bg-pink-100
-                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap()">
+                                  focus:outline-none  text-xs py-3 px-4 rounded font-bold" onclick="showMap('${course_ids[i]}')">
                                   탐색하기
                                 </button>
                                 <button id="btnheart" class="block uppercase mx-auto shadow bg-pink-500 hover:bg-pink-700 focus:shadow-outline
@@ -113,8 +113,8 @@ function result_course() {
             });
         }
         //탐색하기 버튼 클릭 시 지도 보여주기
-        function showMap() {
-            window.location.href = '/reviews';
+        function showMap(course_id) {
+            window.location.href = '/reviews?' + course_id;
         }
         function home() {
             window.location.href = '/detail';
