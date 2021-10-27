@@ -119,7 +119,13 @@ def making():
 @app.route('/result/list', methods=['GET'])
 def result_course():
     result_cou = list(db.courses.find({},{'_id': False}))
-    return jsonify({'result_course': result_cou})
+    result_cou_id = {}
+    find_cou_id = list(db.courses.find({}))
+
+    for index, id in enumerate(find_cou_id) :
+        result_cou_id[index] = str(id['_id'])
+
+    return jsonify({'result_course': result_cou, 'result_cou_id': result_cou_id})
 
 
 @app.route('/making', methods=['POST'])
