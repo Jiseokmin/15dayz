@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, url_for, session, request, redirect
+from bson.objectid import ObjectId
 from pymongo import MongoClient
 from settings import *
 
@@ -185,12 +186,17 @@ def page_not_found(error):
 
 
 # 모든 리뷰 가져와서 전달
-
-
 @app.route('/review', methods=['GET'])
 def read_reviews():
     all_reviews = list(db.reviews.find({}, {'_id': False}))
     return jsonify({'reviews': all_reviews})
+
+@app.route('/review/show', methods=['GET'])
+def review_result():
+    review_id = request.args.get("review_id")
+    review = list(db.courses.find({'_id': ObjectId(review_id)},{"_id": False}))
+
+    return jsonify({'review': review})
 
 
 if __name__ == '__main__':
