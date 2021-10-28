@@ -8,6 +8,7 @@
     <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <link rel="stylesheet" type="text/css" href="../static/loading.css">
+
     <script>
         $(document).ready(function () {
 
@@ -193,7 +194,7 @@
             <div class="flex items-center px-1 pt-10 justify-between">
                 <div class="w-24 h-24 bg-pink-50 flex items-center rounded-md shadow-xl">
                     <img class="h-24 w-24 mx-auto rounded-md"
-                         src="https://v-phinf.pstatic.net/20210710_23/1625895857059IrsGx_GIF/image.GIF?type=w1000">
+                         src="https://user-images.githubusercontent.com/89088205/139292774-d5a0b072-2b54-449c-a490-a4e7471b8be4.gif">
                 </div>
                 <div class="w-9/12 flex items-center">
                     <div class="w-10/12 flex flex-col leading-none pl-4">
@@ -216,7 +217,7 @@
                     </div>
 
                     <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
-                         @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="showMap();">
+                         @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="result();">
                         <div class="rounded-full p-2 bg-pink-200 hover:bg-pink-300 flex flex-col items-center">
                             <i class="fas fa-calculator fa-sm text-pink-500"></i>
                         </div>
@@ -273,10 +274,10 @@
 
                 <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
                     <p class="text-gray-500 text-1xl font-medium">
-                        까치산 등반 코스 후기
+                        롯데월드 데이트 코스 후기
                     </p>
                     <p class="text-gray-600 font-light text-md">
-                        힘들었지만 보람있었어요
+                        아틀란티스!
                         <a id="noid" class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
                     </p>
                     <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
@@ -298,10 +299,10 @@
 
                 <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
                     <p class="text-gray-500 text-1xl font-medium">
-                        까치산 등반 코스 후기
+                        경복궁 데이트 코스 후기
                     </p>
                     <p class="text-gray-600 font-light text-md">
-                        힘들었지만 보람있었어요
+                        한복을 입고 돌아다녔어요!
                         <a id="noid" class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
                     </p>
                     <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
@@ -323,10 +324,10 @@
 
                 <div class="bg-white w-full p-6 mt-3 transition duration-500 ease-in-out transform hover:-translate-y-2">
                     <p class="text-gray-500 text-1xl font-medium">
-                        까치산 등반 코스 후기
+                        남산타워 케이블카 코스 후기
                     </p>
                     <p class="text-gray-600 font-light text-md">
-                        힘들었지만 보람있었어요
+                        서울 야경 멋져!
                         <a id="noid" class="inline-flex text-pink-500 cursor-pointer" onclick="showReview();">보러가기</a>
                     </p>
                     <div class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
@@ -443,7 +444,7 @@
                         mapOption = {
                             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
                             level: 9, // 지도의 확대 레벨
-                            draggable: false
+
                         };
 
                     var map = new kakao.maps.Map(mapContainer, mapOption),
@@ -558,9 +559,7 @@
 
                         });
 
-                        kakao.maps.event.addListener(map, 'center_changed', function() {
-                            deletePolygon(polygons);
-                        });
+
                     }
 
                     function centroid(points) {
@@ -589,7 +588,8 @@
 
                         polygons = [];
                     }
-                    
+                  
+                       //////// kakao.maps.event.addListener(map, 'center_changed', function() {///-////
 
 
                     

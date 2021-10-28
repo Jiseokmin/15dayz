@@ -44,7 +44,7 @@ function result_course() {
                         let temp_html = `<div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
                         <!-- 지도이미지 칸 -->
                       <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
+                        style="background-image: url('https://user-images.githubusercontent.com/89088205/139289961-88aefb96-6135-4c47-aecf-345b93063b00.png');">
 
                           <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
                           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
@@ -74,7 +74,7 @@ function result_course() {
 
                       <!-- 순위같은거 있으면 좋으려나 -->
                        <div id="budget" class="relative w-full h-52 bg-cover bg-center rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://thumb.ac-illust.com/t/2c/2c40d6f3ff7d70a8d60d450e10a9bfb7_t.jpeg');">
+                        style="background-image: url('https://user-images.githubusercontent.com/89088205/139293762-758b855d-27fd-41dc-87c1-d788d27bebfe.jpeg');">
                           <div class="absolute inset-0 bg-pink-500 bg-opacity-75 transition duration-300 ease-in-out"></div>
                           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center">
 
@@ -192,7 +192,13 @@ function result_course() {
                   </div>
                 </div>
                 <!-- 로고 밑에 아이콘들 -->
+                <ul class="mt-6 leading-10 px-4">
+                   <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-yellow-300 cursor-pointer border-r-2 border-b-2 transform hover:scale-110 hover:bg-yellow-200"
+                        title="홈버튼 for mobile" onclick="home()">
+                        <i class="fas fa fa-home fa-sm text-white"></i>
+                    </li>
 
+</ul>
 
             </div>
         </aside>
@@ -226,14 +232,14 @@ function result_course() {
                 </div>
 <!-- </a> -->
 
-                <div id="shakeit3" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null" onclick="changekeyword_indoor();">
+                <div id="shakeit2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null" onclick="changekeyword_indoor();">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">테마:인도어</p>
                 </div>
 
-                <div id="shakeit3_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null" onclick="changekeyword_outdoor();">
+                <div id="shakeit2_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null" onclick="changekeyword_outdoor();">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center ">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
@@ -262,7 +268,64 @@ function result_course() {
               <div class="grid pb-10  mt-4 ">
                   <!-- Start Content-->
                     <div class="mb-2">
-                      <p class="text-lg font-semibold text-gray-400  mb-2">2021년 11월 01일 [$동작]구의 핫플레이스 💕
+                                     <div class="mb-2"> 
+                    <p id="clock" class="text-lg font-semibold text-gray-400"> 00:00 💕</p>
+                    <script>
+
+                        var clockTarget = document.getElementById("clock");
+
+                        function clock() {
+                            var date = new Date();
+                            // date Object를 받아오고
+                            var month = date.getMonth();
+
+                            // 달을 받아옵니다
+                            var clockDate = date.getDate();
+
+                            // 몇일인지 받아옵니다
+                            var day = date.getDay();
+
+                            // 요일을 받아옵니다.
+                            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+                            // 요일은 숫자형태로 리턴되기때문에 미리 배열을 만듭니다.
+                            var hours = date.getHours();
+
+                            // 시간을 받아오고
+                            var minutes = date.getMinutes();
+
+                            // 분도 받아옵니다.
+                            var seconds = date.getSeconds();
+
+                            // 초까지 받아온후
+                            clockTarget.innerText = `지금은 ${month + 1}월 ${clockDate}일 ${week[day]}요일` +
+
+                                ` ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} 💕`;
+
+                            // 월은 0부터 1월이기때문에 +1일을 해주고
+
+                            // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다.
+                        }
+
+
+                        function init() {
+
+                            clock();
+
+// 최초에 함수를 한번 실행시켜주고
+                            setInterval(clock, 1000);
+
+// setInterval이라는 함수로 매초마다 실행을 해줍니다.
+
+// setInterval은 첫번째 파라메터는 함수이고 두번째는 시간인데 밀리초단위로 받습니다. 1000 = 1초
+
+                        }
+
+                        init();
+
+
+                    </script>
+</div>
 <!-- 엔터쳤을때 페이지 자동이동 막기 옵션 -->
 <form action="" onsubmit="return false" class="flex justify-center bg-white rounded-xl border-2 overflow-hidden">
     <input type="search" id="keyword" name="keyword" value="" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-pink-500 flex-grow px-2 py-1">
@@ -279,7 +342,7 @@ function result_course() {
                     <div class="grid grid-cols-1 w-full sm:grid-cols-1 md:grid-cols-3 md:gap-2 lg:grid-cols-3 lg:gap-2 xl:grid-cols-3 xl:gap-2 mt-3">
                         <!-- 지도이미지 칸 -->
                       <div class="relative w-full h-52 col-span-2  bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"
-                        style="background-image: url('https://previews.123rf.com/images/bbtreesubmission/bbtreesubmission1711/bbtreesubmission171101757/90255038-%EA%B4%80%EA%B4%91-%EB%AA%85%EC%86%8C%EA%B0%80%EC%9E%88%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%A7%80%EB%8F%84.jpg');">
+                        style="background-image: url('https://user-images.githubusercontent.com/89088205/139289961-88aefb96-6135-4c47-aecf-345b93063b00.png');">
 
                           <div class="absolute inset-0 bg-pink-200 bg-opacity-70 transition duration-300 ease-in-out"></div>
                           <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
@@ -355,7 +418,7 @@ function result_course() {
         	<div class="main-modal fixed inset-0 z-50 flex justify-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
 
 <div id="disqus_thread" class="max-w-sm w-full my-10 items-center bg-white rounded-md border-4 border-pink-300 p-3"></div>
-<button onclick="modalClose('main-modal')" class="bg-pink-400 rounded-md fixed flex flex-row h-10 w-20 items-center justify-center hover:bg-gray-200 ">취소하기</button>
+<button onclick="modalClose('main-modal')" class="bg-pink-400 rounded-md fixed flex flex-row h-8 w-180 px-4 items-center justify-center hover:bg-gray-200 ">click : 댓글 기능은 아직이에요ㅋㅋㅋ</button>
 
 <script>
 
