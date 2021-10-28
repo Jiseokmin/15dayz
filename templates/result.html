@@ -13,12 +13,11 @@
             result_course();
 
 
-
          });
 
 function result_course() {
              let keyword = $('#keyword').val()
-
+             console.log(keyword)
             $.ajax({
                 type: 'GET',
                 url: '/result/list',
@@ -127,6 +126,27 @@ function result_course() {
             return tempkeyword
         }
 
+        function changekeyword_culture()
+        {
+            var tempkeyword = $('#keyword').val('컬쳐');
+            console.log(tempkeyword)
+            result_course()
+        }
+
+        function changekeyword_indoor()
+        {
+            var tempkeyword = $('#keyword').val('인도어');
+            console.log(tempkeyword)
+            result_course()
+        }
+
+        function changekeyword_outdoor()
+        {
+            var tempkeyword = $('#keyword').val('아웃도어');
+            console.log(tempkeyword)
+            result_course()
+        }
+
     </script>
      <script src="js/loading.js"></script>
 </head>
@@ -197,22 +217,23 @@ function result_course() {
                 <!-- </a> -->
 
 <!-- <a href ="./result.html"> -->
-                <div id="shakeit2_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="">
+                <div id="shakeit2_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110"  @click="openMenu !== 3 ? openMenu = 3 : openMenu = null" onclick="changekeyword_culture();">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa fa-paw fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold ">디렉터추천</p>
+
                 </div>
 <!-- </a> -->
 
-                <div id="shakeit2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+                <div id="shakeit3" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null" onclick="changekeyword_indoor();">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
                   <p class="text-xs mt-1 text-center font-semibold">추운날테마</p>
                 </div>
 
-                <div id="shakeit2_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null">
+                <div id="shakeit3_2" class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:scale-110" @click="openMenu !== 7 ? openMenu = 7 : openMenu = null" onclick="changekeyword_outdoor();">
                   <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center ">
                     <i class="fas fa-archive fa-sm text-pink-500"></i>
                   </div>
@@ -244,7 +265,7 @@ function result_course() {
                       <p class="text-lg font-semibold text-gray-400  mb-2">2021년 11월 01일 [$동작]구의 핫플레이스 💕
 <!-- 엔터쳤을때 페이지 자동이동 막기 옵션 -->
 <form action="" onsubmit="return false" class="flex justify-center bg-white rounded-xl border-2 overflow-hidden">
-    <input type="search" id="keyword" name="keyword" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-pink-500 flex-grow px-2 py-1">
+    <input type="search" id="keyword" name="keyword" value="" placeholder="Search..." class="block rounded-md border-0 focus:outline-none focus:ring-0 focus:border-pink-500 flex-grow px-2 py-1">
         <button type="button" class="transform scale-110" onclick="result_course();" value="Get Value">
         <i id="btnheart" class="fas fa fa-paw fa-sm text-pink-500 h-7 w-7 my-auto m-2 p-1"> </i> 
     </button>
