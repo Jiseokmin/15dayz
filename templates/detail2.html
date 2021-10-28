@@ -208,142 +208,204 @@
 
         <!-- End Sidebar -->
 
-        <div class="flex flex-col flex-1 w-full">
-            <!-- 상단바입니다 -->
-            <!--End Topbar -->
-          <main class="relative z-0 flex-1 pb-8 px-6 bg-pink-50">
-              <div class="grid pb-10  mt-4 ">
+    <div class="flex flex-col flex-1 w-full overflow-hidden">
+        <!-- 상단바입니다 -->
+        <main class="relative z-0 flex-1 pb-8 px-6 bg-pink-50">
+            <div class="grid pb-10  mt-4 ">
+                <!-- Start Content-->
+                <div class="mb-2">
+                    <p id="clock" class="text-lg font-semibold text-gray-400"> 00:00 💕</p>
+                    <script>
+
+                        var clockTarget = document.getElementById("clock");
+
+                        function clock() {
+                            var date = new Date();
+                            // date Object를 받아오고
+                            var month = date.getMonth();
+
+                            // 달을 받아옵니다
+                            var clockDate = date.getDate();
+
+                            // 몇일인지 받아옵니다
+                            var day = date.getDay();
+
+                            // 요일을 받아옵니다.
+                            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+                            // 요일은 숫자형태로 리턴되기때문에 미리 배열을 만듭니다.
+                            var hours = date.getHours();
+
+                            // 시간을 받아오고
+                            var minutes = date.getMinutes();
+
+                            // 분도 받아옵니다.
+                            var seconds = date.getSeconds();
+
+                            // 초까지 받아온후
+                            clockTarget.innerText = `지금은 ${month + 1}월 ${clockDate}일 ${week[day]}요일` +
+
+                                ` ${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds} 💕`;
+
+                            // 월은 0부터 1월이기때문에 +1일을 해주고
+
+                            // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다.
+                        }
 
 
-<div id="map" style="width:100%;height:540px;"></div>
+                        function init() {
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3fb1d81eaff16a6e4b3acd6169d25567"></script>
-<script>
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-        mapOption = {
-            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-            level: 9 // 지도의 확대 레벨
-        };
+                            clock();
 
-    var map = new kakao.maps.Map(mapContainer, mapOption),
-        customOverlay = new kakao.maps.CustomOverlay({}),
-        infowindow = new kakao.maps.InfoWindow({removable: true});
-     $(document).ready(function () {
-        mapcontrol()
-    })
-    function mapcontrol(){}
+// 최초에 함수를 한번 실행시켜주고
+                            setInterval(clock, 1000);
 
-    $.getJSON("static/JSON/TL_SCCO_SIG.geojson", function (geojson){
-        var data = geojson.features;
-        var coordinates = [];
-        var name = ''
+// setInterval이라는 함수로 매초마다 실행을 해줍니다.
 
-        $.each(data, function(index, val){
+// setInterval은 첫번째 파라메터는 함수이고 두번째는 시간인데 밀리초단위로 받습니다. 1000 = 1초
 
-            coordinates = val.geometry.coordinates;
-            name = val.properties.SIG_KOR_NM;
+                        }
 
-            displayArea(coordinates, name);
-        })
-    })
-
-    var polygons=[];
+                        init();
 
 
-    function displayArea(coordinates, name){
+                    </script>
+                </div>
 
-        var path = [];
-        var points = [];
-        $.each(coordinates[0], function (index, coordinate){
-            var point = new Object();
-            point.x = coordinate[1]
-            point.y = coordinate[0]
-            points.push(point)
-            path.push(new kakao.maps.LatLng(coordinate[1],coordinate[0]));
-        })
 
-        var polygon = new kakao.maps.Polygon({
-            map : map,
-            path : path,
-            strokeweight : 2,
-            strokeColor : '#101010',
-            strokeOpacity: 0.8,
-            fillcolor : '#fff',
-            fillOpacity: 0.7
-        });
+                <div id="map" style="width:100%;height:500px;"></div>
 
-        polygons.push(polygon);
+                <script type="text/javascript"
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3fb1d81eaff16a6e4b3acd6169d25567"></script>
+                <script>
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                        mapOption = {
+                            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+                            level: 9 // 지도의 확대 레벨
+                        };
 
-        // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤 채움색을 변경합니다.
-        // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다!
+                    var map = new kakao.maps.Map(mapContainer, mapOption),
+                        customOverlay = new kakao.maps.CustomOverlay({}),
+                        infowindow = new kakao.maps.InfoWindow({removable: true});
+                    $(document).ready(function () {
+                        mapcontrol()
+                    })
 
-        kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent){
-            polygon.setOptions({
-                fillcolor : '#09f'
-            });
+                    function mapcontrol() {
+                    }
 
-            customOverlay.setContent('<div class="area">' + name + '</div>')
+                    $.getJSON("static/JSON/TL_SCCO_SIG.geojson", function (geojson) {
+                        var data = geojson.features;
+                        var coordinates = [];
+                        var name = ''
 
-            customOverlay.setPosition(mouseEvent.latLng);
-            customOverlay.setMap(map);
-        });
+                        $.each(data, function (index, val) {
 
-        //다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 채움색을 원래색으로 복구
-        // 커스텀 오버레이를 지도에서 제거!
+                            coordinates = val.geometry.coordinates;
+                            name = val.properties.SIG_KOR_NM;
 
-        kakao.maps.event.addListener(polygon, 'mouseout', function (){
-            polygon.setOptions({
-                fillcolor : '#c07c7c'
-            });
-            customOverlay.setMap(null);
-        });
+                            displayArea(coordinates, name);
+                        })
+                    })
 
-        //다각형에 click 이벤트를 등록하고 이벤트가 발생하면 해당 지역을 확대합니다.
-        kakao.maps.event.addListener(polygon, 'click', function (){
+                    var polygons = [];
 
-            // 현재 지도 레벨에서 2레벨 확대한 레벨
-            var level = map.getLevel()-2;
 
-            map.setLevel(level, {anchor : centroid(points), animate : {
-                duration : 350
-                }});
+                    function displayArea(coordinates, name) {
 
-            deletePolygon(polygons);  //폴리곤 제거
-        });
-    }
-    function centroid(points) {
-        var i, j, len, p1, p2, f, area, x, y;
+                        var path = [];
+                        var points = [];
+                        $.each(coordinates[0], function (index, coordinate) {
+                            var point = new Object();
+                            point.x = coordinate[1]
+                            point.y = coordinate[0]
+                            points.push(point)
+                            path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
+                        })
 
-        area = x = y = 0;
+                        var polygon = new kakao.maps.Polygon({
+                            map: map,
+                            path: path,
+                            strokeweight: 2,
+                            strokeColor: '#101010',
+                            strokeOpacity: 0.8,
+                            fillColor: '#fff',
+                            fillOpacity: 0.7
+                        });
 
-        for (i=0, len = points.length, j = len-1; i<len;j = i++){
-            p1 = points[i];
-            p2 = points[j];
+                        polygons.push(polygon);
 
-            f = p1.y * p2.x - p2.y * p1*x;
-            x += (p1.x + p2.x) * f;
-            y += (p1.y + p2.y) * f;
-            area += f * 3;
-        }
+                        // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤 채움색을 변경합니다.
+                        // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다!
 
-        return new kakao.maps.latLang(x/ area, y / area)
-    }
+                        kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
+                            polygon.setOptions({
+                                fillColor: '#c07c7c'
+                            });
 
-    //지도 위 표시되고 있는 폴리곤 제거
-    function deletePolygon(polygons){
-        for (var i=0; i < polygons.length; i++) {
-            polygons[i].setMap(null);
-        }
+                            customOverlay.setContent('<div class="area">' + name + '</div>')
 
-        polygons = [];
-    }
+                            customOverlay.setPosition(mouseEvent.latLng);
+                            customOverlay.setMap(map);
+                        });
 
-</script>
-                            </div>
-                          </div>
-                      </div>        
-                    </div>
-                    
+                        //다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 채움색을 원래색으로 복구
+                        // 커스텀 오버레이를 지도에서 제거!
+
+                        kakao.maps.event.addListener(polygon, 'mouseout', function () {
+                            polygon.setOptions({
+                                fillColor: '#fff'
+                            });
+                            customOverlay.setMap(null);
+                        });
+
+                        //다각형에 click 이벤트를 등록하고 이벤트가 발생하면 해당 지역을 확대합니다.
+                        kakao.maps.event.addListener(polygon, 'click', function () {
+
+                            // 현재 지도 레벨에서 2레벨 확대한 레벨
+                            var level = map.getLevel() - 2;
+
+                            map.setLevel(level, {
+                                anchor: centroid(points), animate: {
+                                    duration: 350
+                                }
+                            });
+
+                            deletePolygon(polygons);  //폴리곤 제거
+                        });
+                    }
+
+                    function centroid(points) {
+                        var i, j, len, p1, p2, f, area, x, y;
+
+                        area = x = y = 0;
+
+                        for (i = 0, len = points.length, j = len - 1; i < len; j = i++) {
+                            p1 = points[i];
+                            p2 = points[j];
+
+                            f = p1.y * p2.x - p2.y * p1 * x;
+                            x += (p1.x + p2.x) * f;
+                            y += (p1.y + p2.y) * f;
+                            area += f * 3;
+                        }
+
+                        return new kakao.maps.latLang(x / area, y / area)
+                    }
+
+                    //지도 위 표시되고 있는 폴리곤 제거
+                    function deletePolygon(polygons) {
+                        for (var i = 0; i < polygons.length; i++) {
+                            polygons[i].setMap(null);
+                        }
+
+                        polygons = [];
+                    }
+                </script>
+            </div>
+    </div>
+</div>
+</div>
                   <!-- End Content-->
               </div>
           </main>
