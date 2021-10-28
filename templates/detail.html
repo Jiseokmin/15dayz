@@ -144,13 +144,13 @@
 
                 <div id="shakeit2_2"
                      class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer transform hover:-translate-y-1 hover:scale-110"
-                     @click="openMenu !== 5 ? openMenu = 5 : openMenu = null" onclick="result()">
+                     @click="openMenu !== 5 ? openMenu = 5 : openMenu = null" onclick="window.location.reload('#map')">
                     <div class="rounded-full p-2 bg-pink-200 flex flex-col items-center">
                         <i class="fas fa-archive fa-sm text-pink-500"></i>
                     </div>
-                    <p class="text-xs mt-1 text-center font-semibold">지역별추천</p>
+                    <p class="text-xs mt-1 text-center font-semibold">지도초기화</p>
                 </div>
-
+                    
             </div>
         </div>
     </aside>
@@ -372,7 +372,7 @@
         <main class="relative z-0 flex-1 pb-8 px-6 bg-pink-50">
             <div class="grid pb-10  mt-4 ">
                 <!-- Start Content-->
-                <div class="mb-2">
+                <div class="mb-2"> 
                     <p id="clock" class="text-lg font-semibold text-gray-400"> 00:00 💕</p>
                     <script>
 
@@ -429,6 +429,8 @@
 
 
                     </script>
+
+
                 </div>
 
 
@@ -440,17 +442,19 @@
                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                         mapOption = {
                             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-                            level: 9 // 지도의 확대 레벨
+                            level: 9, // 지도의 확대 레벨
+                            draggable: false
                         };
 
                     var map = new kakao.maps.Map(mapContainer, mapOption),
                         customOverlay = new kakao.maps.CustomOverlay({}),
-                        infowindow = new kakao.maps.InfoWindow({removable: true});
+                        infoWindow = new kakao.maps.InfoWindow({removable: true});
                     $(document).ready(function () {
-                        mapcontrol()
+                        mapControl()
+                        $('#map').setTimeout('location.reload()',1000 + $('#map')); 
                     })
 
-                    function mapcontrol() {
+                    function mapControl() {
                     }
 
                     $.getJSON("static/JSON/TL_SCCO_SIG.geojson", function (geojson) {
@@ -482,14 +486,25 @@
                             path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
                         })
 
+                        var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+
+                        // 마커를 생성합니다
+                        var marker = new kakao.maps.Marker({
+                            position: markerPosition
+                        });
+
+                        // 마커가 지도 위에 표시되도록 설정합니다
+                        marker.setMap(map);
+
+
                         var polygon = new kakao.maps.Polygon({
                             map: map,
                             path: path,
-                            strokeweight: 2,
-                            strokeColor: '#101010',
+                            strokeWeight: 3,
+                            strokeColor: 'rgba(107, 114, 128)',
                             strokeOpacity: 0.8,
-                            fillColor: '#fff',
-                            fillOpacity: 0.7
+                            fillColor: 'rgba(244, 114, 182)',
+                            fillOpacity: 0.8
                         });
 
                         polygons.push(polygon);
@@ -499,7 +514,7 @@
 
                         kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
                             polygon.setOptions({
-                                fillColor: '#c07c7c'
+                                fillColor: 'rgba(251, 207, 232)'
                             });
 
                             customOverlay.setContent('<div class="area">' + name + '</div>')
@@ -513,24 +528,38 @@
 
                         kakao.maps.event.addListener(polygon, 'mouseout', function () {
                             polygon.setOptions({
-                                fillColor: '#fff'
+                                fillColor: 'rgba(244, 114, 182)'
                             });
                             customOverlay.setMap(null);
                         });
 
                         //다각형에 click 이벤트를 등록하고 이벤트가 발생하면 해당 지역을 확대합니다.
-                        kakao.maps.event.addListener(polygon, 'click', function () {
+                        kakao.maps.event.addListener(polygon, 'click', function() {
 
-                            // 현재 지도 레벨에서 2레벨 확대한 레벨
-                            var level = map.getLevel() - 2;
 
-                            map.setLevel(level, {
+                        function setCenter() {            
+                          // 이동할 위도 경도 위치를 생성합니다 
+                          var moveLatLon = centroid(points);
+                          var level = map.getLevel();
+                          map.setCenter(moveLatLon);
+                          map.setLevel(level-5)
+}
+
+                           
+
+                                map.setLevel(level, {
                                 anchor: centroid(points), animate: {
-                                    duration: 350
-                                }
+                                    duration: 300 }
                             });
 
-                            deletePolygon(polygons);  //폴리곤 제거
+
+
+
+
+                        });
+
+                        kakao.maps.event.addListener(map, 'center_changed', function() {
+                            deletePolygon(polygons);
                         });
                     }
 
@@ -560,6 +589,10 @@
 
                         polygons = [];
                     }
+                    
+
+
+                    
                 </script>
             </div>
     </div>

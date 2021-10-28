@@ -286,12 +286,13 @@
 
                     var map = new kakao.maps.Map(mapContainer, mapOption),
                         customOverlay = new kakao.maps.CustomOverlay({}),
-                        infowindow = new kakao.maps.InfoWindow({removable: true});
+                        infoWindow = new kakao.maps.InfoWindow({removable: true});
                     $(document).ready(function () {
-                        mapcontrol()
+                        mapControl()
+
                     })
 
-                    function mapcontrol() {
+                    function mapControl() {
                     }
 
                     $.getJSON("static/JSON/TL_SCCO_SIG.geojson", function (geojson) {
@@ -326,11 +327,11 @@
                         var polygon = new kakao.maps.Polygon({
                             map: map,
                             path: path,
-                            strokeweight: 2,
-                            strokeColor: '#101010',
+                            strokeWeight: 3,
+                            strokeColor: 'rgba(107, 114, 128)',
                             strokeOpacity: 0.8,
-                            fillColor: '#fff',
-                            fillOpacity: 0.7
+                            fillColor: 'rgba(244, 114, 182)',
+                            fillOpacity: 0.8
                         });
 
                         polygons.push(polygon);
@@ -340,7 +341,7 @@
 
                         kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
                             polygon.setOptions({
-                                fillColor: '#c07c7c'
+                                fillColor: 'rgba(251, 207, 232)'
                             });
 
                             customOverlay.setContent('<div class="area">' + name + '</div>')
@@ -354,24 +355,26 @@
 
                         kakao.maps.event.addListener(polygon, 'mouseout', function () {
                             polygon.setOptions({
-                                fillColor: '#fff'
+                                fillColor: 'rgba(244, 114, 182)'
                             });
                             customOverlay.setMap(null);
                         });
 
                         //다각형에 click 이벤트를 등록하고 이벤트가 발생하면 해당 지역을 확대합니다.
-                        kakao.maps.event.addListener(polygon, 'click', function () {
+                        kakao.maps.event.addListener(polygon, 'click', function() {
 
                             // 현재 지도 레벨에서 2레벨 확대한 레벨
-                            var level = map.getLevel() - 2;
+                            var level = map.getLevel();
+                            deletePolygon(polygons);
+                            map.setLevel(level -3);
 
                             map.setLevel(level, {
                                 anchor: centroid(points), animate: {
-                                    duration: 350
+                                    duration: 300
                                 }
                             });
 
-                            deletePolygon(polygons);  //폴리곤 제거
+
                         });
                     }
 
@@ -401,6 +404,10 @@
 
                         polygons = [];
                     }
+                    
+
+
+                    
                 </script>
             </div>
     </div>
