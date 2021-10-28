@@ -126,6 +126,12 @@ def result_course():
 
     if keyword == '':
         result_cou = list(db.courses.find({}, {'_id': False}))
+    elif keyword == '컬쳐':
+        result_cou = list(db.courses.find({'theme': keyword}, {'_id': False}))
+    elif keyword == '인도어':
+        result_cou = list(db.courses.find({'theme': keyword}, {'_id': False}))
+    elif keyword == '아웃도어':
+        result_cou = list(db.courses.find({'theme': keyword}, {'_id': False}))
     else:
         result_cou = list(db.courses.find({'location': keyword}, {'_id': False}))
     return jsonify({'result_course': result_cou, 'result_cou_id': result_cou_id})
